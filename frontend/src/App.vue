@@ -92,51 +92,34 @@
     </div>
 
     <!-- CARDS -->
-    <div class="card text-center align-items-center">
-      <div class="card-header center" style="border-color: #0074D9">
-        <ul class="nav nav-tabs card-header-tabs">
-          <li class="nav-item">
-            <a class="nav-link active" v-on:click="title='meme1'">
-              <div class="card" style="width: 18rem;">
-                <img src="./assets/endgame-long.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Endgame</h5>
-                  <p class="card-text">PEW PEW PEW</p>
-                  <a href="#" class="btn btn-primary">Book</a>
-                </div>
-              </div>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link"  v-on:click="title='meme1'">
-              <div class="card" style="width: 18rem;">
-                <img src="./assets/endgame-long.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Endgame</h5>
-                  <p class="card-text">PEW PEW PEW</p>
-                  <a href="#" class="btn btn-primary">Book</a>
-                </div>
-              </div>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" v-on:click="title='meme1'">
-              <div class="card" style="width: 18rem;">
-                <img src="./assets/endgame-long.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Endgame</h5>
-                  <p class="card-text">PEW PEW PEW</p>
-                  <a href="#" class="btn btn-primary">Book</a>
-                </div>
-              </div>
-            </a>
-          </li>
-        </ul>
+    <div class="row justify-content-center mt-5 mb-5">
+      <div class="card ml-5 mr-5" style="width: 300px; height: auto">
+        <img src="./assets/engameposter.jpg" class="card-img-top" alt="..." onclick="alert('work in progress')">
+        <div class="card-body">
+          <h5 class="card-title">Endgame</h5>
+          <a href="#" class="btn btn-primary">Book</a>
+        </div>
       </div>
-      <div class="card-body">
-        <h5 class="card-title">{{tilte}}</h5>
-        <p class="card-text">REEEEEEEE<br><br><br><br><br><br><br><br><br><br><br><br><br></p>
-        <a href="#" class="btn btn-primary">Book</a>
+      <div class="card ml-5 mr-5" style="width: 300px; height: auto">
+        <img src="./assets/engameposter.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Endgame</h5>
+          <a href="#" class="btn btn-primary">Book</a>
+        </div>
+      </div>
+      <div class="card ml-5 mr-5" style="width: 300px; height: auto">
+        <img src="./assets/engameposter.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Endgame</h5>
+          <a href="#" class="btn btn-primary">Book</a>
+        </div>
+      </div>
+      <div class="card ml-5 mr-5" style="width: 300px; height: auto">
+        <img src="./assets/engameposter.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Endgame</h5>
+          <a href="#" class="btn btn-primary">Book</a>
+        </div>
       </div>
     </div>
 
@@ -154,10 +137,14 @@
   export default {
     data(){
       return {
-        title:''
+        title:'',
+        active: null
       }
     }
   };
+
+
+
 </script>
 
 <style lang="scss">
@@ -177,5 +164,8 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+.card{
+  cursor: pointer;
 }
 </style>
