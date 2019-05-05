@@ -34,21 +34,21 @@
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="../target/dist/static/img/endgame-long.jpg" class="d-block w-100" alt="...">
+            <img src="./assets/endgame-long.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
               <h5>First slide label</h5>
               <p>Endgame</p>
             </div>
           </div>
           <div class="carousel-item">
-            <img src="../target/dist/static/img/endgame-res.png" class="d-block w-100" alt="...">
+            <img src="./assets/endgame-long.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
               <h5>Second slide label</h5>
               <p>Endgame</p>
             </div>
           </div>
           <div class="carousel-item">
-            <img src="../target/dist/static/img/endgame-res.png" class="d-block w-100" alt="...">
+            <img src="./assets/endgame-long.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
               <h5>Third slide label</h5>
               <p>Endgame</p>
@@ -96,9 +96,9 @@
       <div class="card-header center" style="border-color: #0074D9">
         <ul class="nav nav-tabs card-header-tabs">
           <li class="nav-item">
-            <a class="nav-link active" href="#">
+            <a class="nav-link active" v-on:click="title='meme1'">
               <div class="card" style="width: 18rem;">
-                <img src="../target/dist/static/img/endgame-res.png" class="card-img-top" alt="...">
+                <img src="./assets/endgame-long.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Endgame</h5>
                   <p class="card-text">PEW PEW PEW</p>
@@ -108,9 +108,9 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link"  v-on:click="title='meme1'">
               <div class="card" style="width: 18rem;">
-                <img src="../target/dist/static/img/endgame-res.png" class="card-img-top" alt="...">
+                <img src="./assets/endgame-long.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Endgame</h5>
                   <p class="card-text">PEW PEW PEW</p>
@@ -120,9 +120,9 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" v-on:click="title='meme1'">
               <div class="card" style="width: 18rem;">
-                <img src="../target/dist/static/img/endgame-res.png" class="card-img-top" alt="...">
+                <img src="./assets/endgame-long.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Endgame</h5>
                   <p class="card-text">PEW PEW PEW</p>
@@ -134,7 +134,7 @@
         </ul>
       </div>
       <div class="card-body">
-        <h5 class="card-title">More booking information</h5>
+        <h5 class="card-title">{{tilte}}</h5>
         <p class="card-text">REEEEEEEE<br><br><br><br><br><br><br><br><br><br><br><br><br></p>
         <a href="#" class="btn btn-primary">Book</a>
       </div>
@@ -149,6 +149,16 @@
     <router-link to="/about">About</router-link>-->
   </div>
 </template>
+
+<script>
+  export default {
+    data(){
+      return {
+        title:''
+      }
+    }
+  };
+</script>
 
 <style lang="scss">
 
