@@ -3,30 +3,13 @@
     <div class="bd-example">
         <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
-                <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-                <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                <li div v-for="(item,index) in items"  data-target="#carouselExampleCaptions" v-bind:data-slide-to="index" v-bind:class="{ active: index==0 }"></li>
             </ol>
             <div class="carousel-inner bio-trio-carousel">
-                <div class="carousel-item active">
-                    <img src="../assets/endgame-long.jpg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>First slide label</h5>
-                        <p>Endgame</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="../assets/endgame-long.jpg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Second slide label</h5>
-                        <p>Endgame</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="../assets/endgame-long.jpg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Third slide label</h5>
-                        <p>Endgame</p>
+                <div v-for="(item,index) in items" class="carousel-item" v-bind:class="{ active: index==0 }" v-bind:style="{ 'background-image': 'url('+item.image+')','background-size': item.size,'background-color': item.color }">
+                    <div class="carousel-caption">
+                        <h5>{{item.title}}</h5>
+                        <p>{{item.text}}</p>
                     </div>
                 </div>
             </div>
@@ -42,20 +25,28 @@
     </div>
 </template>
 
-<style>
+<style lang="scss">
 
     .bio-trio-carousel{
         max-height: 720px;
-        width: auto;
+        .carousel-item {
+            height: 300px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: black;
+            background-size: cover;
+        }
     }
 
 </style>
 
 <script>
-    export default {
-        name: "Carousel",
-        props: {
-            msg: String
+export default {
+    props: {
+        items: {
+            type: Array
         }
-    };
+    },
+    name: "Carousel"
+};
 </script>
