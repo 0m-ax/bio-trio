@@ -37,10 +37,6 @@
         margin-left: 150px;
         color: black;
     }
-    .container{
-
-        margin-left: 0 !important;
-    }
     .FooterLogo{
         width: 4%;
         margin-right: 15px;
