@@ -1,25 +1,4 @@
 <template>
-    <!--<footer class="nav font-small navbar-dark bg-dark">-->
-        <!--<div class="container">-->
-            <!--<a class="FooterContact" href="#">LOGO</a>-->
-            <!--<div class="container">-->
-                <!--<p class="contact-info" style="margin-left: 200px;">Phone: +4500000000</p>-->
-                <!--<p class="contact-info">Email: Bio-Trio@gmail.com</p>-->
-            <!--</div>-->
-            <!--<div style="text-align: right">-->
-                <!--<a href="#">-->
-                    <!--<img class="FooterLogo" src="../assets/twitterlogo.png" alt="..." />-->
-                <!--</a>-->
-                <!--<a href="#">-->
-                <!--<img class="FooterLogo" src="../assets/facebookFooter.png" alt="..." />-->
-            <!--</a>-->
-                <!--<a href="#">-->
-                    <!--<img class="FooterLogo" style="max-width:3.5%;" src="../assets/InstagramFooter.png" alt="..." />-->
-                <!--</a>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</footer>-->
-
     <footer class="footer">
         <nav class="navbar navbar-expand-lg">
             <a class="navbar-brand FooterContact" href="/">Logo</a>

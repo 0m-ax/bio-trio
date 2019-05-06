@@ -48,7 +48,7 @@
 
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-
+    <Footer msg=""/>
     <!--<router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>-->
   </div>
@@ -59,11 +59,12 @@
   import NavbarSticky from "@/components/NavbarSticky.vue";
   import NavbarFixedTop from "@/components/NavbarFixedTop.vue";
   import Login from "./components/Login";
+  import Footer from "./components/Footer";
 
   export default {
     components: {
       Login,
-      Carousel,NavbarSticky,NavbarFixedTop
+      Carousel,NavbarSticky,NavbarFixedTop,Footer
     },
       data(){
       return {
