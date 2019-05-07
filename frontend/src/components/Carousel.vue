@@ -30,7 +30,7 @@
     .bio-trio-carousel{
         max-height: 720px;
         .carousel-item {
-            height: 300px;
+            height: 600px;
             background-position: center;
             background-repeat: no-repeat;
             background-color: black;

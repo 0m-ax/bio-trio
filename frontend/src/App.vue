@@ -3,7 +3,7 @@
     <NavbarFixedTop msg="" />
 
     <Login msg="" />
-    <RouterView></RouterView>
+    <RouterView class="page"></RouterView>
     <Footer msg=""/>
   </div>
 </template>
@@ -21,6 +21,10 @@
 </script>
 
 <style lang="scss">
+.page{
+
+  margin-top: 56px;
+}
 
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;

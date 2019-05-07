@@ -1,5 +1,5 @@
 <template>
-    <footer class="footer">
+    <footer class="footer fixed-bottom">
         <nav class="navbar navbar-expand-lg">
             <a class="navbar-brand FooterContact" href="/">Logo</a>
             <p class="navbar-brand" style="color: #717171; margin-top: 20px">© 2019 Bio-Trio</p>
