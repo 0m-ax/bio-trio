@@ -26,7 +26,6 @@ $primary:       #E54C00;
 @import "../node_modules/bootstrap/scss/bootstrap";
 
 .page{
-
   margin-top: 56px;
 }
 

@@ -1,7 +1,7 @@
 <template>
     <div id="nav">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-            <a class="navbar-brand" href="#"><img src="" style="height: 20%"></a>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top border border-dark rounded-sm">
+            <a class="navbar-brand" href="/"><img src="../../../backend/src/main/resources/static/img/logo.png" style="max-height: 30px"></a>
 
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">

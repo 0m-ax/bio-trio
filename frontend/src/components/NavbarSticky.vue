@@ -1,6 +1,6 @@
 <template>
     <div id="nav2">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary border border-dark rounded-sm">
             <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <form class="form-inline mr-auto">
                         <label v-if="locations.length != 0" class="my-1 mr-2" for="location">Location: </label>
@@ -30,12 +30,18 @@
     </div>
 </template>
 
-<style>
+<style lang="scss">
     #nav2{
         position: sticky;
-        top:50px;
+        top:55px;
         z-index:1;
+
+        .border-top{
+            border-top-width: 5px;
+            border-top-color: black;
+        }
     }
+
 </style>
 
 <script>
