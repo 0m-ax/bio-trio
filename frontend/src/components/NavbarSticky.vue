@@ -2,33 +2,26 @@
     <div id="nav2">
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Cinema
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/">Bio-Trio</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" aria-disabled="true">More cinemas coming soon</a>
+                <form class="form-inline mr-auto">
+                        <label v-if="locations.length != 0" class="my-1 mr-2" for="location">Location: </label>
+                        <select v-if="locations.length != 0" v-on:change="onChange()" class="form-control my-1 mr-sm-2" id="location">
+                            <option v-for="location in locations" v-bind:value="location.name">{{location.text}}</option>
+                        </select>
+                        <label v-if="days.length != 0" class="my-1 mr-2" for="day">Day: </label>
+                        <select v-if="days.length != 0" v-on:change="onChange()" class="form-control my-1 mr-sm-2" id="day">
+                            <option v-for="day in days" v-bind:value="day.name">{{day.text}}</option>
+                        </select>
+                        <div v-if="value.thirdDimension != null" class="form-check form-check-inline">
+                            <input class="form-check-input" v-on:change="onChange()" type="checkbox" id="3d" value="option1" v-model="value.thirdDimension">
+                            <label class="form-check-label" for="3d">3D</label>
                         </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Day
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Moday</a>
-                            <a class="dropdown-item" href="#">Tuesday</a>
-                            <a class="dropdown-item" href="#">Wednesday</a>
-                            <a class="dropdown-item" href="#">Thursday</a>
-                            <a class="dropdown-item" href="#">Friday</a>
-                            <a class="dropdown-item" href="#">Saturday</a>
-                            <a class="dropdown-item" href="#">Sunday</a>
+                        <div v-if="value.audioDescribed != null" class="form-check form-check-inline">
+                            <input class="form-check-input" v-on:change="onChange()" type="checkbox" id="ad" value="option2" v-model="value.audioDescribed">
+                            <label class="form-check-label" for="ad">AD</label>
                         </div>
-                    </li>
-                </ul>
-                <form class="form-inline my-2 my-lg-0">
+
+                </form>
+                <form class="form-inline">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
@@ -43,14 +36,36 @@
         top:50px;
         z-index:1;
     }
-
 </style>
 
 <script>
     export default {
         name: "NavbarSticky",
         props: {
-            msg: String
+            value:{
+                type:Object
+            },
+            locations:{
+                type:Array,
+                default(){
+                    return []
+                }
+            },
+            days:{
+                type:Array,
+                default(){
+                    return []
+                }
+            }
+        },
+        methods:{
+            onChange(){
+                this.$emit('input', this.value)
+            }
+        },
+        data(){
+            return {
+            }
         }
     };
 </script>
