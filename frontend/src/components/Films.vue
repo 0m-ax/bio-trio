@@ -70,9 +70,12 @@
             .info{
                 transform-origin: top;
                 transition:transform 0.2s,max-height 0.2s;
+                .card-body{
+                    background-color: #131f27;
+                }
                 .connector{
                     position: absolute;
-                    background-color: white;
+                    background-color: #131f27;
                     height: 16px;
                     top:-15px;
                     width: 100%;

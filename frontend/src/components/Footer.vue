@@ -32,7 +32,6 @@
 
 <style lang="scss">
     .footer{
-        position: fixed;
         text-align: left;
         background-color:darkgrey;
         font-weight: bold;

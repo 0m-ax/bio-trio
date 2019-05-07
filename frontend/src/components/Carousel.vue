@@ -38,6 +38,13 @@
         }
     }
 
+    .carousel-control-prev {
+         background-image: linear-gradient(to left, rgba(255,0,0,0), #E54C00);
+     }
+    .carousel-control-next {
+        background-image: linear-gradient(to right, rgba(255,0,0,0), #E54C00);
+    }
+
 </style>
 
 <script>
