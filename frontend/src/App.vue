@@ -1,29 +1,48 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
+    <NavbarFixedTop msg="" />
+
+    <Login msg="" />
+    <RouterView class="page"></RouterView>
+    <Footer msg=""/>
   </div>
 </template>
 
+<script>
+  import NavbarFixedTop from "@/components/NavbarFixedTop.vue";
+  import Login from "./components/Login";
+  import Footer from "./components/Footer";
+
+  export default {
+    components: {
+      Login,NavbarFixedTop,Footer
+    },
+  };
+</script>
+
 <style lang="scss">
+
+$primary:       #E54C00;
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+.page{
+
+  margin-top: 56px;
+}
+
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  color: #F7F7F7;
+  background-color: #2E2E2E;
 }
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+
+.footer {
+  
+  background-color: #570900;
+}
+.nav-item {
+  color: #F7F7F7;
 }
 </style>
