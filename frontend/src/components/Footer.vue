@@ -1,53 +1,58 @@
 <template>
-    <footer class="footer fixed-bottom">
-        <nav class="navbar navbar-expand-lg">
-            <a class="navbar-brand FooterContact" href="/">Logo</a>
-            <p class="navbar-brand" style="color: #717171; margin-top: 20px">© 2019 Bio-Trio</p>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active contact-info">
-                        <p>Phone: +4500000000</p>
-                        <p>Email: Bio-Trio@gmail.com</p>
-                    </li>
-                </ul>
-            </div>
-            <div style="text-align: right">
-                <a href="#">
+    <footer>
+        <div class="container-fluid footer">
+            <div class="row">
+                <div class="col">
+                    <a href="/"><img src="../../../backend/src/main/resources/static/img/logo.png" style="height: 50%; margin-top: 10px"/></a>
+                    <p style="color: #717171">© 2019 Bio-Trio</p>
+                </div>
+                <div class="col align-self-center">
+                    <p>Phone: +4500000000</p>
+                    <p>Email: Bio-Trio@gmail.com</p>
+                </div>
+                <div class="col text-right">
+                    <a href="#">
                     <img class="FooterLogo" src="../assets/twitterlogo.png" alt="..." />
-                </a>
-                <a href="#">
+                    </a>
+                    <a href="#">
                     <img class="FooterLogo" src="../assets/facebookFooter.png" alt="..." />
-                </a>
-                <a href="#">
-                    <img class="FooterLogo" style="width:4.6%;" src="../assets/InstagramFooter.png" alt="..." />
-                </a>
+                    </a>
+                    <a href="#">
+                    <img class="FooterLogo" style="width:9%;" src="../assets/InstagramFooter.png" alt="..." />
+                    </a>
+                </div>
+
             </div>
-        </nav>
+        </div>
+
     </footer>
+
 
 </template>
 
-<style>
+<style lang="scss">
     .footer{
         text-align: left;
         background-color:darkgrey;
         font-weight: bold;
+        margin-bottom: 0;
+        justify-content: space-between;
     }
-    .FooterContact{
-        margin-left: 150px;
-        color: black;
+    footer{
+        .row{
+            max-height: 70px;
+        }
+        .col{
+            max-height: 70px;
+        }
+        p{
+            margin-bottom: 0;
+        }
     }
     .FooterLogo{
-        width: 4%;
+        width: 8%;
         margin-right: 15px;
-    }
-    .contact-info {
-        color: black;
-        margin-left: 200px;
-        margin-right: auto;
-        display: block;
-        width: max-content;
-        position: static ;
+        margin-top: 5px;
     }
 </style>
 
