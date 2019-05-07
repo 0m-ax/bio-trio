@@ -35,11 +35,7 @@
         position: sticky;
         top:55px;
         z-index:1;
-
-        .border-top{
-            border-top-width: 5px;
-            border-top-color: black;
-        }
+        
     }
     .form-control {
          background-color: #2E2E2E;
