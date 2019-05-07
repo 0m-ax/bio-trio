@@ -18,6 +18,12 @@
     </div>
 </template>
 
+<style>
+    .btn{
+        color: #F7F7F7;
+    }
+</style>
+
 <script>
     export default {
         name: "NavbarFixedTop",
@@ -26,3 +32,4 @@
         }
     };
 </script>
+

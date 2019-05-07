@@ -23,6 +23,7 @@
 <style lang="scss">
 
 $primary:       #E54C00;
+$secondary: #28a745;
 @import "../node_modules/bootstrap/scss/bootstrap";
 
 .page{
