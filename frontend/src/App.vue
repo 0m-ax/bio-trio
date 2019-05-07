@@ -21,6 +21,10 @@
 </script>
 
 <style lang="scss">
+
+$primary:       #E54C00;
+@import "../node_modules/bootstrap/scss/bootstrap";
+
 .page{
 
   margin-top: 56px;
@@ -30,6 +34,15 @@
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+  color: #F7F7F7;
+  background-color: #2E2E2E;
+}
+
+.footer {
+  
+  background-color: #570900;
+}
+.nav-item {
+  color: #F7F7F7;
 }
 </style>
