@@ -2,15 +2,16 @@
     <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
          aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <div class="modal-content">
+            <div class="modal-content padding shadow-lg p-4 mb-4 bg-white">
                 <form  v-on:submit.prevent="login">
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
+                    <div class="modal-header mb-4">
+                        <h5 class="modal-title color">Login</h5>
+                    </div>
+                    <div class="form-group mb-4">
                         <input type="email" v-model="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        <small id="emailHelp" class="form-text text-muted ml-2">We'll never share your email with anyone else.</small>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
                         <input type="password" v-model="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
@@ -19,6 +20,19 @@
         </div>
     </div>
 </template>
+<style>
+    .padding{
+        padding: 15px;
+        border-width:4px !important;
+        border-color:#E54C00 !important;
+
+    }
+    .color{
+        color: #E54C00;
+    }
+
+
+</style>
 
 <script>
     import axios from 'axios';

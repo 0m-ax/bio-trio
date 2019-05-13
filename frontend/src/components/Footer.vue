@@ -1,6 +1,6 @@
 <template>
     <footer>
-        <div class="container-fluid footer">
+        <div class="container-fluid footer  ">
             <div class="row">
                 <div class="col">
                     <a href="/"><img src="../../../backend/src/main/resources/static/img/logo.png" style="height: 50%; margin-top: 10px"/></a>
@@ -36,6 +36,7 @@
         background-color:darkgrey;
         font-weight: bold;
         margin-bottom: 0;
+        bottom: 0;
         justify-content: space-between;
     }
     footer{

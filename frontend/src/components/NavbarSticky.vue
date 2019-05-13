@@ -1,6 +1,6 @@
 <template>
     <div id="nav2">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary border border-dark rounded-sm">
             <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <form class="form-inline mr-auto">
                         <label v-if="locations.length != 0" class="my-1 mr-2" for="location">Location: </label>
@@ -23,19 +23,30 @@
                 </form>
                 <form class="form-inline">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
                 </form>
             </div>
         </nav>
     </div>
 </template>
 
-<style>
+<style lang="scss">
     #nav2{
         position: sticky;
-        top:50px;
+        top:55px;
         z-index:1;
+        
     }
+    .form-control {
+         background-color: #2E2E2E;
+        color: #F7F7F7;
+        border: 1px solid black;
+     }
+    .form-control:focus {
+        background-color: #2E2E2E;
+        color: #F7F7F7;
+    }
+
 </style>
 
 <script>
