@@ -188,6 +188,10 @@
 </script>
 
 <style lang="scss">
+
+    .input-group-text{
+        width: 70px;
+    }
     .container{
         padding-top: calc(15px);
     }
