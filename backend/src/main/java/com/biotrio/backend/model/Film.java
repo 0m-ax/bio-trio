@@ -7,8 +7,8 @@ import javax.persistence.*;
 public class Film {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
 
+    private int id;
     private String name;
 
     public Film() {
