@@ -27,6 +27,14 @@ public class Customer {
         this.phone = phone;
     }
 
+    public int getCustomerID() {
+        return customerID;
+    }
+
+    public void setCustomerID(int customerID) {
+        this.customerID = customerID;
+    }
+
     public String getFirstName() {
         return firstName;
     }

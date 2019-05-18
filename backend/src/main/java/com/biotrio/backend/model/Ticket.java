@@ -14,6 +14,29 @@ public class Ticket {
     private String ticketNumber;
     private String ticketStatus;
 
+    @ManyToOne
+    @JoinColumn(
+            name = "screeningID",
+            foreignKey = @ForeignKey(name = "FKtickets768009", value = ConstraintMode.NO_CONSTRAINT)
+    )
+    private Screening screening;
+
+    @ManyToOne
+    @JoinColumn(
+            name = "seatID",
+            foreignKey = @ForeignKey(name = "FKorders391475", value = ConstraintMode.NO_CONSTRAINT)
+    )
+    private Seat seat;
+
+    @ManyToOne
+    @JoinColumn(
+            name = "OrderNumber",
+            foreignKey = @ForeignKey(name = "FKtickets650174", value = ConstraintMode.NO_CONSTRAINT)
+    )
+    private Order order;
+
+
+
     public Ticket(){
 
     }

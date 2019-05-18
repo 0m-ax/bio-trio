@@ -2,6 +2,7 @@ package com.biotrio.backend.model;
 
 
 import javax.persistence.*;
+import java.sql.Date;
 
 @Entity
 @Table(name = "Movie")
@@ -16,15 +17,23 @@ public class Movie {
     private String ageRating;
     private String genre;
 
+    @Column(name = "rentingStart", columnDefinition="DATETIME")
+    private Date rentingStart;
+
+    @Column(name = "rentingEnd", columnDefinition="DATETIME")
+    private Date rentingEnd;
+
     public Movie(){
     }
 
-    public Movie(String name, String length, String description, String ageRating, String genre) {
+    public Movie(String name, String length, String description, String ageRating, String genre,Date rentingStart, Date rentingEnd ) {
         this.name = name;
         this.length = length;
         this.description = description;
         this.ageRating = ageRating;
         this.genre = genre;
+        this.rentingStart = rentingStart;
+        this.rentingEnd = rentingEnd;
     }
 
     public int getMovieID() {
@@ -73,6 +82,22 @@ public class Movie {
 
     public void setGenre(String genre) {
         this.genre = genre;
+    }
+
+    public Date getRentingStart() {
+        return rentingStart;
+    }
+
+    public void setRentingStart(Date rentingStart) {
+        this.rentingStart = rentingStart;
+    }
+
+    public Date getRentingEnd() {
+        return rentingEnd;
+    }
+
+    public void setRentingEnd(Date rentingEnd) {
+        this.rentingEnd = rentingEnd;
     }
 
     @Override

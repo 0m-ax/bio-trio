@@ -2,6 +2,8 @@ package com.biotrio.backend.model;
 
 
 import javax.persistence.*;
+import java.sql.Date;
+
 
 @Entity
 @Table(name = "screenings")
@@ -10,17 +12,40 @@ public class Screening {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int screeningID;
 
-    private String startTime;
-    private String seatCapacityX;
-    private String seatCapacityY;
+    @Column(name = "startTime", columnDefinition="DATETIME")
+    private Date startTime;
+
+    private int interval;
+
+    @ManyToOne
+    @JoinColumn(
+            name = "movieID",
+            foreignKey = @ForeignKey(name = "FKscreenings386176", value = ConstraintMode.NO_CONSTRAINT)
+    )
+    private Movie movie;
+
+    @ManyToOne
+    @JoinColumn(
+            name = "employeeID",
+            foreignKey = @ForeignKey(name = "FKscreenings822069", value = ConstraintMode.NO_CONSTRAINT)
+    )
+    private Employee employee;
+
+    @ManyToOne
+    @JoinColumn(
+            name = "screenHallID",
+            foreignKey = @ForeignKey(name = "FKscreenings347078", value = ConstraintMode.NO_CONSTRAINT)
+    )
+    private ScreenHall screenHall;
+
+
 
     public Screening(){
     }
 
-    public Screening(String startTime, String seatCapacityX, String seatCapacityY) {
+    public Screening(Date startTime, int interval) {
         this.startTime = startTime;
-        this.seatCapacityX = seatCapacityX;
-        this.seatCapacityY = seatCapacityY;
+        this.interval = interval;
     }
 
     public int getScreeningID() {
@@ -31,28 +56,20 @@ public class Screening {
         this.screeningID = screeningID;
     }
 
-    public String getStartTime() {
+    public Date getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(String startTime) {
+    public void setStartTime(Date startTime) {
         this.startTime = startTime;
     }
 
-    public String getSeatCapacityX() {
-        return seatCapacityX;
+    public int getInterval() {
+        return interval;
     }
 
-    public void setSeatCapacityX(String seatCapacityX) {
-        this.seatCapacityX = seatCapacityX;
-    }
-
-    public String getSeatCapacityY() {
-        return seatCapacityY;
-    }
-
-    public void setSeatCapacityY(String seatCapacityY) {
-        this.seatCapacityY = seatCapacityY;
+    public void setInterval(int interval) {
+        this.interval = interval;
     }
 
     @Override

@@ -10,6 +10,22 @@ public class ScreenHall {
     private int screenHallID;
 
     private String number;
+    private int addLength;
+    private int interval;
+
+    @ManyToOne
+    @JoinColumn(
+            name = "cinemaID",
+            foreignKey = @ForeignKey(name = "FKscreenHall393155", value = ConstraintMode.NO_CONSTRAINT)
+    )
+    private Cinema cinema;
+
+    @ManyToOne
+    @JoinColumn(
+            name = "seatID",
+            foreignKey = @ForeignKey(name = "FKscreenHall244684", value = ConstraintMode.NO_CONSTRAINT)
+    )
+    private Seat ID;
 
     public ScreenHall(){
 

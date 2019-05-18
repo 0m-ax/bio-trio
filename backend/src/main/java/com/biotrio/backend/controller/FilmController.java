@@ -1,12 +1,9 @@
 package com.biotrio.backend.controller;
 
 
-import com.biotrio.backend.model.Film;
-import com.biotrio.backend.repository.FilmRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/films")
