@@ -37,14 +37,6 @@
         z-index:1;
         
     }
-    .form-control {
-        border: 1px solid black;
-     }
-    .form-control:focus {
-        background-color: #2E2E2E;
-        color: #F7F7F7;
-    }
-
 </style>
 
 <script>
