@@ -3,6 +3,7 @@
     <NavbarFixedTop msg="" />
 
     <Login msg="" />
+    <Signup msg="" />
     <RouterView class="page"></RouterView>
     <Footer msg=""/>
   </div>
@@ -12,10 +13,11 @@
   import NavbarFixedTop from "@/components/NavbarFixedTop.vue";
   import Login from "./components/Login";
   import Footer from "./components/Footer";
+  import Signup from "./components/Signup";
 
   export default {
     components: {
-      Login,NavbarFixedTop,Footer
+      Login,NavbarFixedTop,Footer,Signup
     },
   };
 </script>

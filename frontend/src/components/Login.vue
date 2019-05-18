@@ -2,17 +2,17 @@
     <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
          aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <div class="modal-content padding shadow-lg p-4 mb-4 bg-white">
+            <div class="modal-content padding shadow-lg p-4 mb-4">
                 <form  v-on:submit.prevent="login">
                     <div class="modal-header mb-4">
                         <h5 class="modal-title color">Login</h5>
                     </div>
                     <div class="form-group mb-4">
-                        <input type="email" v-model="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                        <small id="emailHelp" class="form-text text-muted ml-2">We'll never share your email with anyone else.</small>
+                        <input type="email" v-model="username" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+                        <small class="form-text text-muted ml-2">We'll never share your email with anyone else.</small>
                     </div>
                     <div class="form-group">
-                        <input type="password" v-model="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        <input type="password" v-model="password" class="form-control" placeholder="Password">
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>

@@ -10,9 +10,14 @@
                 </ul>
                 <!-- LOGIN IN THE NAVBAR-->
                 <div class="text-center">
-                    <a href="" class="btn btn-default btn-rounded" data-toggle="modal" data-target="#modalLoginForm">Sign in</a>
+                    <a href="" class="btn btn-default btn-rounded" data-toggle="modal" data-target="#modalLoginForm">Log in</a>
                 </div>
                 <!-- END OF LOG IN FORM -->
+                <!-- SIGN UP IN THE NAVBAR-->
+                <div class="text-center">
+                    <a href="" class="btn btn-default btn-rounded" data-toggle="modal" data-target="#modalSignupForm">Sign up</a>
+                </div>
+                <!-- END OF SIGN UP FORM-->
             </div>
         </nav>
     </div>
