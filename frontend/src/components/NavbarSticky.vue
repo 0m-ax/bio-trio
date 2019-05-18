@@ -38,8 +38,6 @@
         
     }
     .form-control {
-         background-color: #2E2E2E;
-        color: #F7F7F7;
         border: 1px solid black;
      }
     .form-control:focus {
