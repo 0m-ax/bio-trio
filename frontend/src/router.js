@@ -34,6 +34,42 @@ export default new Router({
       name: "movie",
       component: () =>
         import("./views/MovieTemplate.vue")
+    },
+    {
+      path: "/admin",
+          name: "admin",
+        component: () =>
+      import("./views/adminPage.vue")
+    },
+    {
+      path: "/admin/CarouselManagement",
+          name: "admin-carousel",
+        component: () =>
+      import("./views/admin/CarouselManagement.vue")
+    },
+    {
+      path: "/admin/MovieManagement",
+          name: "admin-movie",
+          component: () =>
+      import("./views/admin/MovieManagement.vue")
+    },
+    {
+      path: "/admin/OrderManagement",
+          name: "admin-order",
+        component: () =>
+      import("./views/admin/OrderManagement.vue")
+    },
+    {
+      path: "/admin/ScheduleManagement",
+          name: "admin-schedule",
+        component: () =>
+      import("./views/admin/ScheduleManagement.vue")
+    },
+    {
+      path: "/admin/TheatreManagement",
+          name: "admin-theatre",
+        component: () =>
+      import("./views/admin/TheatreManagement.vue")
     }
   ]
 });
