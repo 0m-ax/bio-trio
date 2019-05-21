@@ -1,6 +1,5 @@
 <template>
     <div class="home">
-
         <div class="container">
             <div class="row">
                 <div class="col-1 cal-col">
@@ -28,25 +27,24 @@
                 </div>
                 <div class="col-5">
                     <button v-on:click="add()">add one</button>
-                    <div class="card"  v-for="(screening,id) in screenings" v-bind:key="id" style="margin-bottom: 16px;">
-
+                    <div class="card"  v-if="screenings[active]" style="margin-bottom: 16px;">
                         <div class="card-body">
-                            <h5 class="card-title">{{screening.film.name}}</h5>
+                            <h5 class="card-title">{{screenings[active].film.name}}</h5>
                             <p class="card-text">
                                 <div class="form-group">
                                     <label>Start Time</label>
-                                    <input type="time" class="form-control"  v-model="screening.time">
+                                    <input type="time" class="form-control"  v-model="screenings[active].time">
                                 </div>
                                 <div class="form-group">
                                     <label>Interval Time</label>
                                     <div class="input-group">
-                                        <input class="form-control" type="number" min="0" max="24"  v-model="screening.interval.hours">
+                                        <input class="form-control" type="number" min="0" max="24"  v-model="screenings[active].interval.hours">
                                         <div class="input-group-append">
                                             <span class="input-group-text">Hours</span>
                                         </div>
                                     </div>
                                     <div class="input-group">
-                                        <input class="form-control"  type="number" min="0" max="59" v-model="screening.interval.mins">
+                                        <input class="form-control"  type="number" min="0" max="59" v-model="screenings[active].interval.mins">
                                         <div class="input-group-append">
                                             <span class="input-group-text">Mins</span>
                                         </div>
@@ -55,13 +53,13 @@
                             <div class="form-group">
                                 <label>Film Duration</label>
                                 <div class="input-group">
-                                    <input class="form-control" type="number" min="0" max="24" disabled v-model="screening.film.duration.hours">
+                                    <input class="form-control" type="number" min="0" max="24" disabled v-model="screenings[active].film.duration.hours">
                                     <div class="input-group-append">
                                         <span class="input-group-text">Hours</span>
                                     </div>
                                 </div>
                                 <div class="input-group">
-                                    <input class="form-control"  type="number" min="0" max="59" disabled v-model="screening.film.duration.mins">
+                                    <input class="form-control"  type="number" min="0" max="59" disabled v-model="screenings[active].film.duration.mins">
                                     <div class="input-group-append">
                                         <span class="input-group-text">Mins</span>
                                     </div>
@@ -70,13 +68,13 @@
                             <div class="form-group">
                                 <label>ADs Time</label>
                                 <div class="input-group">
-                                    <input class="form-control" type="number" min="0" max="24"  v-model="screening.ads.hours">
+                                    <input class="form-control" type="number" min="0" max="24"  v-model="screenings[active].ads.hours">
                                     <div class="input-group-append">
                                         <span class="input-group-text">Hours</span>
                                     </div>
                                 </div>
                                 <div class="input-group">
-                                    <input class="form-control"  type="number" min="0" max="59" v-model="screening.ads.mins">
+                                    <input class="form-control"  type="number" min="0" max="59" v-model="screenings[active].ads.mins">
                                     <div class="input-group-append">
                                         <span class="input-group-text">Mins</span>
                                     </div>
@@ -188,6 +186,10 @@
 </script>
 
 <style lang="scss">
+
+    .input-group-text{
+        width: 70px;
+    }
     .container{
         padding-top: calc(15px);
     }
