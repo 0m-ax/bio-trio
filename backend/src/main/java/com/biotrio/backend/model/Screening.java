@@ -15,7 +15,7 @@ public class Screening {
     @Column(name = "startTime", columnDefinition="DATETIME")
     private Date startTime;
 
-    private int interval;
+    private int cleaning;
 
     @ManyToOne
     @JoinColumn(
@@ -43,9 +43,9 @@ public class Screening {
     public Screening(){
     }
 
-    public Screening(Date startTime, int interval) {
+    public Screening(Date startTime, int cleaning) {
         this.startTime = startTime;
-        this.interval = interval;
+        this.cleaning = cleaning;
     }
 
     public int getScreeningID() {
@@ -64,16 +64,17 @@ public class Screening {
         this.startTime = startTime;
     }
 
-    public int getInterval() {
-        return interval;
-    }
-
-    public void setInterval(int interval) {
-        this.interval = interval;
-    }
 
     @Override
     public String toString(){
         return "screenings{}";
+    }
+
+    public int getCleaning() {
+        return cleaning;
+    }
+
+    public void setCleaning(int cleaning) {
+        this.cleaning = cleaning;
     }
 }

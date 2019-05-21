@@ -11,7 +11,7 @@ public class ScreenHall {
 
     private String number;
     private int addLength;
-    private int interval;
+    private int default_interval;
 
     @ManyToOne
     @JoinColumn(
