@@ -1,11 +1,11 @@
 package com.biotrio.backend.repository;
 
-import com.biotrio.backend.model.Film;
+
+import com.biotrio.backend.model.Screening;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-
 @Repository
-public interface FilmRepository extends CrudRepository<Film, Integer> {
+public interface ScreeningRepo extends CrudRepository<Screening, Integer> {
 
 }
