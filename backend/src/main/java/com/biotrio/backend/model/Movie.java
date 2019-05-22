@@ -1,11 +1,16 @@
 package com.biotrio.backend.model;
 
 
+import org.springframework.data.rest.core.config.Projection;
+
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "Movie")
+
+
 public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,6 +28,8 @@ public class Movie {
     @Column(name = "rentingEnd", columnDefinition="DATETIME")
     private Date rentingEnd;
 
+    @OneToMany(mappedBy = "movie")
+    private List<Screening> screenings;
     public Movie(){
     }
 
@@ -105,4 +112,11 @@ public class Movie {
         return "movies{}";
     }
 
+    public List<Screening> getScreenings() {
+        return screenings;
+    }
+
+    public void setScreenings(List<Screening> screenings) {
+        this.screenings = screenings;
+    }
 }
