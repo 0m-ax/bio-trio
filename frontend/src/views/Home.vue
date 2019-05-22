@@ -11,7 +11,7 @@
 import NavbarSticky from "@/components/NavbarSticky.vue";
 import Films from "@/components/Films";
 import Carousel from "@/components/Carousel";
-
+import client from "../api.js"
 export default {
   name: "home",
   components: {
@@ -39,6 +39,9 @@ export default {
     }
   },
   data(){
+    client.get("/movies").then((resp)=>{
+      console.log(resp)
+    });
     return {
       mFilter:{
         day:null,
