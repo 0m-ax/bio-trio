@@ -38,20 +38,17 @@
         }
     }
 
-    .carousel-control-prev {
+    .carousel-control-prev:hover{
          background-image: linear-gradient(to left, rgba(255,0,0,0), #E54C00);
+         opacity: 0.4;
      }
-    .carousel-control-next {
+    .carousel-control-next:hover{
         background-image: linear-gradient(to right, rgba(255,0,0,0), #E54C00);
-    }
-    .carousel-control-prev:focus {
-        opacity: 0.5;
-    }
-    .carousel-control-next:focus {
-        opacity: 0.5;
+        opacity: 0.4;
     }
 
-</style>
+
+</style>x
 
 <script>
 export default {
