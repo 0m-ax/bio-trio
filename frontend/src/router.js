@@ -48,10 +48,16 @@ export default new Router({
       import("./views/admin/CarouselManagement.vue")
     },
     {
-      path: "/admin/MovieManagement",
-          name: "admin-movie",
+      path: "/admin/Movie",
+          name: "admin-movies",
           component: () =>
-      import("./views/admin/MovieManagement.vue")
+      import("./views/admin/Movie/Movies.vue")
+    },
+    {
+        path: "/admin/Movie/:movieID",
+            name: "admin-movie",
+        component: () =>
+        import("./views/admin/Movie/MovieEdit.vue")
     },
     {
       path: "/admin/OrderManagement",
