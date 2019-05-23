@@ -13,7 +13,7 @@
                 <li><a href="/admin/ScheduleManagement">Schedule Management</a></li>
                 <li><a href="/admin/Movie">Movie Management</a></li>
                 <li><a href="/admin/CarouselManagement">Carousel Management</a></li>
-                <li><a href="/admin/OrderManagement">Order Management</a></li>
+                <li><a href="/admin/Order">Order Management</a></li>
             </ul>
         </div>
     </div>

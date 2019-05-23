@@ -66,10 +66,10 @@ export default new Router({
         import("./views/admin/Movie/MovieEdit.vue")
     },
     {
-      path: "/admin/OrderManagement",
+      path: "/admin/Order",
           name: "admin-order",
         component: () =>
-      import("./views/admin/OrderManagement.vue")
+      import("./views/admin/Order/Orders.vue")
     },
     {
       path: "/admin/ScheduleManagement",
