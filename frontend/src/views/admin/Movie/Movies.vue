@@ -1,6 +1,7 @@
 <template>
     <div class="Movie">
         <AdminSidebar />
+        <router-link :to="{ name: 'admin-movie-add'}">Add Movie</router-link>
         <table class="table">
             <thead>
             <tr>

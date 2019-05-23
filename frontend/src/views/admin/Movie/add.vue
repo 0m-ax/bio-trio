@@ -1,8 +1,7 @@
 <template>
-    <div>
+    <div class="movieAdd">
         <h1>{{items.name}}</h1>
-        <MovieForm v-on:submit="save" v-model="items"/>
-
+        <MovieForm v-on:submit="save()" v-model="items"/>
     </div>
 </template>
 
@@ -18,12 +17,11 @@
 
         methods:{
             async loadData(){
-                let resp = await client.get("/movies/"+this.$route.params.movieID);
-                this.items = resp.data
-                this.loading=false;
             },
             async save(){
-                let resp = await client.put("/movies/"+this.$route.params.movieID,this.items);
+                let resp = await client.post("/movies/",this.items);
+                console.log(resp);
+                this.$router.push({ name: 'admin-movie', params: { movieID:resp.data.movieID }})
             }
         },
         created(){
