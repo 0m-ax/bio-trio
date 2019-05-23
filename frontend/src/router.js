@@ -54,6 +54,12 @@ export default new Router({
       import("./views/admin/Movie/Movies.vue")
     },
     {
+        path: "/admin/Movie/add",
+            name: "admin-movie-add",
+        component: () =>
+        import("./views/admin/Movie/add.vue")
+    },
+    {
         path: "/admin/Movie/:movieID",
             name: "admin-movie",
         component: () =>
@@ -76,11 +82,6 @@ export default new Router({
           name: "admin-theatre",
         component: () =>
       import("./views/admin/TheatreManagement.vue")
-    },{
-    path: "/admin/Movie/add",
-        name: "admin-movie-add",
-        component: () =>
-    import("./views/admin/Movie/add.vue")
     }
   ]
 });

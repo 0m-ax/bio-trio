@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>{{items.name}}</h1>
-        <MovieForm v-on:submit="" v-model="items"/>
+        <MovieForm v-on:submit="save" v-model="items"/>
 
     </div>
 </template>
@@ -21,6 +21,9 @@
                 let resp = await client.get("/movies/"+this.$route.params.movieID);
                 this.items = resp.data
                 this.loading=false;
+            },
+            async save(){
+                let resp = await client.put("/movies/"+this.$route.params.movieID,this.items);
             }
         },
         created(){
