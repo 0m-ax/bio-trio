@@ -1,11 +1,11 @@
 <template>
     <div class="adminPage">
-        <div id="sideBar">
-            <div class="toggle-sideBar" onclick="toggleSidebar()">
+        <div v-bind:class="{ active: active }" id="sideBar">
+            <a class="toggle-sideBar" v-on:click="toggleSidebar()">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </a>
             <ul>
                 <li><a href="/admin/cal">Calendar Management</a></li>
                 <li><a href="/admin/TheatreManagement">Theatre Management</a></li>
@@ -27,6 +27,10 @@
     .footer{
         visibility: hidden;
     }
+    #sideBar.active{
+        left: 0px;
+    }
+
     #sideBar{
         position: fixed;
         width: 300px;
@@ -34,9 +38,6 @@
         background: black;
         left: -300px;
         transition: all 500ms linear;
-    }
-    #sidebar.active{
-        left: 0px;
     }
     #sideBar ul li{
         list-style: none;
@@ -63,9 +64,19 @@
 </style>
 
 <script>
-
-    function toggleSidebar(){
-        document.getElementById("sideBar").classList.toggle('active');
-    }
+    export default {
+        methods:{
+            toggleSidebar(){
+                console.log("swap")
+               this.active = !this.active
+            }
+        },
+        data(){
+            return {
+                active:false
+            }
+        },
+        name: "adminPage"
+    };
 
 </script>
