@@ -6,6 +6,7 @@
                 <span></span>
                 <span></span>
             </a>
+            <h2>Services</h2>
             <ul>
                 <li><a href="/admin/cal">Calendar Management</a></li>
                 <li><a href="/admin/TheatreManagement">Theatre Management</a></li>
@@ -24,6 +25,11 @@
         margin: 0px;
         padding:0px;
     }
+    h2{
+        text-align: left;
+        margin-left: 20px;
+        margin-top: 15px;
+    }
     #sideBar.active{
         left: 0px;
     }
@@ -38,13 +44,17 @@
     }
     #sideBar ul li{
         list-style: none;
-        margin-top: 1px;
+        margin-top: 15px;
         margin-bottom: 2px;
+        margin-left: 20px;
+        margin-right: 20px;
+        border-bottom: solid 1px grey;
     }
     #sideBar .toggle-sideBar {
         position: absolute;
         left: 330px;
         top: 20px;
+
     }
     #sideBar .toggle-sideBar span {
         display: block;

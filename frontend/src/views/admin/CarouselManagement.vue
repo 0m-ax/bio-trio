@@ -29,6 +29,8 @@
         height: 70px;
         clear:both;
     }
-
+    .navbar{
+        visibility: hidden;
+    }
 
 </style>
