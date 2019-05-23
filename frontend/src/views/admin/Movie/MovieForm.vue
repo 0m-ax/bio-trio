@@ -18,11 +18,7 @@
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </template>
-private String name;
-private String length;
-private String description;
-private String ageRating;
-private String genre;
+
 <script>
     export default {
 

@@ -1,5 +1,6 @@
 <template>
     <div class="Movie">
+        <AdminSidebar />
         <table class="table">
             <thead>
             <tr>
@@ -26,8 +27,12 @@
 <script>
 
     import client from "../../../api.js"
+    import AdminSidebar from "../../../components/AdminSidebar"
     export default {
 
+        components:{
+            AdminSidebar
+        },
         methods:{
             async loadData(){
                 let resp = await client.get("/movies");
