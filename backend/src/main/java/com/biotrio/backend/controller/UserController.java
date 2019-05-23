@@ -1,5 +1,6 @@
 package com.biotrio.backend.controller;
 
+import com.biotrio.backend.model.SignupData;
 import com.biotrio.backend.model.UserCreds;
 import org.springframework.web.bind.annotation.*;
 
