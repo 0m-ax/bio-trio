@@ -2,8 +2,7 @@ package com.biotrio.backend.model;
 
 
 import javax.persistence.*;
-import java.sql.Date;
-
+import java.sql.Timestamp;
 
 @Entity
 @Table(name = "screenings")
@@ -13,7 +12,7 @@ public class Screening {
     private int screeningID;
 
     @Column(name = "startTime", columnDefinition="DATETIME")
-    private Date startTime;
+    private Timestamp startTime;
 
     private int cleaning;
 
@@ -25,9 +24,9 @@ public class Screening {
 
     @ManyToOne()
     @JoinColumn(
-            name = "employeeID"
+            name = "projectionistEmployeID"
     )
-    private Employee employee;
+    private User projectionist;
 
     @ManyToOne
     @JoinColumn(
@@ -38,7 +37,7 @@ public class Screening {
     public Screening(){
     }
 
-    public Screening(Date startTime, int cleaning) {
+    public Screening(Timestamp startTime, int cleaning) {
         this.startTime = startTime;
         this.cleaning = cleaning;
     }
@@ -51,11 +50,11 @@ public class Screening {
         this.screeningID = screeningID;
     }
 
-    public Date getStartTime() {
+    public Timestamp getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(Date startTime) {
+    public void setStartTime(Timestamp startTime) {
         this.startTime = startTime;
     }
 
@@ -81,13 +80,6 @@ public class Screening {
         this.screenHall = screenHall;
     }
 
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
 
     public Movie getMovie() {
         return movie;
@@ -95,5 +87,13 @@ public class Screening {
 
     public void setMovie(Movie movie) {
         this.movie = movie;
+    }
+
+    public User getProjectionist() {
+        return projectionist;
+    }
+
+    public void setProjectionist(User projectionist) {
+        this.projectionist = projectionist;
     }
 }

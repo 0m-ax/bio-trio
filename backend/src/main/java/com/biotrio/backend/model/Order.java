@@ -1,7 +1,5 @@
 package com.biotrio.backend.model;
 
-import org.hibernate.annotations.Parent;
-
 import javax.persistence.*;
 
 @Entity
@@ -19,7 +17,7 @@ public class Order {
             name = "customerID",
             foreignKey = @ForeignKey(name = "FKorders391475", value = ConstraintMode.NO_CONSTRAINT)
     )
-    private Customer customer;
+    private User customer;
 
 
 

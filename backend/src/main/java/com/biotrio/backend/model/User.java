@@ -7,24 +7,23 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "customers")
-public class Customer {
+@Table(name = "users")
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int customerID;
-
+    private int userID;
     private String firstName;
     private String lastName;
     private String address;
     private String email;
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
-    private int phone;
+    private String phone;
     private int active;
-    public Customer() {
+    public User() {
     }
 
-    public Customer(String lastName, String address, String email, String password, int phone) {
+    public User(String lastName, String address, String email, String password, String phone) {
         this.lastName = lastName;
         this.address = address;
         this.email = email;
@@ -32,12 +31,12 @@ public class Customer {
         this.phone = phone;
     }
 
-    public int getCustomerID() {
-        return customerID;
+    public int getUserID() {
+        return userID;
     }
 
-    public void setCustomerID(int customerID) {
-        this.customerID = customerID;
+    public void setUserID(int userID) {
+        this.userID = userID;
     }
 
     public String getFirstName() {
@@ -80,16 +79,16 @@ public class Customer {
         this.password = password;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "customer_role", joinColumns = @JoinColumn(name = "customerid"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "userid"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 
     public Set<Role> getRoles() {
