@@ -76,6 +76,11 @@ export default new Router({
           name: "admin-theatre",
         component: () =>
       import("./views/admin/TheatreManagement.vue")
+    },{
+    path: "/admin/Movie/add",
+        name: "admin-movie-add",
+        component: () =>
+    import("./views/admin/Movie/add.vue")
     }
   ]
 });

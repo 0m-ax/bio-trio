@@ -1,8 +1,7 @@
 <template>
-    <div>
+    <div class="movieAdd">
         <h1>{{items.name}}</h1>
         <MovieForm v-on:submit="" v-model="items"/>
-
     </div>
 </template>
 

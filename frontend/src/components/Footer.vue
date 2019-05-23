@@ -40,6 +40,7 @@
         justify-content: space-between;
     }
     footer{
+
         .row{
             max-height: 70px;
         }
