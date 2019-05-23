@@ -19,26 +19,21 @@ public class Screening {
 
     @ManyToOne
     @JoinColumn(
-            name = "movieID",
-            foreignKey = @ForeignKey(name = "FKscreenings386176", value = ConstraintMode.NO_CONSTRAINT)
+            name = "movieID"
     )
     private Movie movie;
 
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(
-            name = "employeeID",
-            foreignKey = @ForeignKey(name = "FKscreenings822069", value = ConstraintMode.NO_CONSTRAINT)
+            name = "employeeID"
     )
     private Employee employee;
 
     @ManyToOne
     @JoinColumn(
-            name = "screenHallID",
-            foreignKey = @ForeignKey(name = "FKscreenings347078", value = ConstraintMode.NO_CONSTRAINT)
+            name = "screenHallID"
     )
     private ScreenHall screenHall;
-
-
 
     public Screening(){
     }
@@ -76,5 +71,29 @@ public class Screening {
 
     public void setCleaning(int cleaning) {
         this.cleaning = cleaning;
+    }
+
+    public ScreenHall getScreenHall() {
+        return screenHall;
+    }
+
+    public void setScreenHall(ScreenHall screenHall) {
+        this.screenHall = screenHall;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
+    public Movie getMovie() {
+        return movie;
+    }
+
+    public void setMovie(Movie movie) {
+        this.movie = movie;
     }
 }
