@@ -17,8 +17,14 @@
                 <div class="text-center" v-if="!$store.state.user">
                     <a href="" class="btn btn-default btn-rounded" data-toggle="modal" data-target="#modalSignupForm">Sign up</a>
                 </div>
-                <div class="text-center" v-if="$store.state.user">
-                    <a href="" v-on:click="logout" class="btn btn-default btn-rounded">Logout</a>
+                <div class="dropdown dropleft" v-if="$store.state.user">
+                    <button class="btn btn-default btn-rounded dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{$store.state.user.firstName}}
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <router-link to="/user/order" class="dropdown-item" >Orders</router-link>
+                        <a href="" v-on:click="logout" class="dropdown-item">Logout</a>
+                    </div>
                 </div>
                 <!-- END OF SIGN UP FORM-->
             </div>
@@ -50,8 +56,8 @@
                     let resp = await api.get("../logout");
                 }catch (e) {
                     await this.$store.dispatch("fetchUser");
+                    this.$router.push("/")
                 }
-                console.log("updated")
             }
         }
     };

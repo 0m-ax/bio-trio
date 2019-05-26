@@ -4,7 +4,7 @@ package com.biotrio.backend.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name="tickets")
+@Table(name="attribute")
 public class Attribute {
 
     @Id

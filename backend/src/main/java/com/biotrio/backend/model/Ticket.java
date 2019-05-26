@@ -75,5 +75,13 @@ public class Ticket {
     public String toString(){
         return "tickets{}";
     }
+
+    public Screening getScreening() {
+        return screening;
+    }
+
+    public void setScreening(Screening screening) {
+        this.screening = screening;
+    }
 }
 

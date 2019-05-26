@@ -29,6 +29,18 @@ export default new Router({
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "cal" */ "./views/admin/Cal.vue")
 },
+{
+    path: "/user/order",
+        name: "user-orders",
+    component: () =>
+    import("./views/user/Order/Orders.vue")
+},
+{
+    path: "/user/order/:orderID",
+        name: "user-order",
+    component: () =>
+    import("./views/user/Order/Order.vue")
+},
     {
       path: "/movie",
       name: "movie",

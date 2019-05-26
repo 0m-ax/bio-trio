@@ -1,6 +1,7 @@
 package com.biotrio.backend.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "orders")
@@ -14,12 +15,12 @@ public class Order {
 
     @ManyToOne
     @JoinColumn(
-            name = "customerID",
-            foreignKey = @ForeignKey(name = "FKorders391475", value = ConstraintMode.NO_CONSTRAINT)
+            name = "customerID"
     )
     private User customer;
 
-
+    @OneToMany(mappedBy = "order")
+    private List<Ticket> tickets;
 
     public Order() {
     }
@@ -47,5 +48,13 @@ public class Order {
     @Override
     public String toString() {
         return "orders{}";
+    }
+
+    public List<Ticket> getTickets() {
+        return tickets;
+    }
+
+    public void setTickets(List<Ticket> tickets) {
+        this.tickets = tickets;
     }
 }

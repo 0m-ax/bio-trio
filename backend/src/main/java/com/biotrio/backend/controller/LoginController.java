@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 public class LoginController {
     @Autowired
     UserService customerService;
+    @GetMapping(value = "/self")
     public User self(){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = customerService.findUserByEmail(auth.getName());
