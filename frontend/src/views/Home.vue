@@ -143,46 +143,47 @@ export default {
           image:"http://localhost:8080/img/endgame-long.jpg",
           text:"yes"
         }
-      ],
-      movies:[
-        {
-          name:"Mary Poppins",
-          image:"http://localhost:8080/img/mary-popins.jpg",
-          video:"https://www.youtube-nocookie.com/embed/fuWf9fP-A-U",
-          times:[
-            {
-              "time":"10:30",
-              audioDescribed:false,
-              thirdDimension:false
-            }
-          ],
-          id:"10"
-        },
-        {
-          name:"Avengers: Endgame",
-          image:"http://localhost:8080/img/engameposter.jpg",
-          video:"https://www.youtube-nocookie.com/embed/TcMBFSGVi1c",
-          description:"Adrift in space with no food or water, Tony Stark sends a message to Pepper Potts as his oxygen supply starts to dwindle. Meanwhile, the remaining Avengers -- Thor, Black Widow, Captain America and Bruce Banner -- must figure out a way to bring back their vanquished allies for an epic showdown with Thanos -- the evil demigod who decimated the planet and the universe.\n",
-          times:[
-            {
-              "time":"10:30",
-              audioDescribed:true,
-              thirdDimension:false
-            },
-            {
-              "time":"11:30",
-              audioDescribed:false,
-              thirdDimension:true
-            },
-            {
-              "time":"12:30",
-              audioDescribed:false,
-              thirdDimension:false
-            }
-          ],
-          id:"20"
-        }
-      ]
+       ],
+      screenings: []
+      // movies:[
+      //   {
+      //     name:"Mary Poppins",
+      //     image:"http://localhost:8080/img/mary-popins.jpg",
+      //     video:"https://www.youtube-nocookie.com/embed/fuWf9fP-A-U",
+      //     times:[
+      //       {
+      //         "time":"10:30",
+      //         audioDescribed:false,
+      //         thirdDimension:false
+      //       }
+      //     ],
+      //     id:"10"
+      //   },
+      //   {
+      //     name:"Avengers: Endgame",
+      //     image:"http://localhost:8080/img/engameposter.jpg",
+      //     video:"https://www.youtube-nocookie.com/embed/TcMBFSGVi1c",
+      //     description:"Adrift in space with no food or water, Tony Stark sends a message to Pepper Potts as his oxygen supply starts to dwindle. Meanwhile, the remaining Avengers -- Thor, Black Widow, Captain America and Bruce Banner -- must figure out a way to bring back their vanquished allies for an epic showdown with Thanos -- the evil demigod who decimated the planet and the universe.\n",
+      //     times:[
+      //       {
+      //         "time":"10:30",
+      //         audioDescribed:true,
+      //         thirdDimension:false
+      //       },
+      //       {
+      //         "time":"11:30",
+      //         audioDescribed:false,
+      //         thirdDimension:true
+      //       },
+      //       {
+      //         "time":"12:30",
+      //         audioDescribed:false,
+      //         thirdDimension:false
+      //       }
+      //     ],
+      //     id:"20"
+      //   }
+      // ]
     }
   }
 };
