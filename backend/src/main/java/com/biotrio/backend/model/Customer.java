@@ -19,12 +19,12 @@ public class Customer {
     private String email;
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
-    private int phone;
+    private String phone;
     private int active;
     public Customer() {
     }
 
-    public Customer(String lastName, String address, String email, String password, int phone) {
+    public Customer(String lastName, String address, String email, String password, String phone) {
         this.lastName = lastName;
         this.address = address;
         this.email = email;
@@ -80,11 +80,11 @@ public class Customer {
         this.password = password;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 

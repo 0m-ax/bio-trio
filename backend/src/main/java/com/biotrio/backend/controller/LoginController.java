@@ -14,19 +14,19 @@ import javax.validation.Valid;
 public class LoginController {
     @Autowired
     CustomerService customerService;
-    @GetMapping("/test")
-    public Customer test(){
+    @GetMapping("/self")
+    public Customer self(){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         Customer user = customerService.findUserByEmail(auth.getName());
         return user;
     }
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public Customer createNewUser(@RequestBody Customer user) {
+    public Boolean createNewUser(@RequestBody Customer user) {
         Customer userExists = customerService.findUserByEmail(user.getEmail());
         if (userExists != null) {
-            return null;
+            return false;
         }
         customerService.saveCustomer(user);
-        return user;
+        return true;
     }
 }

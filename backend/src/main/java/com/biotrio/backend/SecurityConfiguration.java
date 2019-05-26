@@ -1,8 +1,12 @@
 package com.biotrio.backend;
 
 
+import com.biotrio.backend.login.RestLoginConfigurer;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -11,6 +15,9 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
 
 import javax.sql.DataSource;
 
@@ -20,6 +27,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
+
 
     @Autowired
     private DataSource dataSource;
@@ -40,19 +48,25 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .dataSource(dataSource)
                 .passwordEncoder(bCryptPasswordEncoder);
     }
-
+    @Autowired
+    private ObjectMapper mapper;
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
         http.
-                httpBasic()
+                cors()
                 .and()
                 .authorizeRequests()
                 .antMatchers("/**").permitAll()
                 .antMatchers("/login").permitAll()
                 .antMatchers("/registration").permitAll()
 //                .antMatchers("/admin/**").hasAuthority("ADMIN").anyRequest().authenticated()
-                .and().csrf().disable().formLogin().disable();
+                .and().csrf().disable()
+                .logout()
+                .logoutUrl("/logout")
+                .and()
+                .apply(new RestLoginConfigurer<>(mapper))
+                .loginProcessingUrl("/login");
     }
 
     @Override

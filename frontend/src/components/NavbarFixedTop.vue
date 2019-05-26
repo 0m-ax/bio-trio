@@ -9,13 +9,16 @@
                     <router-link to="/about" tag="li" active-class="active" class="nav-item"><a class="nav-link" >About</a></router-link>
                 </ul>
                 <!-- LOGIN IN THE NAVBAR-->
-                <div class="text-center">
+                <div class="text-center" v-if="!$store.state.user">
                     <a href="" class="btn btn-default btn-rounded" data-toggle="modal" data-target="#modalLoginForm">Log in</a>
                 </div>
                 <!-- END OF LOG IN FORM -->
                 <!-- SIGN UP IN THE NAVBAR-->
-                <div class="text-center">
+                <div class="text-center" v-if="!$store.state.user">
                     <a href="" class="btn btn-default btn-rounded" data-toggle="modal" data-target="#modalSignupForm">Sign up</a>
+                </div>
+                <div class="text-center" v-if="$store.state.user">
+                    <a href="" v-on:click="logout" class="btn btn-default btn-rounded">Logout</a>
                 </div>
                 <!-- END OF SIGN UP FORM-->
             </div>
@@ -30,10 +33,26 @@
 </style>
 
 <script>
+    import api from '../api.js'
+
     export default {
         name: "NavbarFixedTop",
         props: {
             msg: String
+        },
+        created() {
+            this.$store.dispatch("fetchUser")
+        },
+        methods:{
+            async logout(e){
+                e.preventDefault();
+                try {
+                    let resp = await api.get("../logout");
+                }catch (e) {
+                    await this.$store.dispatch("fetchUser");
+                }
+                console.log("updated")
+            }
         }
     };
 </script>
