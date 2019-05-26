@@ -12,6 +12,23 @@ import NavbarSticky from "@/components/NavbarSticky.vue";
 import Films from "@/components/Films";
 import Carousel from "@/components/Carousel";
 import client from "../api.js"
+import moment from "moment";
+
+function groupBy(list, keyGetter) {
+  const map = new Map();
+  list.forEach((item) => {
+    const key = keyGetter(item);
+    const collection = map.get(key);
+    if (!collection) {
+      map.set(key, [item]);
+    } else {
+      collection.push(item);
+    }
+  });
+  return Array.from(map.values());
+}
+
+
 export default {
   name: "home",
   components: {
@@ -19,30 +36,56 @@ export default {
   },
   computed:{
     films(){
-      return this.movies.map((movie)=>{
+      return groupBy(this.screenings,item=>item.movie.movieID).map((screenings)=>{
+        let movie = screenings[0].movie;
         return {
-          times:movie.times.filter((time)=>{
-            return (this.mFilter.audioDescribed?time.audioDescribed:true)&&
-                    (this.mFilter.thirdDimension?time.thirdDimension:true)
-          }),
           name:movie.name,
           video:movie.video,
           image:movie.image,
           description:movie.description,
-          id:movie.id,
+          id:movie.movieID,
+          times:screenings.map((screening)=>{
+            return moment(screenings.startTime).format("HH mm");
+          })
         }
-      }).filter((movie)=>movie.times.length > 0)
-        .map((movie)=>{
-          movie.times = movie.times.map((time)=>time.time+(time.thirdDimension?" (3D)":"")+(time.audioDescribed?" (AD)":""));
-          return movie
-        })
+      })
+      // return this.movies.map((movie)=>{
+      //   return {
+      //     times:movie.times.filter((time)=>{
+      //       return (this.mFilter.audioDescribed?time.audioDescribed:true)&&
+      //               (this.mFilter.thirdDimension?time.thirdDimension:true)
+      //     }),
+      //     name:movie.name,
+      //     video:movie.video,
+      //     image:movie.image,
+      //     description:movie.description,
+      //     id:movie.id,
+      //   }
+      // }).filter((movie)=>movie.times.length > 0)
+      //   .map((movie)=>{
+      //     movie.times = movie.times.map((time)=>time.time+(time.thirdDimension?" (3D)":"")+(time.audioDescribed?" (AD)":""));
+      //     return movie
+      //   })
     }
   },
+  methods:{
+    async populate(){
+      let {
+        data:{
+          _embedded:{
+            screenings
+          }
+        }
+      } = await client.get("/screenings?projection=ScreeningMovie")
+      this.screenings = screenings;
+    }
+  },
+  created(){
+    this.populate()
+  },
   data(){
-    client.get("/movies").then((resp)=>{
-      console.log(resp)
-    });
     return {
+      screenings:[],
       mFilter:{
         day:null,
         location:null,
@@ -67,7 +110,20 @@ export default {
         {
           value:1,
           text:"Today"
-        }
+        },
+        {
+          value:2,
+          text:"Tommrow"
+        },        {
+          value:3,
+          text:moment().add(2, 'days').format("Do MMM")
+        },        {
+          value:4,
+          text:moment().add(3, 'days').format("Do MMM")
+        },        {
+          value:5,
+          text:moment().add(4, 'days').format("Do MMM")
+        },
       ],
       thirdDimension:false,
       audioDescribed:false,

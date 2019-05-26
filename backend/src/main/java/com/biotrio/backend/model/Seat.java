@@ -13,14 +13,20 @@ public class Seat {
     private String x;
     private String y;
     private String seatName;
+    @ManyToOne
+    @JoinColumn(
+            name = "screenHallID"
+    )
+    private ScreenHall screenHall;
 
     public Seat(){
     }
 
-    public Seat(String x, String y, String seatName) {
+    public Seat(String x, String y, String seatName, ScreenHall screenHall) {
         this.x = x;
         this.y = y;
         this.seatName = seatName;
+        this.screenHall = screenHall;
     }
 
     public int getSeatID() {
@@ -58,5 +64,13 @@ public class Seat {
     @Override
     public String toString(){
         return "seats{}";
+    }
+
+    public void setScreenHall(ScreenHall screenHall) {
+        this.screenHall = screenHall;
+    }
+
+    public ScreenHall getScreenHall() {
+        return screenHall;
     }
 }

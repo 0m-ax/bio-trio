@@ -17,11 +17,12 @@ public class Movie {
     private int movieID;
 
     private String name;
-    private String length;
+    private int length;
     private String description;
     private String ageRating;
     private String genre;
-
+    private String image;
+    private String video;
     @Column(name = "rentingStart", columnDefinition="DATETIME")
     private Date rentingStart;
 
@@ -33,7 +34,7 @@ public class Movie {
     public Movie(){
     }
 
-    public Movie(String name, String length, String description, String ageRating, String genre,Date rentingStart, Date rentingEnd ) {
+    public Movie(String name, int length, String description, String ageRating, String genre,Date rentingStart, Date rentingEnd ) {
         this.name = name;
         this.length = length;
         this.description = description;
@@ -59,11 +60,11 @@ public class Movie {
         this.name = name;
     }
 
-    public String getLength() {
+    public int getLength() {
         return length;
     }
 
-    public void setLength(String length) {
+    public void setLength(int length) {
         this.length = length;
     }
 
@@ -118,5 +119,21 @@ public class Movie {
 
     public void setScreenings(List<Screening> screenings) {
         this.screenings = screenings;
+    }
+
+    public String getVideo() {
+        return video;
+    }
+
+    public void setVideo(String video) {
+        this.video = video;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

@@ -1,11 +1,11 @@
 package com.biotrio.backend.repository;
 
 
-import com.biotrio.backend.model.Customer;
+import com.biotrio.backend.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CustomerRepo extends JpaRepository<Customer, Integer> {
-    Customer findByEmail(String email);
+public interface UserRepo extends JpaRepository<User, Integer> {
+    User findByEmail(String email);
 }

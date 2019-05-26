@@ -1,6 +1,7 @@
 package com.biotrio.backend.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "screenHalls")
@@ -9,30 +10,23 @@ public class ScreenHall {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int screenHallID;
 
-    private String number;
-    private int addLength;
-    private int default_interval;
+    private String name;
 
     @ManyToOne
     @JoinColumn(
-            name = "cinemaID",
-            foreignKey = @ForeignKey(name = "FKscreenHall393155", value = ConstraintMode.NO_CONSTRAINT)
+            name = "cinemaID"
     )
     private Cinema cinema;
 
-    @ManyToOne
-    @JoinColumn(
-            name = "seatID",
-            foreignKey = @ForeignKey(name = "FKscreenHall244684", value = ConstraintMode.NO_CONSTRAINT)
-    )
-    private Seat ID;
+    @OneToMany(mappedBy = "screenHall")
+    private List<Seat> seats;
 
     public ScreenHall(){
 
     }
 
-    public ScreenHall(String number) {
-        this.number = number;
+    public ScreenHall(String name) {
+        this.name = name;
     }
 
     public int getScreenHallID() {
@@ -43,16 +37,25 @@ public class ScreenHall {
         this.screenHallID = screenHallID;
     }
 
-    public String getNumber() {
-        return number;
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
-    }
 
     @Override
     public String toString(){
         return "screenHalls{}";
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Cinema getCinema() {
+        return cinema;
+    }
+
+    public void setCinema(Cinema cinema) {
+        this.cinema = cinema;
     }
 }
