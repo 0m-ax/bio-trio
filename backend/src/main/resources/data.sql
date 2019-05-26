@@ -12,4 +12,4 @@ INSERT INTO `db_example`.`cinemas` (`cinemaid`, `address`, `description`) VALUES
 INSERT INTO `db_example`.`screen_halls` (`screen_hallid`, `name`, `cinemaid`) VALUES (1, 'Room 1', 1);
 INSERT INTO `db_example`.`seats` (`seatid`, `seat_name`, `x`, `y`, `screen_hallid`) VALUES (1, '1A', '1', '1', 1);
 INSERT INTO `db_example`.`movie` (`movieid`, `age_rating`, `description`, `genre`, `image`, `length`, `name`, `renting_end`, `renting_start`, `video`) VALUES (1, 'G', 'In turn of the century London, a magical nanny employs music and adventure to help two neglected children become closer to their father.', 'Fantasyfilm/Musical', 'http://localhost:8080/img/mary-popins.jpg', 140, 'Mary Poppins', null, null, 'https://www.youtube.com/watch?v=YfkEQDPlb8g');
-NSERT INTO `db_example`.`screenings` (`screeningid`, `cleaning`, `start_time`, `movieid`, `projectionist_employeid`, `screen_hallid`) VALUES (1, 20, '2019-05-23 13:22:44', 1, 1, 1);
+insert INTO `db_example`.`screenings` (`screeningid`, `cleaning`, `start_time`, `movieid`, `projectionist_employeid`, `screen_hallid`) VALUES (1, 20, '2019-05-23 13:22:44', 1, 1, 1);
