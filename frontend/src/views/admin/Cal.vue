@@ -108,7 +108,7 @@
                             hours:1,
                             mins:30
                         },
-                        name:"End game",
+                        name:"Endgame",
                     },
                     interval:{
                         hours:1,

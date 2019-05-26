@@ -12,13 +12,13 @@
             </tr>
             </thead>
             <tbody>
-                <tr v-for="movie in items" v-bind:key="movie.id">
+                <tr v-for="movie, i in items" v-bind:key="movie.id">
                     <th scope="row">{{movie.movieID}}</th>
                     <td>{{movie.name}}</td>
                     <td>{{movie.length}} minutes</td>
                     <td>{{movie.genre}}</td>
                     <td><router-link :to="{ name: 'admin-movie', params: { movieID:movie.movieID }}">Editto</router-link></td>
-                    <td><a href="">Deletto</a> </td>
+                    <td><button v-on:click="clicked(movie.movieID,i)">Deletto</button> </td>
                 </tr>
             </tbody>
         </table>
@@ -37,8 +37,20 @@
         methods:{
             async loadData(){
                 let resp = await client.get("/movies");
-                this.items = resp.data._embedded.movies
+                this.items = resp.data._embedded.movies;
                 this.loading=false;
+                },
+            async deleteRow(id,i){
+                fetch("http://localhost:8080/api/movies/" + id, {method: "DELETE"})
+                    .then(() =>{
+                    this.items.splice(i,1);
+                    })
+                },
+            clicked(id,i){
+                if(confirm("Are you sure you want to delete?")){
+                    this.deleteRow(id,i);
+                }
+                else return false;
             }
         },
         created(){
