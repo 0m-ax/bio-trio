@@ -22,6 +22,12 @@
     </div>
 </template>
 
+<style>
+
+    
+
+</style>
+
 <script>
 
     import client from "../../../api.js"

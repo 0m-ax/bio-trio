@@ -1,8 +1,9 @@
 <template>
     <div class="Movie">
         <AdminSidebar />
+        <div class="Spacer"></div>
         <div class="movieBtn">
-            <router-link :to="{ name: 'admin-movie-add'}">Add Movie</router-link>
+            <router-link class="routerBtn" :to="{ name: 'admin-movie-add'}">Add Movie</router-link>
         </div>
         <table class="table">
             <thead>
@@ -28,6 +29,22 @@
 </template>
 
 <style>
+    .routerBtn {
+        display: inline-block;
+        border: solid 1px white;
+        padding: 10px;
+        background-color: white;
+        color: #383838;
+        margin-bottom: 20px;
+    }
+    .routerBtn:hover{
+        text-decoration: none;
+        background-color: #dbdbdb;
+        color: black;
+    }
+    .Spacer{
+        padding-bottom: 20px;
+    }
     .TableID{
         width: 3%;
     }
@@ -46,7 +63,10 @@
     .TableDelete{
         width: 2%;
     }
+    /*
     .movieBtn{
+        padding-top: 5px;
+        padding-bottom: 10px;
         color: black;
         text-decoration: none;
         width: 120px;
@@ -67,6 +87,7 @@
         color: #232323;
         background-color: white;
     }
+    */
     .Movie{
     margin-left: 400px;
     width: 60%;
