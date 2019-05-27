@@ -1,14 +1,16 @@
 <template>
     <div class="Movie">
         <AdminSidebar />
-        <router-link :to="{ name: 'admin-movie-add'}">Add Movie</router-link>
+        <div class="movieBtn">
+            <router-link :to="{ name: 'admin-movie-add'}">Add Movie</router-link>
+        </div>
         <table class="table">
             <thead>
             <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Name</th>
-                <th scope="col">Length</th>
-                <th scope="col">Genre</th>
+                <th class="TableID" scope="col">ID</th>
+                <th class="TableName" scope="col">Name</th>
+                <th class="TableLength" scope="col">Length</th>
+                <th class="TableGenre" scope="col">Genre</th>
             </tr>
             </thead>
             <tbody>
@@ -17,13 +19,60 @@
                     <td>{{movie.name}}</td>
                     <td>{{movie.length}} minutes</td>
                     <td>{{movie.genre}}</td>
-                    <td><router-link :to="{ name: 'admin-movie', params: { movieID:movie.movieID }}">Editto</router-link></td>
-                    <td><button v-on:click="clicked(movie.movieID,i)">Deletto</button> </td>
+                    <td class="TableEdit"><router-link :to="{ name: 'admin-movie', params: { movieID:movie.movieID }}">Edit</router-link></td>
+                    <td class="TableDelete"><button v-on:click="clicked(movie.movieID,i)">Delete</button> </td>
                 </tr>
             </tbody>
         </table>
     </div>
 </template>
+
+<style>
+    .TableID{
+        width: 3%;
+    }
+    .TableName{
+        width: 40%;
+    }
+    .TableLength{
+        width: 10%;
+    }
+    .TableGenre{
+        width: 10%;
+    }
+    .TableEdit{
+        width: 4%;
+    }
+    .TableDelete{
+        width: 2%;
+    }
+    .movieBtn{
+        color: black;
+        text-decoration: none;
+        width: 120px;
+        height: 30px;
+        background-color: grey;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    .movieBtn a{
+        color: black;
+        text-decoration: none;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 10px;
+
+    }
+    .movieBtn a:hover{
+        color: #232323;
+        background-color: white;
+    }
+    .Movie{
+    margin-left: 400px;
+    width: 60%;
+}
+
+</style>
 
 <script>
 
