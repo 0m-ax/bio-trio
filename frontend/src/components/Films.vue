@@ -24,7 +24,7 @@
                                         {{movie.description}}
                                     </div>
                                     <div class="col-md-6" >
-                                        <button v-for="time in movie.times" type="button" class="time btn btn-secondary">{{time}}</button>
+                                        <router-link v-for="time in movie.times" to='/booking/1' target="_blank" type="button" class="time btn btn-secondary">{{time}} </router-link>
                                     </div>
                                 </div>
                             </div>
