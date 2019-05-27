@@ -29,6 +29,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.page{
+  margin-top: 58px;
+}
 .nav-item {
   color: #F7F7F7;
 }

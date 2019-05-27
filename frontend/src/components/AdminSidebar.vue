@@ -53,7 +53,7 @@
 
     }
     #sideBar ul li:hover{
-        border-left: solid 5px orange;
+        border-left: solid 5px darkorange;
         background-color: #353535;
         text-decoration: none;
     }
@@ -70,6 +70,9 @@
         margin: 3px 0px;
         background: white;
 
+    }
+    .toggle-sideBar:hover{
+        cursor: pointer;
     }
 
 </style>
