@@ -2,13 +2,14 @@
 <div class="container">
     <div class="row movies">
         <div v-for="movie in items" v-bind:key="movie.id" class="col-md-4 movie">
-            <div class="card poster" v-on:click="open(movie.id)">
+            <div class="card poster" v-on:click="open(movie.id)" >
+
                 <img :src="movie.image" class="card-img" alt="...">
                 <div class="card-img-overlay" >
                     <h5 class="card-title">{{movie.name}}</h5>
                 </div>
             </div>
-            <div v-bind:class="{ open: openMovie==movie.id }" class="info closed">
+            <div v-bind:class="{ open: openMovie==movie.id }" v-bind:id="'moviecard'+movie.id" v-bind:ref="movie.id" class="info closed">
                 <div class="connector"></div>
                 <div class="full-width">
                     <div class="card">
@@ -23,7 +24,7 @@
                                         {{movie.description}}
                                     </div>
                                     <div class="col-md-6" >
-                                        <button v-for="time in movie.times" type="button" class="time btn btn-secondary">{{time}}</button>
+                                        <router-link v-for="time in movie.times" to='/booking/1' target="_blank" type="button" class="time btn btn-secondary">{{time}} </router-link>
                                     </div>
                                 </div>
                             </div>
@@ -134,7 +135,13 @@
         },
         methods:{
             open(movie){
-                this.openMovie=(movie==this.openMovie)?null:movie;
+                if(this.openMovie == movie ){
+                    this.openMovie = null;
+                }else{
+                    this.openMovie = movie;
+                    let movieEl = this.$refs[movie][0];
+                    setTimeout(()=>movieEl.scrollIntoView({behavior:"smooth"}),200)
+                }
             }
         },
         data(){

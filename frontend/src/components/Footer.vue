@@ -11,13 +11,13 @@
                     <p>Email: Bio-Trio@gmail.com</p>
                 </div>
                 <div class="col text-right">
-                    <a href="#">
+                    <a href="https://twitter.com/" target="_blank">
                     <img class="FooterLogo" src="../assets/twitterlogo.png" alt="..." />
                     </a>
-                    <a href="#">
+                    <a href="https://www.facebook.com/" target="_blank">
                     <img class="FooterLogo" src="../assets/facebookFooter.png" alt="..." />
                     </a>
-                    <a href="#">
+                    <a href="https://www.instagram.com/" target="_blank">
                     <img class="FooterLogo" style="width:9%;" src="../assets/InstagramFooter.png" alt="..." />
                     </a>
                 </div>

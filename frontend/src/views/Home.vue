@@ -129,14 +129,14 @@ export default {
       audioDescribed:false,
       carousel:[
         {
-          title:"cool",
+          title:"good stuff",
           image:"http://localhost:8080/img/endgame-long.jpg",
           text:"yes"
         },
         {
-          title:"cool",
+          title:"Iron Man dies ",
           image:"http://localhost:8080/img/endgame-long.jpg",
-          text:"yes"
+          text:"ah nahh"
         },
         {
           title:"cool",

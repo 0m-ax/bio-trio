@@ -94,6 +94,11 @@ export default new Router({
           name: "admin-theatre",
         component: () =>
       import("./views/admin/TheatreManagement.vue")
-    }
+    },
+     {
+    path: "/booking/:screeningID",
+        name:"booking",
+        component:() =>import("./views/booking/user_booking.vue")
+     }
   ]
 });
