@@ -5,6 +5,7 @@
             <tr>
                 <th scope="col">Film</th>
                 <th scope="col">Time</th>
+                <th scope="col">Hall</th>
                 <th scope="col">Tickets</th>
             </tr>
             </thead>
@@ -12,6 +13,7 @@
             <tr v-for="order in orders">
                 <td>{{order.movie.name}}</td>
                 <td>{{moment(order.screening.startTime).format("HH:mm Do MMMM")}}</td>
+                <td>{{order.screeningHallName}}</td>
                 <td>{{order.tickets.length}} <router-link :to="{ name: 'user-order', params: { orderID:order.orderNumber }}">View Tickets</router-link> </td>
             </tr>
             </tbody>

@@ -19,6 +19,9 @@ public interface OrderTicket {
     @Value("#{target.getTickets()[0].getScreening()}")
     Screening getScreening();
 
+    @Value("#{target.getTickets()[0].getScreening().getScreenHall().getName()}")
+    String getScreeningHallName();
+
     @Value("#{target.getTickets()}")
     List<Ticket> getTickets();
 }
