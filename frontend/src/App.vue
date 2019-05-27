@@ -25,12 +25,18 @@
 
 .page{
   margin-top: 56px;
+  height: 100%;
 }
 
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: calc(100% - 70px);
+
+}
+html, body {
+  height: 100%;
 }
 
 .footer {

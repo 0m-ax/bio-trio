@@ -35,9 +35,13 @@
         text-align: left;
         background-color:darkgrey;
         font-weight: bold;
-        margin-bottom: 0;
-        bottom: 0;
+        margin-bottom: 0px;
+        bottom: 0px;
         justify-content: space-between;
+        position: relative;
+        margin-top: 0px; /* negative value of footer height */
+        height: 70px;
+        clear:both;
     }
     footer{
 
@@ -48,7 +52,7 @@
             max-height: 70px;
         }
         p{
-            margin-bottom: 0;
+            margin-bottom: 0px;
         }
     }
     .FooterLogo{

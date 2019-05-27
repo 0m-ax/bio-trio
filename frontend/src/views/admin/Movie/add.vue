@@ -1,5 +1,5 @@
 <template>
-    <div class="movieAdd">
+    <div>
         <h1>{{items.name}}</h1>
         <MovieForm v-on:submit="save()" v-model="items"/>
     </div>

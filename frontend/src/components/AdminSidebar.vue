@@ -8,12 +8,12 @@
             </a>
             <h2>Services</h2>
             <ul>
-                <li><a href="/admin/cal">Calendar Management</a></li>
-                <li><a href="/admin/TheatreManagement">Theatre Management</a></li>
-                <li><a href="/admin/ScheduleManagement">Schedule Management</a></li>
-                <li><a href="/admin/Movie">Movie Management</a></li>
-                <li><a href="/admin/CarouselManagement">Carousel Management</a></li>
-                <li><a href="/admin/Order">Order Management</a></li>
+                <a href="/admin/cal"><li>Calendar Management</li></a>
+                <a href="/admin/TheatreManagement"><li>Theatre Management</li></a>
+                <a href="/admin/ScheduleManagement"><li>Schedule Management</li></a>
+                <a href="/admin/Movie"><li>Movie Management</li></a>
+                <a href="/admin/CarouselManagement"><li>Carousel Management</li></a>
+                <a href="/admin/Order"><li>Order Management</li></a>
             </ul>
         </div>
     </div>
@@ -30,6 +30,9 @@
         margin-left: 20px;
         margin-top: 15px;
     }
+    a:hover{
+        text-decoration: none;
+    }
     #sideBar.active{
         left: 0px;
     }
@@ -43,12 +46,16 @@
         transition: all 500ms linear;
     }
     #sideBar ul li{
+        color: white;
         list-style: none;
-        margin-top: 15px;
-        margin-bottom: 2px;
-        margin-left: 20px;
-        margin-right: 20px;
+        padding: 20px;
         border-bottom: solid 1px grey;
+
+    }
+    #sideBar ul li:hover{
+        border-left: solid 5px orange;
+        background-color: #353535;
+        text-decoration: none;
     }
     #sideBar .toggle-sideBar {
         position: absolute;
