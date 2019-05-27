@@ -13,6 +13,7 @@ public interface OrderTicket {
 
     int getOrderNumber();
 
+    OrderStatus getOrderStatus();
     @Value("#{target.getTickets()[0].getScreening().getMovie()}")
     Movie getMovie();
 
