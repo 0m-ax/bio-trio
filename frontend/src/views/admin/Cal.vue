@@ -1,5 +1,6 @@
 <template>
     <div class="home">
+        <AdminSidebar />
         <div class="container">
             <div class="row">
                 <div class="col-1 cal-col">
@@ -90,9 +91,12 @@
 </template>
 
 <script>
+    import AdminSidebar from "../../components/AdminSidebar"
+
     export default {
         name: "home",
         components: {
+            AdminSidebar
         },
         data() {
             let times = [];
@@ -104,7 +108,7 @@
                             hours:1,
                             mins:30
                         },
-                        name:"End game",
+                        name:"Endgame",
                     },
                     interval:{
                         hours:1,

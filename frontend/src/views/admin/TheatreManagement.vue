@@ -1,5 +1,17 @@
 <template>
     <div>
-        <h1>Thatre</h1>
+        <AdminSidebar />
     </div>
 </template>
+
+<script>
+    import AdminSidebar from "../../components/AdminSidebar"
+
+    export default {
+        components:{
+            AdminSidebar
+        }
+
+    }
+
+</script>

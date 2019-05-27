@@ -54,16 +54,22 @@ export default new Router({
       import("./views/admin/Movie/Movies.vue")
     },
     {
+        path: "/admin/Movie/add",
+            name: "admin-movie-add",
+        component: () =>
+        import("./views/admin/Movie/add.vue")
+    },
+    {
         path: "/admin/Movie/:movieID",
             name: "admin-movie",
         component: () =>
         import("./views/admin/Movie/MovieEdit.vue")
     },
     {
-      path: "/admin/OrderManagement",
+      path: "/admin/Order",
           name: "admin-order",
         component: () =>
-      import("./views/admin/OrderManagement.vue")
+      import("./views/admin/Order/Orders.vue")
     },
     {
       path: "/admin/ScheduleManagement",
