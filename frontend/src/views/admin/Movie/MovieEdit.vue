@@ -19,7 +19,7 @@
         methods:{
             async loadData(){
                 let resp = await client.get("/movies/"+this.$route.params.movieID);
-                this.items = resp.data
+                this.items = resp.data;
                 this.loading=false;
             },
             async save(){
