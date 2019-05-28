@@ -127,6 +127,8 @@
 </style>
 
 <script>
+
+
     export default {
         props: {
             items: {

@@ -1,5 +1,6 @@
 <template>
     <div class="home">
+        <NavbarSticky v-model="mFilter" :locations="locations" :days="days"/>
         <AdminSidebar />
         <div class="container">
             <div class="row">
@@ -26,8 +27,8 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-5">
-                    <button v-on:click="add()">add one</button>
                     <div class="card"  v-if="screenings[active]" style="margin-bottom: 16px;">
                         <div class="card-body">
                             <h5 class="card-title">{{screenings[active].film.name}}</h5>
@@ -39,13 +40,7 @@
                                 <div class="form-group">
                                     <label>Interval Time</label>
                                     <div class="input-group">
-                                        <input class="form-control" type="number" min="0" max="24"  v-model="screenings[active].interval.hours">
-                                        <div class="input-group-append">
-                                            <span class="input-group-text">Hours</span>
-                                        </div>
-                                    </div>
-                                    <div class="input-group">
-                                        <input class="form-control"  type="number" min="0" max="59" v-model="screenings[active].interval.mins">
+                                        <input class="form-control"  type="number" min="0" v-model="screenings[active].interval.mins">
                                         <div class="input-group-append">
                                             <span class="input-group-text">Mins</span>
                                         </div>
@@ -54,13 +49,7 @@
                             <div class="form-group">
                                 <label>Film Duration</label>
                                 <div class="input-group">
-                                    <input class="form-control" type="number" min="0" max="24" disabled v-model="screenings[active].film.duration.hours">
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">Hours</span>
-                                    </div>
-                                </div>
-                                <div class="input-group">
-                                    <input class="form-control"  type="number" min="0" max="59" disabled v-model="screenings[active].film.duration.mins">
+                                    <input class="form-control"  type="number" min="0" disabled v-model="screenings[active].film.duration.mins">
                                     <div class="input-group-append">
                                         <span class="input-group-text">Mins</span>
                                     </div>
@@ -69,13 +58,7 @@
                             <div class="form-group">
                                 <label>ADs Time</label>
                                 <div class="input-group">
-                                    <input class="form-control" type="number" min="0" max="24"  v-model="screenings[active].ads.hours">
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">Hours</span>
-                                    </div>
-                                </div>
-                                <div class="input-group">
-                                    <input class="form-control"  type="number" min="0" max="59" v-model="screenings[active].ads.mins">
+                                    <input class="form-control"  type="number" min="0" v-model="screenings[active].ads.mins">
                                     <div class="input-group-append">
                                         <span class="input-group-text">Mins</span>
                                     </div>
@@ -84,19 +67,41 @@
                             </p>
                         </div>
                     </div>
+                        <div>
+                            <input type="text" v-model="search" placeholder="Search Movies"/>
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th class="TableID" scope="col">ID</th>
+                                    <th class="TableName" scope="col">Name</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr v-for="movie in filteredMovies" v-bind:key="movie.id">
+                                    <th scope="row">{{movie.movieID}}</th>
+                                    <td>{{movie.name}}</td>
+                                    <td class="movieAdd"><button v-on:click="add()">add movie</button></td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
                 </div>
+
             </div>
         </div>
     </div>
 </template>
 
 <script>
-    import AdminSidebar from "../../components/AdminSidebar"
-
+    import client from "../../api.js"
+    import AdminSidebar from "../../components/AdminSidebar";
+    import NavbarSticky from "../../components/NavbarSticky";
+    import moment from "moment"
     export default {
         name: "home",
         components: {
-            AdminSidebar
+            AdminSidebar,NavbarSticky
         },
         data() {
             let times = [];
@@ -127,14 +132,81 @@
                     text:("0" + i).slice(-2)+":00"
                 });
             }
+
             return {
+                search:'',
                 i:2,
                 times,
                 screenings,
-                active:''
+                active:'',
+                items:[],
+                mFilter:{
+                    day:null,
+                    location:null,
+                    audioDescribed:false,
+                    thirdDimension:false
+                },
+                locations:[
+                    {
+                        value:1,
+                        text:"Broadbottom, Tameside"
+                    },
+                    {
+                        value:2,
+                        text:"Penistone, Barnsley"
+                    },
+                    {
+                        value:3,
+                        text:"Cock Bridge, Hope"
+                    }
+                ],
+                days:[
+                    {
+                        value:1,
+                        text:"Today"
+                    },
+                    {
+                        value:2,
+                        text:"Tommrow"
+                    },        {
+                        value:3,
+                        text:moment().add(2, 'days').format("Do MMM")
+                    },        {
+                        value:4,
+                        text:moment().add(3, 'days').format("Do MMM")
+                    },        {
+                        value:5,
+                        text:moment().add(4, 'days').format("Do MMM")
+                    },
+                ],
+                thirdDimension:false,
+                audioDescribed:false,
+                carousel:[
+                    {
+                        title:"good stuff",
+                        image:"http://localhost:8080/img/endgame-long.jpg",
+                        text:"yes"
+                    },
+                    {
+                        title:"Iron Man dies ",
+                        image:"http://localhost:8080/img/endgame-long.jpg",
+                        text:"ah nahh"
+                    },
+                    {
+                        title:"cool",
+                        image:"http://localhost:8080/img/endgame-long.jpg",
+                        text:"yes"
+                    }
+                ],
+
             }
         },
         methods:{
+            async loadData(){
+                let resp = await client.get("/movies");
+                this.items = resp.data._embedded.movies;
+                this.loading=false;
+            },
             click(id){
                 this.active=id;
             },
@@ -185,7 +257,20 @@
                     }
                 });
             }
-        }
+        },
+
+        computed:{
+            filteredMovies: function () {
+                return this.items.filter((movie) => {
+                    return movie.name.toLocaleLowerCase().match(this.search.toLocaleLowerCase())
+                })
+            }
+
+        },
+
+        created(){
+            this.loadData()
+        },
     };
 </script>
 
@@ -195,7 +280,7 @@
         width: 70px;
     }
     .container{
-        padding-top: calc(15px);
+        padding-top: calc(100px);
     }
     .cal-col{
         position: relative;
