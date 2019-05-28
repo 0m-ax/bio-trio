@@ -10,8 +10,8 @@ INSERT INTO `db_example`.`users` (`userid`, `active`, `address`, `email`, `first
 INSERT INTO `db_example`.`user_role` (`userid`, `role_id`) VALUES (1, 1);
 INSERT INTO `db_example`.`cinemas` (`cinemaid`, `address`, `description`) VALUES (1, '14 larchway', 'A old place');
 INSERT INTO `db_example`.`screen_halls` (`screen_hallid`, `name`, `cinemaid`) VALUES (1, 'Blue Theater', 1);
-INSERT INTO `db_example`.`screen_halls` (`screen_hallid`, `name`, `cinemaid`) VALUES (1, 'Red Theater', 2);
-INSERT INTO `db_example`.`screen_halls` (`screen_hallid`, `name`, `cinemaid`) VALUES (1, 'Orange Theater', 3);
+INSERT INTO `db_example`.`screen_halls` (`screen_hallid`, `name`, `cinemaid`) VALUES (2, 'Red Theater', 1);
+INSERT INTO `db_example`.`screen_halls` (`screen_hallid`, `name`, `cinemaid`) VALUES (3, 'Orange Theater', 1);
 
 INSERT INTO `db_example`.`seats` (`seatid`, `seat_name`, `x`, `y`, `screen_hallid`) VALUES (1, '1A', '0', '0', 1);
 INSERT INTO `db_example`.`seats` (`seatid`, `seat_name`, `x`, `y`, `screen_hallid`) VALUES (2, '2A', '50', '0', 1);
@@ -168,8 +168,8 @@ INSERT INTO `db_example`.`seats` (`seatid`, `seat_name`, `x`, `y`, `screen_halli
 INSERT INTO `db_example`.`seats` (`seatid`, `seat_name`, `x`, `y`, `screen_hallid`) VALUES (146, '7H', '250', '350', 1);
 INSERT INTO `db_example`.`seats` (`seatid`, `seat_name`, `x`, `y`, `screen_hallid`) VALUES (147, '6H', '300', '350', 1);
 INSERT INTO `db_example`.`seats` (`seatid`, `seat_name`, `x`, `y`, `screen_hallid`) VALUES (148, '8H', '350', '350', 1);
-INSERT INTO `db_example`.`seats` (`seatid`, `seat_name`, `x`, `y`, `screen_hallid`) VALUES (159, '9H', '400', '350', 1);
-INSERT INTO `db_example`.`seats` (`seatid`, `seat_name`, `x`, `y`, `screen_hallid`) VALUES (160, '10H', '450', '350', 1);
+INSERT INTO `db_example`.`seats` (`seatid`, `seat_name`, `x`, `y`, `screen_hallid`) VALUES (149, '9H', '400', '350', 1);
+INSERT INTO `db_example`.`seats` (`seatid`, `seat_name`, `x`, `y`, `screen_hallid`) VALUES (150, '10H', '450', '350', 1);
 INSERT INTO `db_example`.`seats` (`seatid`, `seat_name`, `x`, `y`, `screen_hallid`) VALUES (151, '11H', '500', '350', 1);
 INSERT INTO `db_example`.`seats` (`seatid`, `seat_name`, `x`, `y`, `screen_hallid`) VALUES (152, '12H', '550', '350', 1);
 INSERT INTO `db_example`.`seats` (`seatid`, `seat_name`, `x`, `y`, `screen_hallid`) VALUES (153, '13H', '600', '350', 1);
@@ -467,6 +467,10 @@ INSERT INTO `db_example`.`seats` (`seatid`, `seat_name`, `x`, `y`, `screen_halli
 INSERT INTO `db_example`.`seats` (`seatid`, `seat_name`, `x`, `y`, `screen_hallid`) VALUES (424, '8F', '350', '250', 3);
 
 INSERT INTO `db_example`.`movie` (`movieid`, `age_rating`, `description`, `genre`, `image`, `length`, `name`, `renting_end`, `renting_start`, `video`) VALUES (1, 'G', 'In turn of the century London, a magical nanny employs music and adventure to help two neglected children become closer to their father.', 'Fantasyfilm/Musical', 'http://localhost:8080/img/mary-popins.jpg', 140, 'Mary Poppins', null, null, 'https://www.youtube-nocookie.com/embed/YfkEQDPlb8g');
-insert INTO `db_example`.`screenings` (`screeningid`, `cleaning`, `start_time`, `movieid`, `projectionist_employeid`, `screen_hallid`) VALUES (1, 20, '2019-05-23 13:22:44', 1, 1, 1);
-INSERT INTO `db_example`.`orders` (`order_number`,`order_status`, `customerid`) VALUES (1,'1', 1);
-INSERT INTO `db_example`.`tickets` (`ticketid`,`ticket_number`, `ticket_status`, `order_number`, `screeningid`, `seatid`) VALUES (1,'1', '1', 1, 1, 1)
+insert INTO `db_example`.`screenings` (`screeningid`, `cleaning`, `start_time`, `movieid`, `projectionist_employeid`, `screen_hallid`,`cost`) VALUES (1, 20, '2019-05-23 13:22:44', 1, 1, 1,3500);
+INSERT INTO `db_example`.`order_status` (`order_statusid`,`name`,`seat_taken`,`usable`) VALUES (1,"Awaiting payment",TRUE,FALSE);
+INSERT INTO `db_example`.`order_status` (`order_statusid`,`name`,`seat_taken`,`usable`) VALUES (2,"Paid",TRUE,TRUE);
+INSERT INTO `db_example`.`order_status` (`order_statusid`,`name`,`seat_taken`,`usable`) VALUES (3,"Refunded",FALSE,FALSE);
+INSERT INTO `db_example`.`order_status` (`order_statusid`,`name`,`seat_taken`,`usable`) VALUES (4,"Payment Cancled",FALSE,FALSE);
+INSERT INTO `db_example`.`orders` (`order_number`,`order_statusid`, `customerid`) VALUES (1,1, 1);
+INSERT INTO `db_example`.`tickets` (`ticketid`,`ticket_number`, `ticket_status`, `order_number`, `screeningid`, `seatid`,`cost`) VALUES (1,'1', '1', 1, 1, 1,3500)

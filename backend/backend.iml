@@ -26,6 +26,11 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="org.springframework.boot:spring-boot-starter-data-rest:2.1.5.RELEASE" level="project" />
+    <orderEntry type="library" name="com.paypal.sdk:checkout-sdk:1.0.0" level="project" />
+    <orderEntry type="library" name="org.json:json:20180813" level="project" />
+    <orderEntry type="library" name="Maven: com.paypal.sdk:checkout-sdk:1.0.0" level="project" />
+    <orderEntry type="library" name="Maven: com.braintreepayments:braintreehttp:1.3.1" level="project" />
+    <orderEntry type="library" name="Maven: org.json:json:20180813" level="project" />
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:8.0.15" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-rest-hal-browser:3.1.6.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-rest-webmvc:3.1.6.RELEASE" level="project" />
@@ -41,12 +46,15 @@
     <orderEntry type="library" name="Maven: io.katharsis:katharsis-servlet:3.0.2" level="project" />
     <orderEntry type="library" name="Maven: io.katharsis:katharsis-core:3.0.2" level="project" />
     <orderEntry type="library" name="Maven: net.jodah:typetools:0.4.4" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.8.1" level="project" />
     <orderEntry type="library" name="Maven: com.google.guava:guava:15.0" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-orm:5.1.6.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-beans:5.1.6.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-jdbc:5.1.6.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-tx:5.1.6.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: com.paypal.sdk:checkout-sdk:1.0.0" level="project" />
+    <orderEntry type="library" name="Maven: com.braintreepayments:braintreehttp:1.3.1" level="project" />
+    <orderEntry type="library" name="Maven: org.json:json:20180813" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.8.1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-security:2.1.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter:2.1.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:2.1.4.RELEASE" level="project" />

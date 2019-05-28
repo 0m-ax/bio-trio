@@ -2,6 +2,7 @@ package com.biotrio.backend.model;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="seats")
@@ -19,6 +20,8 @@ public class Seat {
     )
     private ScreenHall screenHall;
 
+    @OneToMany(mappedBy = "seat")
+    private List<Ticket> tickets;
     public Seat(){
     }
 
@@ -72,5 +75,13 @@ public class Seat {
 
     public ScreenHall getScreenHall() {
         return screenHall;
+    }
+
+    public List<Ticket> getTickets() {
+        return tickets;
+    }
+
+    public void setTickets(List<Ticket> tickets) {
+        this.tickets = tickets;
     }
 }

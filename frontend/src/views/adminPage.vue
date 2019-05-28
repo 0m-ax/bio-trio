@@ -30,18 +30,6 @@
         padding-bottom:70px; /* this needs to be bigger than footer height*/
     }
 
-    .footer {
-        position: relative;
-        margin-top: -70px; /* negative value of footer height */
-        height: 70px;
-        clear:both;
-    }
-
-    .navbar{
-        visibility: hidden;
-        height: 1px;
-    }
-
 </style>
 
 <script>
