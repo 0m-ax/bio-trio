@@ -8,8 +8,8 @@
                             <option v-for="location in locations" v-bind:value="location.name">{{location.text}}</option>
                         </select>
                         <label v-if="days.length != 0" class="my-1 mr-2" for="day">Day: </label>
-                        <select v-if="days.length != 0" v-on:change="onChange()" class="form-control my-1 mr-sm-2" id="day">
-                            <option v-for="day in days" v-bind:value="day.name">{{day.text}}</option>
+                        <select v-if="days.length != 0" v-model="value.day" v-on:change="onChange()" class="form-control my-1 mr-sm-2" id="day">
+                            <option v-for="day in days" v-bind:value="day.value">{{day.text}}</option>
                         </select>
                         <div v-if="value.thirdDimension != null" class="form-check form-check-inline">
                             <input class="form-check-input" v-on:change="onChange()" type="checkbox" id="3d" value="option1" v-model="value.thirdDimension">

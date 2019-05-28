@@ -1,8 +1,19 @@
 <template>
     <div class="home">
-        <NavbarSticky v-model="mFilter" :locations="locations" :days="days"/>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary border border-dark rounded-sm">
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                <form class="form-inline mr-auto">
+                    <label class="my-1 mr-2" for="location">Location: </label>
+                    <select v-on:change="onChange" class="form-control my-1 mr-sm-2" id="location" v-model="screenHallID">
+                        <option v-for="screeningHall in screeningHalls" v-bind:value="screeningHall.screenHallID">{{screeningHall.name}}</option>
+                    </select>
+                    <label class="my-1 mr-2" for="day">Day: </label>
+                    <DateInput v-on:input="onChange" class="form-control mr-sm-2" id="day" v-model="date"/>
+                </form>
+            </div>
+        </nav>
         <AdminSidebar />
-        <div class="container">
+        <div class="container cal-contain">
             <div class="row">
                 <div class="col-1 cal-col">
                     <div class="card-hold">
@@ -55,24 +66,15 @@
                                         </div>
                                     </div>
                                 </div>
-                            <!--<div class="form-group">-->
-                                <!--<label>Film Duration</label>-->
-                                <!--<div class="input-group">-->
-                                    <!--<input class="form-control"  type="number" min="0" disabled v-model="screenings[active].film.duration.mins">-->
-                                    <!--<div class="input-group-append">-->
-                                        <!--<span class="input-group-text">Mins</span>-->
-                                    <!--</div>-->
-                                <!--</div>-->
-                            <!--</div>-->
-                            <!--<div class="form-group">-->
-                                <!--<label>ADs Time</label>-->
-                                <!--<div class="input-group">-->
-                                    <!--<input class="form-control"  type="number" min="0" v-model="screenings[active].ads.mins">-->
-                                    <!--<div class="input-group-append">-->
-                                        <!--<span class="input-group-text">Mins</span>-->
-                                    <!--</div>-->
-                                <!--</div>-->
-                            <!--</div>-->
+                                <div class="form-group">
+                                    <label>Cost</label>
+                                    <div class="input-group">
+                                        <input class="form-control"  type="number" min="0" v-model="screenings[active].cost">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">kr</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </p>
                         </div>
                     </div>
@@ -86,17 +88,17 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr v-for="movie in filteredMovies" v-bind:key="movie.id">
+                                <tr v-for="(movie,movieID) in filteredMovies" v-bind:key="movie.id">
                                     <th scope="row">{{movie.movieID}}</th>
                                     <td>{{movie.name}}</td>
-                                    <td class="movieAdd"><button v-on:click="add()">add movie</button></td>
+                                    <td class="movieAdd"><button v-on:click="add(movieID)">add movie</button></td>
                                 </tr>
                                 </tbody>
                             </table>
                         </div>
                 </div>
             </div>
-            <button v-on:click="save">Save</button>
+            <button v-on:click="save">Save {{screenHallID}}</button>
         </div>
     </div>
 </template>
@@ -106,11 +108,12 @@
     import AdminSidebar from "../../components/AdminSidebar";
     import NavbarSticky from "../../components/NavbarSticky";
     import TimeInput from "../../components/TimeInput";
+    import DateInput from "../../components/DateInput";
     import moment from "moment"
     export default {
         name: "home",
         components: {
-            AdminSidebar,NavbarSticky,TimeInput
+            AdminSidebar,NavbarSticky,TimeInput,DateInput
         },
         data() {
             let times = [];
@@ -120,68 +123,37 @@
                     text:("0" + i).slice(-2)+":00"
                 });
             }
-
             return {
-                date:new Date("2019-05-23"),
+                date:new Date(),
                 search:'',
                 i:2,
                 times,
+                screeningHalls:[],
                 screenings:[],
                 active:'',
                 movies:[],
-                screenHallID:1,
-                mFilter:{
-                    day:null,
-                    location:null,
-                    audioDescribed:false,
-                    thirdDimension:false
-                },
-                locations:[
-                    {
-                        value:1,
-                        text:"Broadbottom, Tameside"
-                    },
-                    {
-                        value:2,
-                        text:"Penistone, Barnsley"
-                    },
-                    {
-                        value:3,
-                        text:"Cock Bridge, Hope"
-                    }
-                ],
-                days:[
-                    {
-                        value:1,
-                        text:"Today"
-                    },
-                    {
-                        value:2,
-                        text:"Tommrow"
-                    },        {
-                        value:3,
-                        text:moment().add(2, 'days').format("Do MMM")
-                    },        {
-                        value:4,
-                        text:moment().add(3, 'days').format("Do MMM")
-                    },        {
-                        value:5,
-                        text:moment().add(4, 'days').format("Do MMM")
-                    },
-                ],
-                thirdDimension:false,
-                audioDescribed:false,
+                screenHallID:null
             }
         },
         methods:{
+            async onChange(){
+                await this.save()
+                await this.loadData();
+            },
             async loadData(){
+                this.loading=true;
                 function parseISOLocal(s) {
                     var b = s.split(/\D/);
                     return new Date(b[0], b[1]-1, b[2], b[3], b[4], b[5]);
                 }
                 let respM = await client.get("/movies");
                 this.movies = respM.data._embedded.movies;
-                let respS = await client.get("/screenings/search/findByStartTime?startTime=2019-05-23&projection=ScreeningInfo");
+                let respH = await client.get("screenHalls");
+                this.screeningHalls = respH.data._embedded.screenHalls;
+                if(this.screenHallID == null){
+                    this.screenHallID = 1;
+                }
+                let respS = await client.get("/screenings/search/findByStartTime?screenHallID="+this.screenHallID+"&startTime="+this.date.getFullYear()+"-"+("0"+(this.date.getMonth()+1)).slice(-2)+"-"+("0"+this.date.getDate()).slice(-2)+"&projection=ScreeningInfo");
                 let screeningData = respS.data._embedded.screenings.map(screening=>{
                     screening.startTime = parseISOLocal(screening.startTime);
                     return screening;
@@ -224,7 +196,8 @@
                         movie:"movie/"+screening.movie.movieID,
                         cleaning:screening.cleaning,
                         screeningID:screening.screeningID,
-                        screenHall:"screenHall/"+this.screenHallID
+                        screenHall:"screenHall/"+this.screenHallID,
+                        cost:screening.cost
                     };
                 });
                 for(let item of data){
@@ -249,11 +222,12 @@
                 console.log(this.screenings)
                 return time/24
             },
-            add(){
+            add(movieID){
                 this.screenings[Math.random()] ={
-                    movie: this.movies[0],
+                    movie: this.movies[movieID],
                     cleaning:10,
-                    startTime:new Date(this.date)
+                    startTime:new Date(this.date),
+                    cost:0,
                 };
                 this.$forceUpdate();
             }
@@ -279,8 +253,8 @@
     .input-group-text{
         width: 70px;
     }
-    .container{
-        padding-top: calc(100px);
+    .cal-contain{
+        padding-top: 15px;
     }
     .cal-col{
         position: relative;

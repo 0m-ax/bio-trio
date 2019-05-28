@@ -14,4 +14,5 @@ public interface ScreeningInfo {
     int getCleaning();
     Movie getMovie();
     ScreenHall getScreenHall();
+    int getCost();
 }

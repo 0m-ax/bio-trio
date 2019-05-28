@@ -8,7 +8,7 @@
 INSERT INTO `db_example`.`role` (`role_id`, `role`) VALUES (1, 'ADMIN');
 INSERT INTO `db_example`.`users` (`userid`, `active`, `address`, `email`, `first_name`, `last_name`, `password`, `phone`) VALUES (1, 1, '50 frankrigade', 'bobross@biotrio.com', 'Bob', 'Ross', '$2a$10$KCw8w.qBBmtT1/iFGaUMDeCi8qzepUI5HL4nXV4GDltQtb616lAWi', '+447984114662');
 INSERT INTO `db_example`.`user_role` (`userid`, `role_id`) VALUES (1, 1);
-INSERT INTO `db_example`.`cinemas` (`cinemaid`, `address`, `description`) VALUES (1, '14 larchway', 'A old place');
+INSERT INTO `db_example`.`cinemas` (`cinemaid`, `address`, `description`,`name`) VALUES (1, '14 larchway, glossop, SK138RY', 'A old place','14 larchway');
 INSERT INTO `db_example`.`screen_halls` (`screen_hallid`, `name`, `cinemaid`) VALUES (1, 'Blue Theater', 1);
 INSERT INTO `db_example`.`screen_halls` (`screen_hallid`, `name`, `cinemaid`) VALUES (2, 'Red Theater', 1);
 INSERT INTO `db_example`.`screen_halls` (`screen_hallid`, `name`, `cinemaid`) VALUES (3, 'Orange Theater', 1);

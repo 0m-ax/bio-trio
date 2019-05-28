@@ -10,7 +10,7 @@ import java.sql.Timestamp;
         types = { Screening.class })
 public interface ScreeningMovie {
     Timestamp getStartTime();
-
+    int getScreeningID();
     @Value("#{target.getScreenHall().getCinema()}")
     Cinema getCinema();
 

@@ -8,7 +8,7 @@
             <div class="image" style="padding-top: 15px; padding-left: 15px; padding-bottom: 15px; float: left;">
                 <h1>{{screening.movie.name}}</h1>
                 <ul>
-                    <li style="font-size: 20px ">{{moment(screening.startTime).format("HH:mm Do MMM")}}</li>
+                    <li style="font-size: 20px ">{{moment(parseISOLocal(screening.startTime)).format("HH:mm Do MMM")}}</li>
                     <li>{{screening.movie.length}}</li>
                     <li>End time: 17:00</li>
                     <li>Rateing: {{screening.movie.ageRating}}</li>
@@ -66,6 +66,10 @@
                     }
                 }
                 this.$forceUpdate();
+            },
+            parseISOLocal(s) {
+                var b = s.split(/\D/);
+                return new Date(b[0], b[1]-1, b[2], b[3], b[4], b[5]);
             },
             async getOrder(){
                 let respO = await api.get("screenings/"+this.$route.params.screeningID+"?projection=ScreeningSeats");

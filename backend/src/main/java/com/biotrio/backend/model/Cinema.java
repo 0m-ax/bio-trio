@@ -12,14 +12,15 @@ public class Cinema {
 
     private String address;
     private String description;
-
+    private String name;
     public Cinema(){
 
     }
 
-    public Cinema(String address, String description) {
+    public Cinema(String address, String description,String name) {
         this.address = address;
         this.description = description;
+        this.name = name;
     }
 
     public int getCinemaID() {
@@ -49,5 +50,13 @@ public class Cinema {
     @Override
     public String toString(){
         return "cinemas{}";
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

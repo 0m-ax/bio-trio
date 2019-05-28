@@ -11,6 +11,6 @@ import java.util.List;
 
 @Repository
 public interface SeatRepo extends CrudRepository<Seat, Integer> {
-    @Query("select se from  Screening s JOIN s.screenHall h JOIN h.seats se JOIN se.tickets t JOIN t.order o JOIN o.orderStatus os WHERE s.screeningID = ?1 AND os.seatTaken = TRUE")
+    @Query("select se from  Screening s JOIN s.tickets t JOIN t.order o join o.orderStatus os join t.seat se where os.usable = FALSE and s.screeningID = ?1")
     List<Seat> getByAvalibleForScreeningID(Integer screeningID);
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <Carousel :items="carousel" />
-    <NavbarSticky v-model="mFilter" :locations="locations" :days="days"/>
+    <NavbarSticky v-model="mFilter" :locations="locations" :days="dates"/>
     <Films :items="films"></Films>
   </div>
 </template>
@@ -36,10 +36,6 @@ export default {
   },
   computed:{
     films(){
-      function parseISOLocal(s) {
-        var b = s.split(/\D/);
-        return new Date(b[0], b[1]-1, b[2], b[3], b[4], b[5]);
-      }
       return groupBy(this.screenings,item=>item.movie.movieID).map((screenings)=>{
         let movie = screenings[0].movie;
         return {
@@ -48,29 +44,30 @@ export default {
           image:movie.image,
           description:movie.description,
           id:movie.movieID,
-          times:screenings.map((screening)=>{
-            return moment(parseISOLocal(screening.startTime)).format("HH mm");
-          })
+          times:screenings
+              .filter((item)=>this.parseISOLocal(item.startTime).toLocaleDateString()==this.mFilter.day)
+              .map((screening)=>{
+                return {
+                  text:moment(this.parseISOLocal(screening.startTime)).format("HH mm"),
+                  id:screening.screeningID
+                }
+            })
         }
       })
-      // return this.movies.map((movie)=>{
-      //   return {
-      //     times:movie.times.filter((time)=>{
-      //       return (this.mFilter.audioDescribed?time.audioDescribed:true)&&
-      //               (this.mFilter.thirdDimension?time.thirdDimension:true)
-      //     }),
-      //     name:movie.name,
-      //     video:movie.video,
-      //     image:movie.image,
-      //     description:movie.description,
-      //     id:movie.id,
-      //   }
-      // }).filter((movie)=>movie.times.length > 0)
-      //   .map((movie)=>{
-      //     movie.times = movie.times.map((time)=>time.time+(time.thirdDimension?" (3D)":"")+(time.audioDescribed?" (AD)":""));
-      //     return movie
-      //   })
-    }
+
+    },
+      dates(){
+          return groupBy(this.screenings,item=>this.parseISOLocal(item.startTime).toDateString())
+              .map((screenings)=>{
+                  return this.parseISOLocal(screenings[0].startTime)
+              })
+              .map((time)=>{
+                  return {
+                      value:time.toLocaleDateString(),
+                      text:time.toLocaleDateString()
+                  }
+              })
+      }
   },
   methods:{
     async populate(){
@@ -80,8 +77,13 @@ export default {
             screenings
           }
         }
-      } = await client.get("/screenings?projection=ScreeningMovie")
+      } = await client.get("/screenings/search/getByCinemaID?chinemaID=1&projection=ScreeningMovie")
       this.screenings = screenings;
+      this.mFilter.day = this.dates[0].value;
+    },
+    parseISOLocal(s) {
+      var b = s.split(/\D/);
+      return new Date(b[0], b[1]-1, b[2], b[3], b[4], b[5]);
     }
   },
   created(){
@@ -93,22 +95,10 @@ export default {
       mFilter:{
         day:null,
         location:null,
-        audioDescribed:false,
-        thirdDimension:false
+        audioDescribed:null,
+        thirdDimension:null
       },
       locations:[
-          {
-              value:1,
-              text:"Broadbottom, Tameside"
-          },
-          {
-              value:2,
-              text:"Penistone, Barnsley"
-          },
-          {
-              value:3,
-              text:"Cock Bridge, Hope"
-          }
       ],
       days:[
         {
@@ -148,46 +138,6 @@ export default {
           text:"yes"
         }
        ],
-      screenings: []
-      // movies:[
-      //   {
-      //     name:"Mary Poppins",
-      //     image:"http://localhost:8080/img/mary-popins.jpg",
-      //     video:"https://www.youtube-nocookie.com/embed/fuWf9fP-A-U",
-      //     times:[
-      //       {
-      //         "time":"10:30",
-      //         audioDescribed:false,
-      //         thirdDimension:false
-      //       }
-      //     ],
-      //     id:"10"
-      //   },
-      //   {
-      //     name:"Avengers: Endgame",
-      //     image:"http://localhost:8080/img/engameposter.jpg",
-      //     video:"https://www.youtube-nocookie.com/embed/TcMBFSGVi1c",
-      //     description:"Adrift in space with no food or water, Tony Stark sends a message to Pepper Potts as his oxygen supply starts to dwindle. Meanwhile, the remaining Avengers -- Thor, Black Widow, Captain America and Bruce Banner -- must figure out a way to bring back their vanquished allies for an epic showdown with Thanos -- the evil demigod who decimated the planet and the universe.\n",
-      //     times:[
-      //       {
-      //         "time":"10:30",
-      //         audioDescribed:true,
-      //         thirdDimension:false
-      //       },
-      //       {
-      //         "time":"11:30",
-      //         audioDescribed:false,
-      //         thirdDimension:true
-      //       },
-      //       {
-      //         "time":"12:30",
-      //         audioDescribed:false,
-      //         thirdDimension:false
-      //       }
-      //     ],
-      //     id:"20"
-      //   }
-      // ]
     }
   }
 };

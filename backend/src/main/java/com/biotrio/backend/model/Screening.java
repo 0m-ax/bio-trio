@@ -3,6 +3,7 @@ package com.biotrio.backend.model;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.List;
 
 @Entity
 @Table(name = "screenings")
@@ -27,7 +28,8 @@ public class Screening {
             name = "projectionistEmployeID"
     )
     private User projectionist;
-
+    @OneToMany(mappedBy = "screening")
+    private List<Ticket> tickets;
     @ManyToOne
     @JoinColumn(
             name = "screenHallID"
@@ -104,5 +106,13 @@ public class Screening {
 
     public void setCost(int cost) {
         this.cost = cost;
+    }
+
+    public List<Ticket> getTickets() {
+        return tickets;
+    }
+
+    public void setTickets(List<Ticket> tickets) {
+        this.tickets = tickets;
     }
 }

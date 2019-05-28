@@ -16,7 +16,7 @@ import java.util.List;
 public interface ScreeningRepo extends JpaRepository<Screening, Integer> {
     @Query("select s from  Screening s JOIN s.screenHall h JOIN h.cinema c WHERE c.cinemaID = ?1")
     List<Screening> getByCinemaID(Integer chinemaID);
-    @Query("select s from Screening  s where YEAR(?1) = YEAR(s.startTime) AND MONTH(?1) = MONTH(s.startTime) AND DAY(?1)+1= (DAY(s.startTime))")
-    public List<Screening> findByStartTime(Date startTime);
+    @Query("select s from Screening  s join s.screenHall h WHERE YEAR(?1) = YEAR(s.startTime) AND MONTH(?1) = MONTH(s.startTime) AND DAY(?1)+1= (DAY(s.startTime)) AND h.screenHallID = ?2")
+    public List<Screening> findByStartTime(Date startTime,int screenHallID);
 
 }
