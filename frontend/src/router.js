@@ -84,16 +84,28 @@ export default new Router({
         import("./views/admin/Movie/MovieEdit.vue")
     },
     {
-      path: "/admin/Order",
-          name: "admin-order",
+      path: "/admin/orders",
+          name: "admin-orders",
         component: () =>
       import("./views/admin/Order/Orders.vue")
     },
     {
-      path: "/admin/ScheduleManagement",
-          name: "admin-schedule",
+        path: "/admin/order",
+            name: "admin-order",
         component: () =>
-      import("./views/admin/ScheduleManagement.vue")
+        import("./views/admin/Order/Order.vue")
+    },
+    {
+        path: "/admin/orderAdd",
+            name: "admin-orderAdd",
+        component: () =>
+        import("./views/admin/Order/OrderAdd.vue")
+    },
+    {
+        path: "/admin/orderEdit",
+            name: "admin-orderEdit",
+        component: () =>
+        import("./views/admin/Order/OrderEdit.vue")
     },
     {
       path: "/admin/TheatreManagement",
