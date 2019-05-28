@@ -42,6 +42,7 @@
             onSubmit(ev){
                 ev.preventDefault()
                 this.$emit('submit')
+                alert("The movie is updated!");
             }
         }
     }
