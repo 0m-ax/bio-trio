@@ -58,4 +58,12 @@ public class ScreenHall {
     public void setCinema(Cinema cinema) {
         this.cinema = cinema;
     }
+
+    public List<Seat> getSeats() {
+        return seats;
+    }
+
+    public void setSeats(List<Seat> seats) {
+        this.seats = seats;
+    }
 }

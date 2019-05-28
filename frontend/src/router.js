@@ -41,6 +41,12 @@ export default new Router({
     component: () =>
     import("./views/user/Order/Order.vue")
 },
+{
+    path: "/screening/:screeningID",
+        name: "screening-order",
+    component: () =>
+    import("./views/Screening.vue")
+},
     {
       path: "/movie",
       name: "movie",
@@ -94,11 +100,6 @@ export default new Router({
           name: "admin-theatre",
         component: () =>
       import("./views/admin/TheatreManagement.vue")
-    },
-     {
-    path: "/booking/:screeningID",
-        name:"booking",
-        component:() =>import("./views/booking/user_booking.vue")
-     }
+    }
   ]
 });

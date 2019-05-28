@@ -9,8 +9,11 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int orderNumber;
-
-    private String orderStatus;
+    @ManyToOne
+    @JoinColumn(
+            name = "orderStatusID"
+    )
+    private OrderStatus orderStatus;
 
 
     @ManyToOne
@@ -25,8 +28,9 @@ public class Order {
     public Order() {
     }
 
-    public Order(String orderStatus, int customerID) {
+    public Order(OrderStatus orderStatus, User customer) {
         this.orderStatus = orderStatus;
+        this.customer = customer;
     }
 
     public int getOrderNumber() {
@@ -37,11 +41,11 @@ public class Order {
         this.orderNumber = orderNumber;
     }
 
-    public String getOrderStatus() {
+    public OrderStatus getOrderStatus() {
         return orderStatus;
     }
 
-    public void setOrderStatus(String orderStatus) {
+    public void setOrderStatus(OrderStatus orderStatus) {
         this.orderStatus = orderStatus;
     }
 
