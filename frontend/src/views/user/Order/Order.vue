@@ -14,9 +14,9 @@
                     {{ticket.cost/100}}kr
                 </li>
             </ul>
-            Total: {{(order.tickets.reduce((total,ticket)=>ticket.cost,0)/100)}}kr
+            Total: {{(order.tickets.reduce((total,ticket)=>total+ticket.cost,0)/100)}}kr
             <PayPal
-                    :amount="(order.tickets.reduce((total,ticket)=>ticket.cost,0)/100).toString()"
+                    :amount="(order.tickets.reduce((total,ticket)=>total+ticket.cost,0)/100).toString()"
                     currency="DKK"
                     :client="credentials"
                     v-on:payment-authorized="paymentAuthed"
