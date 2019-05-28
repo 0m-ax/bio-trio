@@ -23,7 +23,7 @@
             <rect stroke="#000" height="5" v-bind:width="size.x+40-10" v-bind:y="size.y+40+5" x="5"  stroke-width="0" fill="#fff"/>
         </svg>
         <ul>
-            <li v-for="seatID in Array.from(selectedSeats)">{{screening.seats.find(seat=>seat.seatID == seatID).seatName}}</li>
+            <li v-for="seatID in Array.from(selectedSeats)">{{screening.seats.find(seat=>seat.seatID == seatID).seatName}} @ {{screening.cost/100}}kr</li>
         </ul>
         <button v-on:click="book">Book</button>
     </div>

@@ -32,16 +32,17 @@ public class Ticket {
     )
     private Order order;
 
-
+    private int cost;
 
     public Ticket(){
 
     }
 
-    public Ticket(Screening screening,Seat seat,Order order) {
+    public Ticket(Screening screening,Seat seat,Order order,int cost) {
         this.order = order;
         this.screening = screening;
         this.seat = seat;
+        this.cost = cost;
     }
 
     public int getTicketID() {
@@ -80,6 +81,14 @@ public class Ticket {
 
     public void setScreening(Screening screening) {
         this.screening = screening;
+    }
+
+    public int getCost() {
+        return cost;
+    }
+
+    public void setCost(int cost) {
+        this.cost = cost;
     }
 }
 

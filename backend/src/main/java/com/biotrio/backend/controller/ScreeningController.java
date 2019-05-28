@@ -75,7 +75,7 @@ public class ScreeningController {
         List<Ticket> tickets = new LinkedList<>();
         while (wantedFinalIterator.hasNext()) {
             Seat seatWanted = wantedFinalIterator.next();
-            tickets.add(new Ticket(screening.get(),seatWanted,order));
+            tickets.add(new Ticket(screening.get(),seatWanted,order,screening.get().getCost()));
         }
         orderRepo.save(order);
         ticketRepo.saveAll(tickets);

@@ -467,10 +467,10 @@ INSERT INTO `db_example`.`seats` (`seatid`, `seat_name`, `x`, `y`, `screen_halli
 INSERT INTO `db_example`.`seats` (`seatid`, `seat_name`, `x`, `y`, `screen_hallid`) VALUES (424, '8F', '350', '250', 3);
 
 INSERT INTO `db_example`.`movie` (`movieid`, `age_rating`, `description`, `genre`, `image`, `length`, `name`, `renting_end`, `renting_start`, `video`) VALUES (1, 'G', 'In turn of the century London, a magical nanny employs music and adventure to help two neglected children become closer to their father.', 'Fantasyfilm/Musical', 'http://localhost:8080/img/mary-popins.jpg', 140, 'Mary Poppins', null, null, 'https://www.youtube-nocookie.com/embed/YfkEQDPlb8g');
-insert INTO `db_example`.`screenings` (`screeningid`, `cleaning`, `start_time`, `movieid`, `projectionist_employeid`, `screen_hallid`) VALUES (1, 20, '2019-05-23 13:22:44', 1, 1, 1);
+insert INTO `db_example`.`screenings` (`screeningid`, `cleaning`, `start_time`, `movieid`, `projectionist_employeid`, `screen_hallid`,`cost`) VALUES (1, 20, '2019-05-23 13:22:44', 1, 1, 1,35);
 INSERT INTO `db_example`.`order_status` (`order_statusid`,`name`,`seat_taken`,`usable`) VALUES (1,"Awaiting payment",TRUE,FALSE);
 INSERT INTO `db_example`.`order_status` (`order_statusid`,`name`,`seat_taken`,`usable`) VALUES (2,"Paid",TRUE,TRUE);
 INSERT INTO `db_example`.`order_status` (`order_statusid`,`name`,`seat_taken`,`usable`) VALUES (3,"Refunded",FALSE,FALSE);
 INSERT INTO `db_example`.`order_status` (`order_statusid`,`name`,`seat_taken`,`usable`) VALUES (4,"Payment Cancled",FALSE,FALSE);
 INSERT INTO `db_example`.`orders` (`order_number`,`order_statusid`, `customerid`) VALUES (1,1, 1);
-INSERT INTO `db_example`.`tickets` (`ticketid`,`ticket_number`, `ticket_status`, `order_number`, `screeningid`, `seatid`) VALUES (1,'1', '1', 1, 1, 1)
+INSERT INTO `db_example`.`tickets` (`ticketid`,`ticket_number`, `ticket_status`, `order_number`, `screeningid`, `seatid`,`cost`) VALUES (1,'1', '1', 1, 1, 1,3500)

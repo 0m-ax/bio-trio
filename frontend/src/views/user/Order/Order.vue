@@ -9,10 +9,15 @@
             </div>
         </div>
         <div v-if="order.orderStatus.orderStatusID == 1">
-            <button v-on:click="pay">Pay now</button>
+            <ul>
+                <li v-for="ticket in order.tickets">
+                    {{ticket.cost/100}}kr
+                </li>
+            </ul>
+            Total: {{(order.tickets.reduce((total,ticket)=>ticket.cost,0)/100)}}kr
             <PayPal
-                    amount="10.00"
-                    currency="USD"
+                    :amount="(order.tickets.reduce((total,ticket)=>ticket.cost,0)/100).toString()"
+                    currency="DKK"
                     :client="credentials"
                     v-on:payment-authorized="paymentAuthed"
                     v-on:payment-completed="paymentComplete"

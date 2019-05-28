@@ -15,4 +15,5 @@ public interface ScreeningSeats {
     List<Seat> getSeats();
     Movie getMovie();
     Timestamp getStartTime();
+    int getCost();
 }
