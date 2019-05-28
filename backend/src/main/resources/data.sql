@@ -10,8 +10,8 @@ INSERT INTO `db_example`.`users` (`userid`, `active`, `address`, `email`, `first
 INSERT INTO `db_example`.`user_role` (`userid`, `role_id`) VALUES (1, 1);
 INSERT INTO `db_example`.`cinemas` (`cinemaid`, `address`, `description`) VALUES (1, '14 larchway', 'A old place');
 INSERT INTO `db_example`.`screen_halls` (`screen_hallid`, `name`, `cinemaid`) VALUES (1, 'Blue Theater', 1);
-INSERT INTO `db_example`.`screen_halls` (`screen_hallid`, `name`, `cinemaid`) VALUES (1, 'Red Theater', 2);
-INSERT INTO `db_example`.`screen_halls` (`screen_hallid`, `name`, `cinemaid`) VALUES (1, 'Orange Theater', 3);
+INSERT INTO `db_example`.`screen_halls` (`screen_hallid`, `name`, `cinemaid`) VALUES (2, 'Red Theater', 1);
+INSERT INTO `db_example`.`screen_halls` (`screen_hallid`, `name`, `cinemaid`) VALUES (3, 'Orange Theater', 1);
 
 INSERT INTO `db_example`.`seats` (`seatid`, `seat_name`, `x`, `y`, `screen_hallid`) VALUES (1, '1A', '0', '0', 1);
 INSERT INTO `db_example`.`seats` (`seatid`, `seat_name`, `x`, `y`, `screen_hallid`) VALUES (2, '2A', '50', '0', 1);
@@ -168,8 +168,8 @@ INSERT INTO `db_example`.`seats` (`seatid`, `seat_name`, `x`, `y`, `screen_halli
 INSERT INTO `db_example`.`seats` (`seatid`, `seat_name`, `x`, `y`, `screen_hallid`) VALUES (146, '7H', '250', '350', 1);
 INSERT INTO `db_example`.`seats` (`seatid`, `seat_name`, `x`, `y`, `screen_hallid`) VALUES (147, '6H', '300', '350', 1);
 INSERT INTO `db_example`.`seats` (`seatid`, `seat_name`, `x`, `y`, `screen_hallid`) VALUES (148, '8H', '350', '350', 1);
-INSERT INTO `db_example`.`seats` (`seatid`, `seat_name`, `x`, `y`, `screen_hallid`) VALUES (159, '9H', '400', '350', 1);
-INSERT INTO `db_example`.`seats` (`seatid`, `seat_name`, `x`, `y`, `screen_hallid`) VALUES (160, '10H', '450', '350', 1);
+INSERT INTO `db_example`.`seats` (`seatid`, `seat_name`, `x`, `y`, `screen_hallid`) VALUES (149, '9H', '400', '350', 1);
+INSERT INTO `db_example`.`seats` (`seatid`, `seat_name`, `x`, `y`, `screen_hallid`) VALUES (150, '10H', '450', '350', 1);
 INSERT INTO `db_example`.`seats` (`seatid`, `seat_name`, `x`, `y`, `screen_hallid`) VALUES (151, '11H', '500', '350', 1);
 INSERT INTO `db_example`.`seats` (`seatid`, `seat_name`, `x`, `y`, `screen_hallid`) VALUES (152, '12H', '550', '350', 1);
 INSERT INTO `db_example`.`seats` (`seatid`, `seat_name`, `x`, `y`, `screen_hallid`) VALUES (153, '13H', '600', '350', 1);

@@ -10,6 +10,15 @@
         </div>
         <div v-if="order.orderStatus.orderStatusID == 1">
             <button v-on:click="pay">Pay now</button>
+            <PayPal
+                    amount="10.00"
+                    currency="USD"
+                    :client="credentials"
+                    v-on:payment-authorized="paymentAuthed"
+                    v-on:payment-completed="paymentComplete"
+                    :invoice-number="$route.params.orderID.toString()+':'+Math.random()"
+                    env="sandbox">
+            </PayPal>
         </div>
     </div>
 </template>
@@ -40,6 +49,8 @@
     // @ is an alias to /src
     import moment from "moment";
     import api from "../../../api.js"
+    import PayPal from 'vue-paypal-checkout'
+
     export default {
         name: "user-order",
         created(){
@@ -51,14 +62,28 @@
                 this.order = resp.data;
             },
             async pay(){
-                let resp = await api.get("orders/"+this.$route.params.orderID+"/pay");
+                let resp = await api.get("orders/"+this.$route.params.orderID+"/pay?paypalOrderID="+"");
                 await this.getOrder();
+            },
+            async paymentComplete(event){
+                let resp = await api.get("orders/"+this.$route.params.orderID+"/pay?paypalOrderID="+event.cart);
+                console.log(resp)
+                await this.getOrder();
+            },
+            async paymentAuthed(event){
+                console.log(event)
             }
+        },
+        components: {
+            PayPal
         },
         data(){
             return {
                 moment:moment,
-                order:[]
+                order:[],
+                credentials: {
+                    sandbox: 'AYi6ynH1fwYMY1XdyMOK0YK-QJsiRxFMueAO1Ck96X528D_deV2RwDIEIQ3Yf9r_TuVzQ-SZNXNv9j8B',
+                }
             }
         }
     };
