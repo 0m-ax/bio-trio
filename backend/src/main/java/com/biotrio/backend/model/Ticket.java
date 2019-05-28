@@ -16,34 +16,33 @@ public class Ticket {
 
     @ManyToOne
     @JoinColumn(
-            name = "screeningID",
-            foreignKey = @ForeignKey(name = "FKtickets768009", value = ConstraintMode.NO_CONSTRAINT)
+            name = "screeningID"
     )
     private Screening screening;
 
     @ManyToOne
     @JoinColumn(
-            name = "seatID",
-            foreignKey = @ForeignKey(name = "FKorders391475", value = ConstraintMode.NO_CONSTRAINT)
+            name = "seatID"
     )
     private Seat seat;
 
     @ManyToOne
     @JoinColumn(
-            name = "OrderNumber",
-            foreignKey = @ForeignKey(name = "FKtickets650174", value = ConstraintMode.NO_CONSTRAINT)
+            name = "OrderNumber"
     )
     private Order order;
 
-
+    private int cost;
 
     public Ticket(){
 
     }
 
-    public Ticket(String ticketNumber, String ticketStatus, int screeningID, int orderNumber, int seatID) {
-        this.ticketNumber = ticketNumber;
-        this.ticketStatus = ticketStatus;
+    public Ticket(Screening screening,Seat seat,Order order,int cost) {
+        this.order = order;
+        this.screening = screening;
+        this.seat = seat;
+        this.cost = cost;
     }
 
     public int getTicketID() {
@@ -82,6 +81,14 @@ public class Ticket {
 
     public void setScreening(Screening screening) {
         this.screening = screening;
+    }
+
+    public int getCost() {
+        return cost;
+    }
+
+    public void setCost(int cost) {
+        this.cost = cost;
     }
 }
 

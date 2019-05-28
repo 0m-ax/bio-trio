@@ -22,6 +22,7 @@
             <input type="text" v-model="value.image" v-on:change="onChange" class="form-control" placeholder="image">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
+        <router-link style="margin-left:20px" to='/admin/Movie' type="button" class="btn btn-primary">Go Back </router-link>
     </form>
 </template>
 
@@ -41,6 +42,7 @@
             onSubmit(ev){
                 ev.preventDefault()
                 this.$emit('submit')
+                alert("The movie is updated!");
             }
         }
     }

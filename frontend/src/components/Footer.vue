@@ -1,9 +1,11 @@
 <template>
+
     <footer>
+        <div class="border-line"></div>
         <div class="container-fluid footer  ">
             <div class="row">
-                <div class="col">
-                    <a href="/"><img src="../../../backend/src/main/resources/static/img/logo.png" style="height: 50%; margin-top: 10px"/></a>
+                <div class="col-footer-logo">
+                    <a href="/"><img class="col-footer-logo" src="../../../backend/src/main/resources/static/img/logo.png" style="height: 50%; margin-top: 10px"/></a>
                     <p style="color: #717171">© 2019 Bio-Trio</p>
                 </div>
                 <div class="col align-self-center">
@@ -31,18 +33,32 @@
 </template>
 
 <style lang="scss">
+
+    .col-footer-logo{
+        width: 150px;
+        margin-right: 25px;
+    }
+    .border-line{
+        margin-top: 20px;
+        display: block;
+        padding: 1px;
+        border-top: solid 2px #bababa;
+    }
     .footer{
+
         text-align: left;
         font-weight: bold;
         margin-bottom: 0px;
         bottom: 0px;
         justify-content: space-between;
         background-color: #2E2E2E;
+
     }
     footer{
-
         .row{
             max-height: 70px;
+            width: 60%;
+            margin: auto;
         }
         .col{
             max-height: 70px;
