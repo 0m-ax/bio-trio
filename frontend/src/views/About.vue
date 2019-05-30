@@ -100,8 +100,9 @@
 
   .follow-p{
     text-align: center;
-    margin-top:10px;
+    padding-top: 10px;
     width: 500px;
+    margin: auto;
   }
 
   .map-container-6{
@@ -120,8 +121,12 @@
 
   .media-logo{
     width: 200px;
-    margin-left: 30px;
-    display: block;
+    margin:auto;
+  }
+  .media-logo a img{
+    width: 50px;
+    margin-left: 5px;
+    margin-right: 5px;
   }
   </style>
 

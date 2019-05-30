@@ -10,7 +10,7 @@
         </div>
         <div v-if="order.orderStatus.orderStatusID == 1">
             <ul>
-                <li v-for="ticket in order.tickets">
+                <li class="ticket-list" v-for="ticket in order.tickets">
                     {{ticket.cost/100}}kr
                 </li>
             </ul>
@@ -29,8 +29,14 @@
 </template>
 
 <style>
+    .ticket-list{
+        border: solid 1px white;
+        list-style: none;
+        display: inline-block;
+        margin: 10px;
+    }
     .spacing{
-        padding: 40px;
+        padding: 20px;
     }
     .order-page{
         margin: auto;
