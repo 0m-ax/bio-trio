@@ -99,6 +99,10 @@ export default {
         thirdDimension:null
       },
       locations:[
+        {
+          "name":1,
+          "text":"BioTrio"
+        }
       ],
       days:[
         {
