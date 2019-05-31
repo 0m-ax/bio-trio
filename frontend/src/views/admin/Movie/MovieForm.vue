@@ -1,4 +1,5 @@
 <template>
+    <div class="container">
     <form v-on:submit="onSubmit">
         <div class="form-group mb-4">
             <input type="text" v-model="value.name" v-on:change="onChange" class="form-control" placeholder="Enter name">
@@ -24,6 +25,7 @@
         <button type="submit" class="btn btn-primary">Submit</button>
         <router-link style="margin-left:20px" to='/admin/Movie' type="button" class="btn btn-primary">Go Back </router-link>
     </form>
+    </div>
 </template>
 
 <script>

@@ -1,4 +1,6 @@
 <template>
+    <div class="container">
+
     <form v-on:submit="onSubmit">
         <div class="form-group mb-4">
             <input type="text" v-model="value.title" v-on:change="onChange" class="form-control" placeholder="Enter title">
@@ -12,6 +14,7 @@
         <button type="submit" class="btn btn-primary">Submit</button>
         <router-link style="margin-left:20px" to='/admin/' type="button" class="btn btn-primary">Go Back </router-link>
     </form>
+    </div>
 </template>
 
 <script>

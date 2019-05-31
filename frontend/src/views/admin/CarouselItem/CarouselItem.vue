@@ -1,5 +1,5 @@
 <template>
-    <div class="CarouselItem">
+    <div class="CarouselItem container">
         <AdminSidebar />
         <div class="Spacer"></div>
         <div class="movieBtn">

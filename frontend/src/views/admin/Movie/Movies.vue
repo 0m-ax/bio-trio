@@ -1,5 +1,5 @@
 <template>
-    <div class="Movie">
+    <div class="Movie container">
         <AdminSidebar />
         <div class="Spacer"></div>
         <div class="movieBtn">
@@ -88,10 +88,6 @@
         background-color: white;
     }
     */
-    .Movie{
-    margin-left: 400px;
-    width: 60%;
-}
 
 </style>
 

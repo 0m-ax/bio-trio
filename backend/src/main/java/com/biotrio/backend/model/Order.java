@@ -27,7 +27,9 @@ public class Order {
 
     public Order() {
     }
-
+    public Order(OrderStatus orderStatus) {
+        this.orderStatus = orderStatus;
+    }
     public Order(OrderStatus orderStatus, User customer) {
         this.orderStatus = orderStatus;
         this.customer = customer;

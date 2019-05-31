@@ -26,6 +26,10 @@
                         <a href="" v-on:click="logout" class="dropdown-item">Logout</a>
                     </div>
                 </div>
+                <div class="text-center" v-if='this.$store.state.user && this.$store.state.user.roles.find((role)=>role.id = "ADMIN")'>
+                    <router-link to="/admin" class="btn btn-default btn-rounded" >Admin Area</router-link>
+                </div>
+
                 <!-- END OF SIGN UP FORM-->
             </div>
         </nav>

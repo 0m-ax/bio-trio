@@ -1,6 +1,8 @@
 <template>
-    <div>
-        <h1>{{items.name}}</h1>
+    <div class="container">
+        <AdminSidebar />
+
+    <h1>{{items.name}}</h1>
         <MovieForm v-on:submit="save" v-model="items"/>
 
     </div>
@@ -10,10 +12,13 @@
 
     import MovieForm from "./MovieForm";
     import client from "../../../api.js"
+    import AdminSidebar from "../../../components/AdminSidebar"
+
     export default {
 
         components: {
-            MovieForm
+            MovieForm,
+            AdminSidebar
         },
 
         methods:{

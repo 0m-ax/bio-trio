@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
         <CarouselItemForm v-on:submit="save()" v-model="items"/>
     </div>
 </template>

@@ -1,16 +1,25 @@
 <template>
-    <div class="Order">
+    <div class="Order container">
         <AdminSidebar />
         <table class="table">
             <thead>
             <tr>
                 <th scope="col">Order Number</th>
+                <th scope="col">Movie</th>
+                <th scope="col">Hall</th>
+                <th scope="col">Time</th>
+                <th scope="col">Tickets</th>
                 <th scope="col">Order Status</th>
+                <th scope="col">Edit Status</th>
             </tr>
             </thead>
             <tbody>
             <tr v-for="order in items" v-bind:key="order.orderNumber">
                 <th scope="row">{{order.orderNumber}}</th>
+                <td>{{order.movie.name}}</td>
+                <td>{{order.screeningHallName}}</td>
+                <td>{{order.screening.startTime}}</td>
+                <td>{{order.tickets.length}}</td>
                 <td>{{order.orderStatus.name}}</td>
                 <td class="TableEdit">
                     <div class="dropdown">
@@ -53,13 +62,10 @@
                 this.loading=false;
             },
             async save(id,orderNumber){
-                let resp = await client.put("/orders/"+orderNumber,{
-                    "_links":{
-                        "orderStatus":{
-                            "href":"orderStatus/"+id
-                        }
-                    }
-                });
+                let resp = await client.put("/orders/"+orderNumber+"/orderStatus",
+                    {"_links":{"orderStatus": {"href" : "orderStatus/"+id, "rel" : "orderStatus"} }}
+                );
+                this.loadData()
             }
         },
         created(){

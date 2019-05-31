@@ -33,7 +33,7 @@ public class ScreeningController {
         this.orderStatusRepo = orderStatusRepo;
     }
     @RequestMapping(method = POST, value = "/{screeningID}/book")
-    public @ResponseBody ResponseEntity<?> getProducers(@PathVariable(value="screeningID") int id, @RequestBody List<Integer> seatIDs) {
+    public @ResponseBody ResponseEntity<?> getProducers(@PathVariable(value="screeningID") int id, @RequestBody List<Integer> seatIDs,@RequestParam boolean bookAsAdmin) {
         Optional<Screening> screening = screeningRepo.findById(id);
         if(!screening.isPresent()){
             return ResponseEntity.notFound().build();
@@ -43,9 +43,9 @@ public class ScreeningController {
         seatRepo.findAllById(seatIDs).forEach(wantedSeats::add);
         List<Seat> seatsInUse = seatRepo.getByAvalibleForScreeningID(id);
         boolean seatBooked = false;
-        Iterator<Seat> inUserIterator = seatsInUse.iterator();
-        while (inUserIterator.hasNext()) {
-            Seat seatInUser = inUserIterator.next();
+        Iterator<Seat> inUseIterator = seatsInUse.iterator();
+        while (inUseIterator.hasNext()) {
+            Seat seatInUser = inUseIterator.next();
             Iterator<Seat> wantedIterator = wantedSeats.iterator();
             while (wantedIterator.hasNext()) {
                 Seat seatWanted = wantedIterator.next();
@@ -70,7 +70,15 @@ public class ScreeningController {
         }
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userRepo.findByEmail(auth.getName());
-        Order order = new Order(orderStatusRepo.findById(1).get(),user);
+        if(user == null){
+            return ResponseEntity.badRequest().build();
+        }
+        Order order;
+        if(bookAsAdmin){
+            order = new Order(orderStatusRepo.findById(2).get());
+        }else{
+            order = new Order(orderStatusRepo.findById(1).get(),user);
+        }
         Iterator<Seat> wantedFinalIterator = wantedSeats.iterator();
         List<Ticket> tickets = new LinkedList<>();
         while (wantedFinalIterator.hasNext()) {

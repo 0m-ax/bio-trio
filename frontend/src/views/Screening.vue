@@ -26,6 +26,8 @@
             <li v-for="seatID in Array.from(selectedSeats)">{{screening.seats.find(seat=>seat.seatID == seatID).seatName}} @ {{screening.cost/100}}kr</li>
         </ul>
         <button v-on:click="book">Book</button>
+        <button v-on:click="book($event,true)" v-if='this.$store.state.user && this.$store.state.user.roles.find((role)=>role.id = "ADMIN")'>Book for Customer</button>
+
     </div>
 </template>
 
@@ -52,6 +54,9 @@
             }
         },
         methods:{
+            async bookForCustomer(){
+
+            },
             async seatClick(seatID){
                 if(this.takenSeats.has(seatID)){
                     return;
@@ -77,7 +82,7 @@
                 let respS = await api.get("seats/search/getByAvalibleForScreeningID?screeningID="+this.$route.params.screeningID);
                 this.takenSeats = new Set(respS.data._embedded.seats.map((seat)=>seat.seatID));
             },
-            async book(e){
+            async book(e,bookAsAdmin){
                 e.preventDefault();
                 if(this.selectedSeats.size < 1){
                     alert("please select a seat");
@@ -85,7 +90,13 @@
                 }
                 if(this.$store.state.user){
                     try {
-                        let resp = await api.post("screenings/"+this.$route.params.screeningID+"/book",Array.from(this.selectedSeats));
+                        let url = "screenings/"+this.$route.params.screeningID+"/book"
+                        if(bookAsAdmin){
+                            url+="?bookAsAdmin=true"
+                        }else{
+                            url+="?bookAsAdmin=false"
+                        }
+                        let resp = await api.post(url,Array.from(this.selectedSeats));
                         console.log(resp);
                         this.$router.push({
                             name:"user-order",

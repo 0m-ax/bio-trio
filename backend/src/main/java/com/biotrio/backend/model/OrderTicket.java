@@ -5,6 +5,7 @@ import org.springframework.data.rest.core.config.Projection;
 
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Projection(
         name = "OrderTicket",
@@ -25,4 +26,5 @@ public interface OrderTicket {
 
     @Value("#{target.getTickets()}")
     List<Ticket> getTickets();
+
 }

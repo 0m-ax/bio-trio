@@ -102,28 +102,10 @@ export default new Router({
         import("./views/admin/CarouselItem/CarouselItemEdit.vue")
     },
     {
-      path: "/admin/orders",
+      path: "/admin/Order",
           name: "admin-orders",
         component: () =>
       import("./views/admin/Order/Orders.vue")
-    },
-    {
-        path: "/admin/order",
-            name: "admin-order",
-        component: () =>
-        import("./views/admin/Order/Order.vue")
-    },
-    {
-        path: "/admin/orderAdd",
-            name: "admin-orderAdd",
-        component: () =>
-        import("./views/admin/Order/OrderAdd.vue")
-    },
-    {
-        path: "/admin/orderEdit",
-            name: "admin-orderEdit",
-        component: () =>
-        import("./views/admin/Order/OrderEdit.vue")
     },
     {
       path: "/admin/TheatreManagement",
