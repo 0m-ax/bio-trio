@@ -49,7 +49,7 @@
             <li v-for="seatID in Array.from(selectedSeats)">{{screening.seats.find(seat=>seat.seatID == seatID).seatName}} @ {{screening.cost/100}}kr</li>
         </ul>
         <button v-on:click="book">Book</button>
-        <button v-on:click="book($event,true)" v-if='$store.state.user && $store.state.user.roles.find((role)=>role.id = 2)'>Book for Customer</button>
+        <button v-on:click="book($event,true)" v-if='$store.state.user && $store.state.user.roles.find((role)=>role.id == 2)'>Book for Customer</button>
 
         </div>
         </div>
