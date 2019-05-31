@@ -266,6 +266,14 @@
 
 <style lang="scss">
 
+    .cal-contain{
+        margin-left: 400px;
+
+    }
+    .container{
+        max-width: 70%;
+    }
+
     .input-group-text{
         width: 70px;
     }

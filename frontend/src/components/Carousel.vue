@@ -27,6 +27,9 @@
 
 <style lang="scss">
 
+    .carousel-caption{
+        background-color: rgba(0,0,0,0.7);
+    }
     .bio-trio-carousel{
         max-height: 720px;
         .carousel-item {
