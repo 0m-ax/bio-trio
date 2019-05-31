@@ -118,13 +118,17 @@
                 }
             },
             async login(){
-                let resp = await api.post("../login",{
-                    username:this.loginUsername,
-                    password:this.loginPassword,
-                });
-                await this.$store.dispatch("fetchUser");
-                window.$(this.$refs.login).modal('hide');
-                console.log(resp)
+                try {
+                    let resp = await api.post("../login",{
+                        username:this.loginUsername,
+                        password:this.loginPassword,
+                    });
+                    await this.$store.dispatch("fetchUser");
+                    window.$(this.$refs.login).modal('hide');
+                    console.log(resp)
+                }catch (e) {
+                    alert("Error logging in")
+                }
             }
         }
     };

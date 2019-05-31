@@ -39,7 +39,7 @@
     }
 
     #sideBar{
-        z-index: 99999;
+        z-index: 1029;
         position: fixed;
         width: 300px;
         height: 100%;

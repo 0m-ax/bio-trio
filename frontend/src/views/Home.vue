@@ -53,7 +53,7 @@ export default {
                 }
             })
         }
-      })
+      }).filter((movie)=>movie.times.length > 0)
 
     },
       dates(){
