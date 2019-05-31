@@ -471,6 +471,6 @@ insert INTO `db_example`.`screenings` (`screeningid`, `cleaning`, `start_time`, 
 INSERT INTO `db_example`.`order_status` (`order_statusid`,`name`,`seat_taken`,`usable`) VALUES (1,"Awaiting payment",TRUE,FALSE);
 INSERT INTO `db_example`.`order_status` (`order_statusid`,`name`,`seat_taken`,`usable`) VALUES (2,"Paid",TRUE,TRUE);
 INSERT INTO `db_example`.`order_status` (`order_statusid`,`name`,`seat_taken`,`usable`) VALUES (3,"Refunded",FALSE,FALSE);
-INSERT INTO `db_example`.`order_status` (`order_statusid`,`name`,`seat_taken`,`usable`) VALUES (4,"Payment Cancled",FALSE,FALSE);
+INSERT INTO `db_example`.`order_status` (`order_statusid`,`name`,`seat_taken`,`usable`) VALUES (4,"Payment cancelled",FALSE,FALSE);
 INSERT INTO `db_example`.`orders` (`order_number`,`order_statusid`, `customerid`) VALUES (1,1, 1);
 INSERT INTO `db_example`.`tickets` (`ticketid`,`ticket_number`, `ticket_status`, `order_number`, `screeningid`, `seatid`,`cost`) VALUES (1,'1', '1', 1, 1, 1,3500)

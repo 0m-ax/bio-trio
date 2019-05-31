@@ -6,16 +6,25 @@
             <tr>
                 <th scope="col">Order Number</th>
                 <th scope="col">Order Status</th>
-                <th scope="col">Customer ID</th>
             </tr>
             </thead>
             <tbody>
-            <tr v-for="order in items" v-bind:key="movie.id">
+            <tr v-for="order in items" v-bind:key="order.orderNumber">
                 <th scope="row">{{order.orderNumber}}</th>
-                <td>{{order.orderStatus}}</td>
-                <td>{{order.customer.customerID}} minutes</td>
-                <td><router-link :to="{ name: 'admin-order', params: { orderNumber:order.orderNumber }}">Editto</router-link></td>
-                <td><a href="">Deletto</a> </td>
+                <td>{{order.orderStatus.name}}</td>
+                <td class="TableEdit">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Edit order status
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <button class="dropdown-item" v-on:click="save(1,order.orderNumber)">Awaiting Payment</button>
+                            <button class="dropdown-item" v-on:click="save(2,order.orderNumber)">Paid</button>
+                            <button class="dropdown-item" v-on:click="save(3,order.orderNumber)">Refunded</button>
+                            <button class="dropdown-item" v-on:click="save(4,order.orderNumber)">Payment cancelled</button>
+                        </div>
+                    </div>
+                </td>
             </tr>
             </tbody>
         </table>
@@ -39,9 +48,18 @@
         },
         methods:{
             async loadData(){
-                let resp = await client.get("/orders");
+                let resp = await client.get("/orders?projection=OrderTicket");
                 this.items = resp.data._embedded.orders
                 this.loading=false;
+            },
+            async save(id,orderNumber){
+                let resp = await client.put("/orders/"+orderNumber,{
+                    "_links":{
+                        "orderStatus":{
+                            "href":"orderStatus/"+id
+                        }
+                    }
+                });
             }
         },
         created(){
@@ -49,11 +67,9 @@
         },
         data(){
             return {
-                items:[
+                items:[],
 
-                ]
             }
         },
-        name: "Films"
     };
 </script>
