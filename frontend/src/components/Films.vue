@@ -1,10 +1,8 @@
 <template>
 <div class="container">
     <div class="row movies">
-        <div v-for="movie in items" v-bind:key="movie.id" class="col-md-4 movie">
-            <div class="card poster" v-on:click="open(movie.id)" >
-
-                <img :src="movie.image" class="card-img" alt="...">
+        <div v-for="movie in items" v-bind:key="movie.id" class="col-md-4 movie" v-bind:class="{noopen:openMovie!=movie.id}">
+            <div class="card poster" v-on:click="open(movie.id)" v-bind:style="{backgroundImage:'url('+movie.image+')'}">
                 <div class="card-img-overlay" >
                     <h5 class="card-title">{{movie.name}}</h5>
                 </div>
@@ -42,10 +40,17 @@
     @import "../../node_modules/bootstrap/scss/functions";
     @import "../../node_modules/bootstrap/scss/variables";
     .movies {
+        .movie.noopen{
+            height: 150%;
+        }
         .movie {
+
             margin-bottom: 15px;
             margin-top: 15px;
             .poster {
+                background-position: center;
+                background-size: cover;
+                padding-bottom: 150%;
                 text-align: center;
                 border: 0px solid rgba(0,0,0,.125);
                 cursor: pointer;
