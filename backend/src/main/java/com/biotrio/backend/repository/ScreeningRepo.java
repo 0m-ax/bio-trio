@@ -14,9 +14,8 @@ import java.util.List;
 
 @RepositoryRestResource
 public interface ScreeningRepo extends JpaRepository<Screening, Integer> {
-    @Query("select s from  Screening s JOIN s.screenHall h JOIN h.cinema c WHERE c.cinemaID = ?1 and YEAR(CURRENT_DATE) = YEAR(s.startTime) AND MONTH(CURRENT_DATE) = MONTH(s.startTime) AND DAY(CURRENT_DATE)= (DAY(s.startTime))")
+    @Query("select s from  Screening s JOIN s.screenHall h JOIN h.cinema c WHERE c.cinemaID = ?1 and CURRENT_DATE < s.startTime")
     List<Screening> getByCinemaID(Integer chinemaID);
-    @Query("select s from Screening  s join s.screenHall h WHERE YEAR(?1) = YEAR(s.startTime) AND MONTH(?1) = MONTH(s.startTime) AND DAY(?1)= (DAY(s.startTime)) AND h.screenHallID = ?2")
+    @Query("select s from Screening  s join s.screenHall h WHERE YEAR(?1) = YEAR(s.startTime) AND MONTH(?1) = MONTH(s.startTime) AND ((DAY(?1)+1) >= DAY(s.startTime) OR (DAY(?1)-1) <= DAY(s.startTime)) AND h.screenHallID = ?2")
     public List<Screening> findByStartTime(Date startTime,int screenHallID);
-
 }

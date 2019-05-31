@@ -79,7 +79,11 @@ export default {
         }
       } = await client.get("/screenings/search/getByCinemaID?chinemaID=1&projection=ScreeningMovie")
       this.screenings = screenings;
-      this.mFilter.day = this.dates[0].value;
+      if(this.dates[0]){
+        this.mFilter.day = this.dates[0].value;
+      }
+      let resp = await client.get("carouselItems");
+      this.carousel =  resp.data._embedded.carouselItems;
     },
     parseISOLocal(s) {
       var b = s.split(/\D/);
@@ -104,43 +108,8 @@ export default {
           "text":"BioTrio"
         }
       ],
-      days:[
-        {
-          value:1,
-          text:"Today"
-        },
-        {
-          value:2,
-          text:"Tommrow"
-        },        {
-          value:3,
-          text:moment().add(2, 'days').format("Do MMM")
-        },        {
-          value:4,
-          text:moment().add(3, 'days').format("Do MMM")
-        },        {
-          value:5,
-          text:moment().add(4, 'days').format("Do MMM")
-        },
-      ],
-      thirdDimension:false,
-      audioDescribed:false,
       carousel:[
-        {
-          title:"good stuff",
-          image:"http://localhost:8080/img/endgame-long.jpg",
-          text:"yes"
-        },
-        {
-          title:"Iron Man dies ",
-          image:"http://localhost:8080/img/endgame-long.jpg",
-          text:"ah nahh"
-        },
-        {
-          title:"cool",
-          image:"http://localhost:8080/img/endgame-long.jpg",
-          text:"yes"
-        }
+
        ],
     }
   }

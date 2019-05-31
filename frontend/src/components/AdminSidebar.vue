@@ -9,8 +9,7 @@
             <h2>Services</h2>
             <ul>
                 <a href="/admin/cal"><li>Calendar Management</li></a>
-                <a href="/admin/TheatreManagement"><li>Theatre Management</li></a>
-                <a href="/admin/ScheduleManagement"><li>Schedule Management</li></a>
+                <!--<a href="/admin/TheatreManagement"><li>Theatre Management</li></a>-->
                 <a href="/admin/Movie"><li>Movie Management</li></a>
                 <a href="/admin/CarouselManagement"><li>Carousel Management</li></a>
                 <a href="/admin/Order"><li>Order Management</li></a>
@@ -38,6 +37,7 @@
     }
 
     #sideBar{
+        z-index: 99999;
         position: fixed;
         width: 300px;
         height: 100%;

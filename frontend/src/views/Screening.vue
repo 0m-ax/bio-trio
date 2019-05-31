@@ -1,9 +1,9 @@
 <template>
     <div class="container">
         <div class="header" style="height: 300px; position: relative;">
-            <div style="background-image: url('https://ichef.bbci.co.uk/news/660/cpsprodpb/1AF3/production/_106399860_avengers-endgame1.jpg'); background-size: cover; position: absolute; width: 100%; height: 100%; z-index: -1; opacity: 0.4;"></div>
+            <div v-bind:style="{backgroundImage:'url('+screening.movie.image+')'}" style="background-position: center; background-size: cover; position: absolute; width: 100%; height: 100%; z-index: -1; opacity: 0.4;"></div>
             <div class="image" style="height: 100%; padding-top: 15px; padding-left: 15px; padding-bottom: 15px; float: left;">
-                <img src="https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_.jpg" style="height: 100%;">
+                <img v-bind:src="screening.movie.image" style="height: 100%;">
             </div>
             <div class="image" style="padding-top: 15px; padding-left: 15px; padding-bottom: 15px; float: left;">
                 <h1>{{screening.movie.name}}</h1>

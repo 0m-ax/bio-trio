@@ -8,7 +8,7 @@
             <div class="carousel-inner bio-trio-carousel">
                 <div v-for="(item,index) in items" class="carousel-item" v-bind:class="{ active: index==0 }" v-bind:style="{ 'background-image': 'url('+item.image+')','background-size': item.size,'background-color': item.color }">
                     <div class="carousel-caption">
-                        <h5>{{item.title}}</h5>
+                        <h3>{{item.title}}</h3>
                         <p>{{item.text}}</p>
                     </div>
                 </div>

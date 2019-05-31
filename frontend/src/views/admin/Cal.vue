@@ -1,7 +1,7 @@
 <template>
     <div class="home">
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary border border-dark rounded-sm">
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <div id="navbarTogglerDemo03">
                 <form class="form-inline mr-auto">
                     <label class="my-1 mr-2" for="location">Location: </label>
                     <select v-on:change="onChange" class="form-control my-1 mr-sm-2" id="location" v-model="screenHallID">
@@ -39,7 +39,7 @@
                              height: 'calc(1000px *  '+calcPercentage((screening.cleaning/60)+(screening.movie.length/60))+')'
                              }">
                             <div class="card-body">
-                                <h5 class="card-title">{{screening.movie.name}} @ {{screening.time}}</h5>
+                                <h5 class="card-title">{{screening.movie.name}} @ {{screening.startTime}}</h5>
                                 <p class="card-text">
                                     <!--Total Duration: {{("0"+Math.floor(timeObjToInt(screening.interval)+timeObjToInt(screening.film.duration)+timeObjToInt(screening.ads))).slice(-2)}}:{{("0"+((timeObjToInt(screening.interval)+timeObjToInt(screening.film.duration)+timeObjToInt(screening.ads))*60)%60).slice(-2)}}-->
                                 </p>
@@ -75,6 +75,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <button class="btn btn-primary" v-on:click="remove(screenings[active].screeningID)">Delete</button>
                             </p>
                         </div>
                     </div>
@@ -157,7 +158,7 @@
                 let screeningData = respS.data._embedded.screenings.map(screening=>{
                     screening.startTime = parseISOLocal(screening.startTime);
                     return screening;
-                });
+                }).filter(({startTime})=>startTime.toDateString() == this.date.toDateString())
                 let screenings = {};
                 for(let screening of screeningData){
                     screenings[screening.screeningID] = screening;
@@ -165,6 +166,11 @@
                 this.screenings = screenings;
                 this.loading=false;
                 this.$forceUpdate()
+            },
+            async remove(id){
+                console.log(id)
+                await client.delete("/screenings/"+id);
+                this.loadData();
             },
             click(id){
                 this.active=id;

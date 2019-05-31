@@ -28,25 +28,25 @@ export default new Router({
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "cal" */ "./views/admin/Cal.vue")
-},
-{
-    path: "/user/order",
-        name: "user-orders",
-    component: () =>
-    import("./views/user/Order/Orders.vue")
-},
-{
-    path: "/user/order/:orderID",
-        name: "user-order",
-    component: () =>
-    import("./views/user/Order/Order.vue")
-},
-{
-    path: "/screening/:screeningID",
-        name: "screening-order",
-    component: () =>
-    import("./views/Screening.vue")
-},
+    },
+    {
+        path: "/user/order",
+            name: "user-orders",
+        component: () =>
+        import("./views/user/Order/Orders.vue")
+    },
+    {
+        path: "/user/order/:orderID",
+            name: "user-order",
+        component: () =>
+        import("./views/user/Order/Order.vue")
+    },
+    {
+        path: "/screening/:screeningID",
+            name: "screening-order",
+        component: () =>
+        import("./views/Screening.vue")
+    },
     {
       path: "/movie",
       name: "movie",
@@ -84,16 +84,28 @@ export default new Router({
         import("./views/admin/Movie/MovieEdit.vue")
     },
     {
+        path: "/admin/CarouselItem",
+            name: "admin-carousel-items",
+        component: () =>
+        import("./views/admin/CarouselItem/CarouselItem.vue")
+    },
+    {
+        path: "/admin/CarouselItem/add",
+            name: "admin-carousel-item-add",
+        component: () =>
+        import("./views/admin/CarouselItem/add.vue")
+    },
+    {
+        path: "/admin/CarouselItem/:carouselItemID",
+            name: "admin-carousel-item",
+        component: () =>
+        import("./views/admin/CarouselItem/CarouselItemEdit.vue")
+    },
+    {
       path: "/admin/Order",
           name: "admin-order",
         component: () =>
       import("./views/admin/Order/Orders.vue")
-    },
-    {
-      path: "/admin/ScheduleManagement",
-          name: "admin-schedule",
-        component: () =>
-      import("./views/admin/ScheduleManagement.vue")
     },
     {
       path: "/admin/TheatreManagement",
