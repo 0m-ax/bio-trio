@@ -93,19 +93,26 @@
             async signup(e){
                 e.preventDefault();
                 if(this.password == this.passwordConfirm){
-                    let resp = await axios.post("http://localhost:8080/registration",{
-                        firstName:this.firstName,
-                        lastName:this.lastName,
-                        address:this.address,
-                        password:this.password,
-                        email:this.email,
-                        phone:this.phone,
-                    })
-                    if(resp.status == 200 && resp.data){
-                        window.$(this.$refs.signup).modal('hide');
-                        window.$(this.$refs.login).modal('show');
+                    try {
+                        let resp = await axios.post("http://localhost:8080/api/registration",{
+                            firstName:this.firstName,
+                            lastName:this.lastName,
+                            address:this.address,
+                            password:this.password,
+                            email:this.email,
+                            phone:this.phone,
+                        })
+                        console.log(resp)
+                        if(resp.status == 200 && resp.data){
+                            window.$(this.$refs.signup).modal('hide');
+                            window.$(this.$refs.login).modal('show');
+                        }else{
+                            alert("error signing up")
+                        }
+                    }catch (e) {
                         alert("error signing up")
                     }
+
                 }else{
                     alert("Passwords do not match");
                 }

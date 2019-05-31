@@ -18,6 +18,7 @@ public class Movie {
 
     private String name;
     private int length;
+    @Lob
     private String description;
     private String ageRating;
     private String genre;

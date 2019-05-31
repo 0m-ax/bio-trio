@@ -20,6 +20,7 @@
     "register-service-worker": "^1.6.2",
     "vue": "^2.6.10",
     "vue-paypal-checkout": "^3.2.0",
+    "vue-qrcode-reader": "^2.0.1",
     "vue-router": "^3.0.3",
     "vuex": "^3.0.1"
   },

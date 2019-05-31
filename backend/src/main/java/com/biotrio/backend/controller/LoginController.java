@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.*;
 public class LoginController {
     @Autowired
     UserService customerService;
-    @GetMapping(value = "/self")
+    @GetMapping(value = "/api/self")
     public User self(){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = customerService.findUserByEmail(auth.getName());
         return user;
     }
-    @RequestMapping(value = "/registration", method = RequestMethod.POST)
+    @RequestMapping(value = "/api/registration", method = RequestMethod.POST)
     public Boolean createNewUser(@RequestBody User user) {
         User userExists = customerService.findUserByEmail(user.getEmail());
         if (userExists != null) {

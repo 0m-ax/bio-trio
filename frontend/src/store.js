@@ -16,7 +16,7 @@ export default new Vuex.Store({
   },
   actions:{
     async fetchUser({ commit }){
-      let resp = await api.get("../self");
+      let resp = await api.get("../api/self");
       commit("SET_USER", resp.data);
     }
   }

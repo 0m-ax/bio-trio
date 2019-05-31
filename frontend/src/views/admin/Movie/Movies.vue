@@ -107,11 +107,10 @@
                 this.loading=false;
                 },
             async deleteRow(id,i){
-                fetch("http://localhost:8080/api/movies/" + id, {method: "DELETE"})
-                    .then(() =>{
-                    this.items.splice(i,1);
-                    })
-                },
+                let resp = await client.delete("http://localhost:8080/api/movies/"+id)
+                this.items.splice(i,1);
+
+            },
             clicked(id,i){
                 if(confirm("Are you sure you want to delete?")){
                     this.deleteRow(id,i);

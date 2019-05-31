@@ -19,7 +19,7 @@ public class OrderStatus {
         this.orderStatusID = orderStatusID;
     }
 
-    public boolean isSeatTaken() {
+    public boolean getSeatTaken() {
         return seatTaken;
     }
 
@@ -27,7 +27,7 @@ public class OrderStatus {
         this.seatTaken = seatTaken;
     }
 
-    public boolean isUsable() {
+    public boolean getUsable() {
         return usable;
     }
 

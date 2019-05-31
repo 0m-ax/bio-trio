@@ -60,10 +60,10 @@ export default new Router({
       import("./views/adminPage.vue")
     },
     {
-      path: "/admin/CarouselManagement",
+      path: "/admin/Ticket-scan",
           name: "admin-carousel",
         component: () =>
-      import("./views/admin/CarouselManagement.vue")
+      import("./views/admin/Ticket-scan.vue")
     },
     {
       path: "/admin/Movie",

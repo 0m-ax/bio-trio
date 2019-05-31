@@ -5,9 +5,11 @@
 # REPLACE INTO `user_role` VALUES (1, 1);
 # REPLACE INTO `screen_halls` VALUES (1, '1', 1);
 # REPLACE INTO `screenings` VALUES (10, '2019-05-22 15:22:13', 1, 1, 1,1);
-INSERT INTO `db_example`.`role` (`role_id`, `role`) VALUES (1, 'ADMIN');
+INSERT INTO `db_example`.`role` (`role_id`, `role`) VALUES (1, 'USER');
+INSERT INTO `db_example`.`role` (`role_id`, `role`) VALUES (2, 'ADMIN');
+
 INSERT INTO `db_example`.`users` (`userid`, `active`, `address`, `email`, `first_name`, `last_name`, `password`, `phone`) VALUES (1, 1, '50 frankrigade', 'bobross@biotrio.com', 'Bob', 'Ross', '$2a$10$KCw8w.qBBmtT1/iFGaUMDeCi8qzepUI5HL4nXV4GDltQtb616lAWi', '+447984114662');
-INSERT INTO `db_example`.`user_role` (`userid`, `role_id`) VALUES (1, 1);
+INSERT INTO `db_example`.`user_role` (`userid`, `role_id`) VALUES (1, 2);
 INSERT INTO `db_example`.`cinemas` (`cinemaid`, `address`, `description`,`name`) VALUES (1, '14 larchway, glossop, SK138RY', 'A old place','14 larchway');
 INSERT INTO `db_example`.`screen_halls` (`screen_hallid`, `name`, `cinemaid`) VALUES (1, 'Blue Theater', 1);
 INSERT INTO `db_example`.`screen_halls` (`screen_hallid`, `name`, `cinemaid`) VALUES (2, 'Red Theater', 1);
@@ -466,11 +468,18 @@ INSERT INTO `db_example`.`seats` (`seatid`, `seat_name`, `x`, `y`, `screen_halli
 INSERT INTO `db_example`.`seats` (`seatid`, `seat_name`, `x`, `y`, `screen_hallid`) VALUES (423, '6F', '300', '250', 3);
 INSERT INTO `db_example`.`seats` (`seatid`, `seat_name`, `x`, `y`, `screen_hallid`) VALUES (424, '8F', '350', '250', 3);
 
-INSERT INTO `db_example`.`movie` (`movieid`, `age_rating`, `description`, `genre`, `image`, `length`, `name`, `renting_end`, `renting_start`, `video`) VALUES (1, 'G', 'In turn of the century London, a magical nanny employs music and adventure to help two neglected children become closer to their father.', 'Fantasyfilm/Musical', 'http://localhost:8080/img/mary-popins.jpg', 140, 'Mary Poppins', null, null, 'https://www.youtube-nocookie.com/embed/YfkEQDPlb8g');
-insert INTO `db_example`.`screenings` (`screeningid`, `cleaning`, `start_time`, `movieid`, `projectionist_employeid`, `screen_hallid`,`cost`) VALUES (1, 20, '2019-05-23 13:22:44', 1, 1, 1,3500);
+INSERT INTO `db_example`.`movie` (`movieid`, `age_rating`, `description`, `genre`, `image`, `length`, `name`, `video`) VALUES (1, 'G', 'In turn of the century London, a magical nanny employs music and adventure to help two neglected children become closer to their father.', 'Fantasy/Musical', '/img/mary-popins/poster.jpg', 140, 'Mary Poppins', 'https://www.youtube-nocookie.com/embed/YfkEQDPlb8g');
+INSERT INTO `db_example`.`movie` (`movieid`, `age_rating`, `description`, `genre`, `image`, `length`, `name`, `video`) VALUES (2, 'PG-13', 'During a preview tour, a theme park suffers a major power breakdown that allows its cloned dinosaur exhibits to run amok.', 'Fantasy/Mystery', '/img/jurassic-park/poster.jpg', 127, 'Jurassic Park', 'https://www.youtube-nocookie.com/embed/lc0UehYemQA');
+INSERT INTO `db_example`.`movie` (`movieid`, `age_rating`, `description`, `genre`, `image`, `length`, `name`, `video`) VALUES (3, 'PG-13', 'After the devastating events of Avengers: Infinity War (2018), the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to undo Thanos'' actions and restore order to the universe.', 'Fantasy/Sci-fi', '/img/avengers-endgame/poster.jpg', 182, 'Avengers: Endgame', 'https://www.youtube-nocookie.com/embed/TcMBFSGVi1c');
+INSERT INTO `db_example`.`movie` (`movieid`, `age_rating`, `description`, `genre`, `image`, `length`, `name`, `video`) VALUES (4, 'R', 'Astronaut Sam Bell has a quintessentially personal encounter toward the end of his three-year stint on the Moon, where he, working alongside his computer, GERTY, sends back to Earth parcels of a resource that has helped diminish our planet''s power problems.', 'Drama/Fantasy', '/img/moon/poster.jpg', 97, 'Moon', 'https://www.youtube-nocookie.com/embed/twuScTcDP_Q');
+INSERT INTO `db_example`.`movie` (`movieid`, `age_rating`, `description`, `genre`, `image`, `length`, `name`, `video`) VALUES (5, 'PG', 'Two strangers find themselves linked in a bizarre way. When a connection forms, will distance be the only thing to keep them apart?', 'Drama/Fantasy', '/img/your-name/poster.jpg', 112, 'Your Name.', 'https://www.youtube-nocookie.com/embed/dbtN9HOOqhk');
+
+insert INTO `db_example`.`screenings` (`screeningid`, `cleaning`, `start_time`, `movieid`, `projectionist_employeid`, `screen_hallid`,`cost`) VALUES (1, 20, '2019-05-23 13:22:44', 1, 1, 1,4500);
 INSERT INTO `db_example`.`order_status` (`order_statusid`,`name`,`seat_taken`,`usable`) VALUES (1,"Awaiting payment",TRUE,FALSE);
 INSERT INTO `db_example`.`order_status` (`order_statusid`,`name`,`seat_taken`,`usable`) VALUES (2,"Paid",TRUE,TRUE);
 INSERT INTO `db_example`.`order_status` (`order_statusid`,`name`,`seat_taken`,`usable`) VALUES (3,"Refunded",FALSE,FALSE);
 INSERT INTO `db_example`.`order_status` (`order_statusid`,`name`,`seat_taken`,`usable`) VALUES (4,"Payment cancelled",FALSE,FALSE);
 INSERT INTO `db_example`.`orders` (`order_number`,`order_statusid`, `customerid`) VALUES (1,1, 1);
-INSERT INTO `db_example`.`tickets` (`ticketid`,`ticket_number`, `ticket_status`, `order_number`, `screeningid`, `seatid`,`cost`) VALUES (1,'1', '1', 1, 1, 1,3500)
+INSERT into `db_example`.`carousel_item` (`carousel_itemid`,`title`,`text`,`image`) values (1,"Avengers: Endgame","Avengers: Endgame now showing","/img/avengers-endgame/header.jpg");
+INSERT into `db_example`.`carousel_item` (`carousel_itemid`,`title`,`text`,`image`) values (2,"25% OFF Popcorn","25% OFF popcorn now!","/img/popcorn.jpg");
+INSERT INTO `db_example`.`tickets` (`ticketid`,`used`, `order_number`, `screeningid`, `seatid`,`cost`) VALUES (1,1, 1, 1, 1,3500)

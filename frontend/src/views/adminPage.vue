@@ -3,12 +3,7 @@
         <div id="wrap">
             <div id="main" class="container clear-top">
                 <AdminSidebar />
-                blah blah
-
-                <p>asdasd</p>
-                <p>asdasd</p>
-                <p>asdasd</p>
-
+                <h1>Admin Home</h1>
             </div>
         </div>
 </template>

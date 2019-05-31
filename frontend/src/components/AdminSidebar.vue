@@ -13,6 +13,8 @@
                 <a href="/admin/Movie"><li>Movie Management</li></a>
                 <a href="/admin/CarouselItem"><li>Carousel Management</li></a>
                 <a href="/admin/Order"><li>Order Management</li></a>
+                <a href="/admin/Ticket-scan"><li>Scan Tickets</li></a>
+
             </ul>
         </div>
     </div>

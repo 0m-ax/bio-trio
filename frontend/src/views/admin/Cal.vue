@@ -168,9 +168,18 @@
                 this.$forceUpdate()
             },
             async remove(id){
-                console.log(id)
-                await client.delete("/screenings/"+id);
-                this.loadData();
+                if(id){
+                    try{
+                        await client.delete("/screenings/"+id);
+                    }catch (e) {
+                        alert("error deleting screening (it may have bookings)")
+                    }
+                    this.loadData();
+                }else {
+                    delete this.screenings[this.active];
+                    this.$forceUpdate();
+                }
+
             },
             click(id){
                 this.active=id;
@@ -230,10 +239,11 @@
             },
             add(movieID){
                 this.screenings[Math.random()] ={
-                    movie: this.movies[movieID],
+                    movie: this.filteredMovies[movieID],
                     cleaning:10,
                     startTime:new Date(this.date),
                     cost:0,
+                    added:true
                 };
                 this.$forceUpdate();
             }

@@ -11,8 +11,7 @@ public class Ticket {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int ticketID;
 
-    private String ticketNumber;
-    private String ticketStatus;
+    private boolean used;
 
     @ManyToOne
     @JoinColumn(
@@ -53,22 +52,6 @@ public class Ticket {
         this.ticketID = ticketID;
     }
 
-    public String getTicketNumber() {
-        return ticketNumber;
-    }
-
-    public void setTicketNumber(String ticketNumber) {
-        this.ticketNumber = ticketNumber;
-    }
-
-    public String getTicketStatus() {
-        return ticketStatus;
-    }
-
-    public void setTicketStatus(String ticketStatus) {
-        this.ticketStatus = ticketStatus;
-    }
-
 
     @Override
     public String toString(){
@@ -89,6 +72,22 @@ public class Ticket {
 
     public void setCost(int cost) {
         this.cost = cost;
+    }
+
+    public Seat getSeat() {
+        return seat;
+    }
+
+    public void setSeat(Seat seat) {
+        this.seat = seat;
+    }
+
+    public boolean getUsed() {
+        return used;
+    }
+
+    public void setUsed(boolean used) {
+        this.used = used;
     }
 }
 
