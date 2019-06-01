@@ -6,6 +6,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.persistence.*;
 import java.util.Set;
 
+/**
+ * Represents the user table in the database
+ *
+ * This class contains methods related to setting and getting different parameters of an user.
+ * Spring automatically generates the user table in the localhost using this model
+ */
 @Entity
 @Table(name = "users")
 public class User {

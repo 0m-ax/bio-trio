@@ -7,6 +7,10 @@ import java.sql.Timestamp;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Represents a projection of the Order class
+ * This is done to gather exactly the necessary data for an action
+ */
 @Projection(
         name = "OrderTicket",
         types = { Order.class })

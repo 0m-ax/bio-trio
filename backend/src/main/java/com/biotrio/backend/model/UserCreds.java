@@ -1,5 +1,10 @@
 package com.biotrio.backend.model;
 
+/**
+ * Responsible for creating login objects
+ *
+ * This class contains methods related to setting and getting different parameters of a login form.
+ */
 public class UserCreds {
     private String username;
     private String password;

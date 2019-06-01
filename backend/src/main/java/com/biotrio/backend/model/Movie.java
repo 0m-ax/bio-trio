@@ -7,6 +7,12 @@ import javax.persistence.*;
 import java.sql.Date;
 import java.util.List;
 
+/**
+ * Represents the movie table in the database
+ *
+ * This class contains methods related to setting and getting different parameters of movies.
+ * Spring automatically generates the movie table in the localhost using this model
+ */
 @Entity
 @Table(name = "Movie")
 

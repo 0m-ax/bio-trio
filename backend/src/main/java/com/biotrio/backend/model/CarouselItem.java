@@ -3,6 +3,12 @@ package com.biotrio.backend.model;
 
 import javax.persistence.*;
 
+/**
+ * Represents the carousel_items table in the database
+ *
+ * This class contains methods related to setting and getting different parameters of Carousel items.
+ * Spring automatically generates the carousel_item table in the localhost using this model
+ */
 @Entity
 @Table(name = "carousel_item")
 public class CarouselItem {

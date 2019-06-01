@@ -5,6 +5,10 @@ import org.springframework.data.rest.core.config.Projection;
 
 import java.sql.Timestamp;
 
+/**
+ * Represents a projection of the Screening class
+ * This is done to gather exactly the necessary data for an action
+ */
 @Projection(
         name = "ScreeningInfo",
         types = { Screening.class })

@@ -2,6 +2,12 @@ package com.biotrio.backend.model;
 
 import javax.persistence.*;
 
+/**
+ * Represents the order_status table in the database
+ *
+ * This class contains methods related to setting and getting different parameters of an order status.
+ * Spring automatically generates the attribute table in the localhost using this model
+ */
 @Entity
 @Table(name = "orderStatus")
 public class OrderStatus {

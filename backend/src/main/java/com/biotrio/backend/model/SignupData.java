@@ -1,5 +1,10 @@
 package com.biotrio.backend.model;
 
+/**
+ * Responsible for creating Sign up objects
+ *
+ * This class contains methods related to setting and getting different parameters of a Sign up form.
+ */
 public class SignupData {
 
     private String email;

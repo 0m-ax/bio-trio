@@ -3,6 +3,12 @@ package com.biotrio.backend.model;
 
 import javax.persistence.*;
 
+/**
+ * Represents the attribute table in the database
+ *
+ * This class contains methods related to setting and getting different parameters of attributes.
+ * Spring automatically generates the attribute table in the localhost using this model
+ */
 @Entity
 @Table(name="attribute")
 public class Attribute {

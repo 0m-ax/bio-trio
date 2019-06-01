@@ -3,6 +3,12 @@ package com.biotrio.backend.model;
 
 import javax.persistence.*;
 
+/**
+ * Represents the cinema table in the database
+ *
+ * This class contains methods related to setting and getting different parameters of a cinema.
+ * Spring automatically generates the cinema table in the localhost using this model
+ */
 @Entity
 @Table(name = "cinemas")
 public class Cinema {

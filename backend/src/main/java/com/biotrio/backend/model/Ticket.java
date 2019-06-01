@@ -3,6 +3,12 @@ package com.biotrio.backend.model;
 
 import javax.persistence.*;
 
+/**
+ * Represents the ticket table in the database
+ *
+ * This class contains methods related to setting and getting different parameters of tickets.
+ * Spring automatically generates the ticket table in the localhost using this model
+ */
 @Entity
 @Table(name ="tickets")
 public class Ticket {

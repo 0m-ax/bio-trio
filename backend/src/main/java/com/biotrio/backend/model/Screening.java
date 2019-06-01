@@ -6,6 +6,12 @@ import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.List;
 
+/**
+ * Represents the screening table in the database
+ *
+ * This class contains methods related to setting and getting different parameters of screenings.
+ * Spring automatically generates the screening table in the localhost using this model
+ */
 @Entity
 @Table(name = "screenings")
 public class Screening {

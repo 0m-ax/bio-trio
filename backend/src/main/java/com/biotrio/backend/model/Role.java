@@ -2,6 +2,12 @@ package com.biotrio.backend.model;
 
 import javax.persistence.*;
 
+/**
+ * Represents the role table in the database
+ *
+ * This class contains methods related to setting and getting different parameters of a role.
+ * Spring automatically generates the role table in the localhost using this model
+ */
 @Entity
 @Table(name = "role")
 public class Role {

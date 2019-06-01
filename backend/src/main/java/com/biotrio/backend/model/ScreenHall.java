@@ -3,6 +3,12 @@ package com.biotrio.backend.model;
 import javax.persistence.*;
 import java.util.List;
 
+/**
+ * Represents the screen_halls table in the database
+ *
+ * This class contains methods related to setting and getting different parameters of screen halls.
+ * Spring automatically generates the screen_halls table in the localhost using this model
+ */
 @Entity
 @Table(name = "screenHalls")
 public class ScreenHall {

@@ -3,6 +3,12 @@ package com.biotrio.backend.model;
 import javax.persistence.*;
 import java.util.List;
 
+/**
+ * Represents the order table in the database
+ *
+ * This class contains methods related to setting and getting different parameters of orders.
+ * Spring automatically generates the order table in the localhost using this model
+ */
 @Entity
 @Table(name = "orders")
 public class Order {

@@ -4,6 +4,12 @@ package com.biotrio.backend.model;
 import javax.persistence.*;
 import java.util.List;
 
+/**
+ * Represents the seat table in the database
+ *
+ * This class contains methods related to setting and getting different parameters of seats.
+ * Spring automatically generates the seat table in the localhost using this model
+ */
 @Entity
 @Table(name="seats")
 public class Seat {
