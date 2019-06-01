@@ -26,17 +26,20 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 @RequestMapping(value = "/api/orders")
 @RepositoryRestController
 public class OrderController {
+    @Autowired
     private OrderRepo orderRepo;
+    @Autowired
     private OrderStatusRepo orderStatusRepo;
 
-    @Autowired
-    public OrderController(OrderRepo orderRepo, OrderStatusRepo orderStatusRepo){
-        this.orderRepo = orderRepo;
-        this.orderStatusRepo = orderStatusRepo;
-    }
+    /**
+     * Checks if user has payed via paypal or is admin then moves order into payed status.
+     * @param id the orderID to make as payed
+     * @param paypalOrderID Paypal orderID
+     * @return if the order was successfully payed for.
+     */
     @RequestMapping(method = GET, value = "/{orderID}/pay")
     public @ResponseBody
-    ResponseEntity<?> getProducers(@PathVariable(value="orderID") int id,@RequestParam String paypalOrderID) {
+    ResponseEntity<?> payOrder(@PathVariable(value="orderID") int id,@RequestParam String paypalOrderID) {
         Optional<Order> orderO = orderRepo.findById(id);
         if(!orderO.isPresent()){
             return ResponseEntity.notFound().build();
