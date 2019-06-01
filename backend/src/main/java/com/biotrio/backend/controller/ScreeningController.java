@@ -17,29 +17,23 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 @RequestMapping(value = "/api/screenings")
 @RepositoryRestController
 public class ScreeningController {
+    private final ScreeningRepo screeningRepo;
+    private final SeatRepo seatRepo;
+    private final UserRepo userRepo;
+    private final OrderRepo orderRepo;
+    private final TicketRepo ticketRepo;
+    private final OrderStatusRepo orderStatusRepo;
     @Autowired
-    private ScreeningRepo screeningRepo;
-    @Autowired
-    private SeatRepo seatRepo;
-    @Autowired
-    private UserRepo userRepo;
-    @Autowired
-    private OrderRepo orderRepo;
-    @Autowired
-    private TicketRepo ticketRepo;
-    @Autowired
-    private OrderStatusRepo orderStatusRepo;
-
-
-    /**
-     * creates an order
-     * @param id screeningID to book
-     * @param seatIDs seatIDs to book
-     * @param bookAsAdmin should move straight into payed status
-     * @return created order
-     */
+    public ScreeningController(ScreeningRepo screeningRepo, SeatRepo seatRepo, UserRepo userRepo, OrderRepo orderRepo, TicketRepo ticketRepo,OrderStatusRepo orderStatusRepo) {
+        this.screeningRepo = screeningRepo;
+        this.seatRepo = seatRepo;
+        this.userRepo = userRepo;
+        this.orderRepo = orderRepo;
+        this.ticketRepo = ticketRepo;
+        this.orderStatusRepo = orderStatusRepo;
+    }
     @RequestMapping(method = POST, value = "/{screeningID}/book")
-    public @ResponseBody ResponseEntity<?> bookSeats(@PathVariable(value="screeningID") int id, @RequestBody List<Integer> seatIDs,@RequestParam boolean bookAsAdmin) {
+    public @ResponseBody ResponseEntity<?> getProducers(@PathVariable(value="screeningID") int id, @RequestBody List<Integer> seatIDs,@RequestParam boolean bookAsAdmin) {
         Optional<Screening> screening = screeningRepo.findById(id);
         if(!screening.isPresent()){
             return ResponseEntity.notFound().build();
