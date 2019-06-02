@@ -55,9 +55,7 @@ public class OrderController {
         }catch (IOException e){
             System.out.println(e);
             return ResponseEntity.badRequest().build();
-
         }
-
         order.setOrderStatus(orderStatusRepo.findById(2).get());
         orderRepo.save(order);
         return ResponseEntity.ok(true);

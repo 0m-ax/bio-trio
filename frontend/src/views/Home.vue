@@ -45,29 +45,28 @@ export default {
           description:movie.description,
           id:movie.movieID,
           times:screenings
-              .filter((item)=>this.parseISOLocal(item.startTime).toLocaleDateString()==this.mFilter.day)
-              .map((screening)=>{
-                return {
-                  text:moment(this.parseISOLocal(screening.startTime)).format("HH mm"),
-                  id:screening.screeningID
-                }
+            .filter((item)=>this.parseISOLocal(item.startTime).toLocaleDateString()==this.mFilter.day)
+            .map((screening)=>{
+              return {
+                text:moment(this.parseISOLocal(screening.startTime)).format("HH mm"),
+                id:screening.screeningID
+              }
             })
         }
       }).filter((movie)=>movie.times.length > 0)
-
     },
       dates(){
-          return groupBy(this.screenings,item=>this.parseISOLocal(item.startTime).toDateString())
-              .map((screenings)=>{
-                  return this.parseISOLocal(screenings[0].startTime)
-              })
-              .map((time)=>{
-                  return {
-                      value:time.toLocaleDateString(),
-                      text:time.toLocaleDateString()
-                  }
-              })
-      }
+        return groupBy(this.screenings,item=>this.parseISOLocal(item.startTime).toDateString())
+          .map((screenings)=>{
+            return this.parseISOLocal(screenings[0].startTime)
+          })
+          .map((time)=>{
+            return {
+              value:time.toLocaleDateString(),
+              text:time.toLocaleDateString()
+            }
+          })
+    }
   },
   methods:{
     async populate(){
@@ -77,7 +76,7 @@ export default {
             screenings
           }
         }
-      } = await client.get("/screenings/search/getByCinemaID?chinemaID=1&projection=ScreeningMovie")
+      } = await client.get("/screenings/search/getByCinemaID?chinemaID="+this.mFilter.location+"&projection=ScreeningMovie")
       this.screenings = screenings;
       if(this.dates[0]){
         this.mFilter.day = this.dates[0].value;
@@ -98,7 +97,7 @@ export default {
       screenings:[],
       mFilter:{
         day:null,
-        location:null,
+        location:1,
         audioDescribed:null,
         thirdDimension:null
       },
@@ -109,8 +108,7 @@ export default {
         }
       ],
       carousel:[
-
-       ],
+      ],
     }
   }
 };

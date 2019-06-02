@@ -20,10 +20,9 @@ public class Seat {
     private String x;
     private String y;
     private String seatName;
+
     @ManyToOne
-    @JoinColumn(
-            name = "screenHallID"
-    )
+    @JoinColumn(name = "screenHallID")
     private ScreenHall screenHall;
 
     @OneToMany(mappedBy = "seat")

@@ -75,7 +75,7 @@ export default new Router({
         path: "/admin/Movie/add",
             name: "admin-movie-add",
         component: () =>
-        import("./views/admin/Movie/add.vue")
+        import("./views/admin/Movie/MovieAdd.vue")
     },
     {
         path: "/admin/Movie/:movieID",

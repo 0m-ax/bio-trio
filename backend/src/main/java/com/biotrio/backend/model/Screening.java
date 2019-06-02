@@ -25,33 +25,25 @@ public class Screening {
     private int cleaning;
 
     @ManyToOne
-    @JoinColumn(
-            name = "movieID"
-    )
+    @JoinColumn(name = "movieID")
     private Movie movie;
 
-    @ManyToOne()
-    @JoinColumn(
-            name = "projectionistEmployeID"
-    )
-    private User projectionist;
     @OneToMany(mappedBy = "screening")
     private List<Ticket> tickets;
+
     @ManyToOne
-    @JoinColumn(
-            name = "screenHallID"
-    )
+    @JoinColumn(name = "screenHallID")
     private ScreenHall screenHall;
+
     private int cost;
     public Screening(){
-    }
 
+    }
     public Screening(Timestamp startTime, int cleaning, int cost) {
         this.startTime = startTime;
         this.cleaning = cleaning;
         this.cost = cost;
     }
-
     public int getScreeningID() {
         return screeningID;
     }
@@ -99,13 +91,6 @@ public class Screening {
         this.movie = movie;
     }
 
-    public User getProjectionist() {
-        return projectionist;
-    }
-
-    public void setProjectionist(User projectionist) {
-        this.projectionist = projectionist;
-    }
 
     public int getCost() {
         return cost;

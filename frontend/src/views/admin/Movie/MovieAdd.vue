@@ -1,41 +1,35 @@
 <template>
     <div class="container">
         <AdminSidebar />
-        <h1>{{items.name}}</h1>
-        <MovieForm v-on:submit="save()" v-model="items"/>
+        <h1>{{movie.name}}</h1>
+        <MovieForm v-on:submit="save()" v-model="movie"/>
     </div>
 </template>
 
 <script>
-
     import MovieForm from "./MovieForm";
     import client from "../../../api.js"
     import AdminSidebar from "../../../components/AdminSidebar"
-
     export default {
-
         components: {
             MovieForm,
             AdminSidebar
         },
-
         methods:{
-            async loadData(){
-            },
             async save(){
-                let resp = await client.post("/movies/",this.items);
-                console.log(resp);
-                this.$router.push({ name: 'admin-movie', params: { movieID:resp.data.movieID }})
+                try {
+                    let resp = await client.post("/movies/",this.movie);
+                    this.$router.push({ name: 'admin-movie', params: { movieID:resp.data.movieID }})
+                }catch (e) {
+                    alert("error saving")
+                }
             }
-        },
-        created(){
-            this.loadData()
         },
         data(){
             return {
-                items:{}
+                movie:{}
             }
         },
-        name: "Films"
+        name: "Movie"
     };
 </script>

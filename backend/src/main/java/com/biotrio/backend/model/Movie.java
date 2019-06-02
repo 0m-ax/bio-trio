@@ -1,10 +1,9 @@
 package com.biotrio.backend.model;
 
 
-import org.springframework.data.rest.core.config.Projection;
-
+import org.hibernate.validator.constraints.Length;
 import javax.persistence.*;
-import java.sql.Date;
+import javax.validation.constraints.Min;
 import java.util.List;
 
 /**
@@ -15,40 +14,37 @@ import java.util.List;
  */
 @Entity
 @Table(name = "Movie")
-
-
 public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int movieID;
-
+    @Length(min=1)
     private String name;
+    @Min(1)
     private int length;
     @Lob
+    @Length(min=1)
     private String description;
+    @Length(min=1)
     private String ageRating;
+    @Length(min=1)
     private String genre;
+    @Length(min=1)
     private String image;
+    @Length(min=1)
     private String video;
-    @Column(name = "rentingStart", columnDefinition="DATETIME")
-    private Date rentingStart;
-
-    @Column(name = "rentingEnd", columnDefinition="DATETIME")
-    private Date rentingEnd;
 
     @OneToMany(mappedBy = "movie")
     private List<Screening> screenings;
     public Movie(){
     }
 
-    public Movie(String name, int length, String description, String ageRating, String genre,Date rentingStart, Date rentingEnd ) {
+    public Movie(String name, int length, String description, String ageRating, String genre) {
         this.name = name;
         this.length = length;
         this.description = description;
         this.ageRating = ageRating;
         this.genre = genre;
-        this.rentingStart = rentingStart;
-        this.rentingEnd = rentingEnd;
     }
 
     public int getMovieID() {
@@ -97,27 +93,6 @@ public class Movie {
 
     public void setGenre(String genre) {
         this.genre = genre;
-    }
-
-    public Date getRentingStart() {
-        return rentingStart;
-    }
-
-    public void setRentingStart(Date rentingStart) {
-        this.rentingStart = rentingStart;
-    }
-
-    public Date getRentingEnd() {
-        return rentingEnd;
-    }
-
-    public void setRentingEnd(Date rentingEnd) {
-        this.rentingEnd = rentingEnd;
-    }
-
-    @Override
-    public String toString() {
-        return "movies{}";
     }
 
     public List<Screening> getScreenings() {

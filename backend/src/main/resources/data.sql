@@ -479,17 +479,17 @@ INSERT INTO db_example.movie (movieid, age_rating, description, genre, image, le
 INSERT INTO db_example.movie (movieid, age_rating, description, genre, image, length, name, video) VALUES (9, 'PG', 'During her family''s move to the suburbs, a sullen 10-year-old girl wanders into a world ruled by gods, witches, and spirits, and where humans are changed into beasts.', 'Fantasy/Mystery', '/img/spirited-away/poster.jpg', 225, 'Spirited Away','https://www.youtube-nocookie.com/embed/ByXuk9QqQkk');
 INSERT INTO db_example.movie (movieid, age_rating, description, genre, image, length, name, video) VALUES (10, 'PG-13', 'A team of explorers travel through a wormhole in space in an attempt to ensure humanity''s survival.', 'Drama/Mystery ', '/img/interstellar/poster.jpg', 169, 'Interstellar', 'https://www.youtube-nocookie.com/embed/zSWdZVtXT7E');
 
-INSERT INTO db_example.screenings (screeningid, cleaning, cost, start_time, movieid, projectionist_employeid, screen_hallid) VALUES (5, 15, 4500, '2019-07-02 17:40:00', 1, null, 1);
-INSERT INTO db_example.screenings (screeningid, cleaning, cost, start_time, movieid, projectionist_employeid, screen_hallid) VALUES (6, 15, 5500, '2019-07-02 20:30:00', 2, null, 1);
-INSERT INTO db_example.screenings (screeningid, cleaning, cost, start_time, movieid, projectionist_employeid, screen_hallid) VALUES (7, 10, 3500, '2019-07-02 17:45:00', 7, null, 2);
-INSERT INTO db_example.screenings (screeningid, cleaning, cost, start_time, movieid, projectionist_employeid, screen_hallid) VALUES (8, 10, 3500, '2019-07-02 21:00:00', 10, null, 2);
-INSERT INTO db_example.screenings (screeningid, cleaning, cost, start_time, movieid, projectionist_employeid, screen_hallid) VALUES (9, 5, 3000, '2019-07-02 18:00:00', 6, null, 3);
-INSERT INTO db_example.screenings (screeningid, cleaning, cost, start_time, movieid, projectionist_employeid, screen_hallid) VALUES (10, 5, 3000, '2019-07-02 21:00:00', 4, null, 3);
-INSERT INTO db_example.screenings (screeningid, cleaning, cost, start_time, movieid, projectionist_employeid, screen_hallid) VALUES (11, 15, 5500, '2019-07-03 17:30:00', 5, null, 1);
-INSERT INTO db_example.screenings (screeningid, cleaning, cost, start_time, movieid, projectionist_employeid, screen_hallid) VALUES (12, 15, 5500, '2019-07-03 20:00:00', 3, null, 1);
-INSERT INTO db_example.screenings (screeningid, cleaning, cost, start_time, movieid, projectionist_employeid, screen_hallid) VALUES (13, 10, 5500, '2019-07-03 19:43:00', 8, null, 1);
-INSERT INTO db_example.screenings (screeningid, cleaning, cost, start_time, movieid, projectionist_employeid, screen_hallid) VALUES (14, 10, 3500, '2019-07-03 17:43:00', 9, null, 2);
-INSERT INTO db_example.screenings (screeningid, cleaning, cost, start_time, movieid, projectionist_employeid, screen_hallid) VALUES (15, 5, 1500, '2019-07-03 18:43:00', 8, null, 3);
+INSERT INTO db_example.screenings (screeningid, cleaning, cost, start_time, movieid, screen_hallid) VALUES (5, 15, 4500, '2019-07-02 17:40:00', 1, 1);
+INSERT INTO db_example.screenings (screeningid, cleaning, cost, start_time, movieid, screen_hallid) VALUES (6, 15, 5500, '2019-07-02 20:30:00', 2, 1);
+INSERT INTO db_example.screenings (screeningid, cleaning, cost, start_time, movieid, screen_hallid) VALUES (7, 10, 3500, '2019-07-02 17:45:00', 7, 2);
+INSERT INTO db_example.screenings (screeningid, cleaning, cost, start_time, movieid, screen_hallid) VALUES (8, 10, 3500, '2019-07-02 21:00:00', 10, 2);
+INSERT INTO db_example.screenings (screeningid, cleaning, cost, start_time, movieid, screen_hallid) VALUES (9, 5, 3000, '2019-07-02 18:00:00', 6, 3);
+INSERT INTO db_example.screenings (screeningid, cleaning, cost, start_time, movieid, screen_hallid) VALUES (10, 5, 3000, '2019-07-02 21:00:00', 4, 3);
+INSERT INTO db_example.screenings (screeningid, cleaning, cost, start_time, movieid, screen_hallid) VALUES (11, 15, 5500, '2019-07-03 17:30:00', 5, 1);
+INSERT INTO db_example.screenings (screeningid, cleaning, cost, start_time, movieid, screen_hallid) VALUES (12, 15, 5500, '2019-07-03 20:00:00', 3, 1);
+INSERT INTO db_example.screenings (screeningid, cleaning, cost, start_time, movieid, screen_hallid) VALUES (13, 10, 5500, '2019-07-03 19:43:00', 8, 1);
+INSERT INTO db_example.screenings (screeningid, cleaning, cost, start_time, movieid, screen_hallid) VALUES (14, 10, 3500, '2019-07-03 17:43:00', 9, 2);
+INSERT INTO db_example.screenings (screeningid, cleaning, cost, start_time, movieid, screen_hallid) VALUES (15, 5, 1500, '2019-07-03 18:43:00', 8, 3);
 
 INSERT INTO `db_example`.`order_status` (`order_statusid`,`name`,`seat_taken`,`usable`) VALUES (1,"Awaiting payment",TRUE,FALSE);
 INSERT INTO `db_example`.`order_status` (`order_statusid`,`name`,`seat_taken`,`usable`) VALUES (2,"Paid",TRUE,TRUE);
