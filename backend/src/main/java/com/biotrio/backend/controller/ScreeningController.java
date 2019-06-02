@@ -57,20 +57,20 @@ public class ScreeningController {
                 }
             }
         }
-
+        //check if selected seats are in the same hall as the screening.
         boolean steatNotInScreening = false;
         for (Seat seatWanted : wantedSeats) {
             if(seatWanted.getScreenHall().getScreenHallID() != screening.get().getScreenHall().getScreenHallID()){
                 return ResponseEntity.badRequest().build();
             }
         }
-
+        //get the current logged in user
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userRepo.findByEmail(auth.getName());
         if(user == null){
             return ResponseEntity.badRequest().build();
         }
-
+        //check if user is trying to book as a admin and is an admin.
         Order order;
         if(bookAsAdmin){
             if(user.getRoles().contains(roleRepo.findByRole("ADMIN"))){
@@ -81,14 +81,15 @@ public class ScreeningController {
         }else{
             order = new Order(orderStatusRepo.findById(1).get(),user);
         }
-
+        // create tickets
         List<Ticket> tickets = new LinkedList<>();
         for (Seat seatWanted : wantedSeats) {
             tickets.add(new Ticket(screening.get(),seatWanted,order,screening.get().getCost()));
         }
-
+        //save all in database
         orderRepo.save(order);
         ticketRepo.saveAll(tickets);
+        //return the created order
         return ResponseEntity.ok(order);
     }
 

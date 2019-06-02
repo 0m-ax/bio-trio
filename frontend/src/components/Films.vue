@@ -22,7 +22,7 @@
                                         {{movie.description}}
                                     </div>
                                     <div class="col-md-6" >
-                                        <router-link v-for="time in movie.times" :to='"/screening/"+time.id' target="_blank" type="button" class="time btn btn-secondary">{{time.text}} </router-link>
+                                        <router-link v-for="time in movie.times" :to='"/screening/"+time.id' type="button" class="time btn btn-secondary">{{time.text}} </router-link>
                                     </div>
                                 </div>
                             </div>

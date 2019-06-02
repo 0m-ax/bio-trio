@@ -6,34 +6,39 @@
         </div>
         <div class="col-md-8" v-if="order.orderStatus.usable">
 
-        <div>
-            <h1 class="movie-title">{{order.movie.name}}</h1>
-        </div>
-        <div id="accordion">
-            <div class="card"  v-for="ticket,id in order.tickets">
-                <div class="card-header" id="headingOne">
-                    <h5 class="mb-0">
-                        <button class="btn btn-link" data-toggle="collapse" v-bind:data-target="'#col'+id" aria-expanded="true" aria-controls="collapseOne">
-                            SEATNUMBER
-                        </button>
-                    </h5>
-                </div>
+            <div>
+                <h1 class="movie-title">{{order.movie.name}}</h1>
+                <h3 class="movie-title">Order Number: {{$route.params.orderID}}</h3>
+            </div>
+            <div id="accordion">
+                <div class="card"  v-for="ticket,id in order.tickets">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" v-bind:data-target="'#col'+id" aria-expanded="true" aria-controls="collapseOne">
+                                Ticket {{id+1}}
+                            </button>
+                        </h5>
+                    </div>
 
-                <div v-bind:id="'col'+id" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                    <div class="card-body" >
-                        <img  v-bind:src="'https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl='+ticket.ticketID">
+                    <div v-bind:id="'col'+id" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body" >
+                            <img  v-bind:src="'https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl='+ticket.ticketID">
                          </div>
+                    </div>
                 </div>
             </div>
-        </div>
 
                 <!--<div class="qr-codes" v-for="ticket in order.tickets">-->
                     <!--<div class="tickets-indiv">-->
                         <!--<img  v-bind:src="'https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl='+ticket.ticketID">-->
                     <!--</div>-->
                 <!--</div>-->
-            </div>
-         <div v-if="order.orderStatus.orderStatusID == 1">
+        </div>
+         <div class="col-md-8" v-if="order.orderStatus.orderStatusID == 1">
+             <div>
+                 <h1 class="movie-title">{{order.movie.name}}</h1>
+                 <h3 class="movie-title">Order Number: {{$route.params.orderID}}</h3>
+             </div>
             <ul>
                 <li class="ticket-list" v-for="ticket in order.tickets">
                     {{ticket.cost/100}}kr

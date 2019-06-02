@@ -16,7 +16,7 @@ public class PayPalClient {
      */
     private PayPalEnvironment environment = new PayPalEnvironment.Sandbox(
             "AYi6ynH1fwYMY1XdyMOK0YK-QJsiRxFMueAO1Ck96X528D_deV2RwDIEIQ3Yf9r_TuVzQ-SZNXNv9j8B",
-            "EEmJwEmrkVnGl7vPA27NOXA27HXY5VKqHfbi65hRBR9bixf-eHLJRmZ6D2nGC9T6m2PEWFWmfu2Nx7Zm");
+            "PUT-PAYPAL-SECRET-HERE");
 
     /**
      *PayPal HTTP client instance with environment that has access
