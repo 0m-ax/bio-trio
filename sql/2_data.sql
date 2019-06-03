@@ -490,7 +490,7 @@ INSERT INTO `order_status` (`order_statusid`,`name`,`seat_taken`,`usable`) VALUE
 INSERT INTO `order_status` (`order_statusid`,`name`,`seat_taken`,`usable`) VALUES (3,"Refunded",FALSE,FALSE);
 INSERT INTO `order_status` (`order_statusid`,`name`,`seat_taken`,`usable`) VALUES (4,"Payment cancelled",FALSE,FALSE);
 INSERT INTO `orders` (`order_number`,`order_statusid`, `customerid`) VALUES (1,1, 1);
-INSERT INTO `orders` (`order_number`,`order_statusid`, `customerid`) VALUES (1,2, 1);
+INSERT INTO `orders` (`order_number`,`order_statusid`, `customerid`) VALUES (2,2, 1);
 INSERT into `carousel_item` (`carousel_itemid`,`title`,`text`,`image`) values (1,"Avengers: Endgame","Avengers: Endgame now showing","/img/avengers-endgame/header.jpg");
 INSERT into `carousel_item` (`carousel_itemid`,`title`,`text`,`image`) values (2,"25% OFF Popcorn","25% OFF popcorn now!","/img/popcorn.jpg");
 INSERT INTO `tickets` (`ticketid`,`used`, `order_number`, `screeningid`, `seatid`,`cost`) VALUES (1,0, 1, 1, 1,3500)
