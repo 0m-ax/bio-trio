@@ -473,17 +473,17 @@ INSERT INTO  movie (movieid, age_rating, description, genre, image, length, name
 INSERT INTO  movie (movieid, age_rating, description, genre, image, length, name, video) VALUES (9, 'PG', 'During her family''s move to the suburbs, a sullen 10-year-old girl wanders into a world ruled by gods, witches, and spirits, and where humans are changed into beasts.', 'Fantasy/Mystery', '/img/spirited-away/poster.jpg', 225, 'Spirited Away','https://www.youtube-nocookie.com/embed/ByXuk9QqQkk');
 INSERT INTO  movie (movieid, age_rating, description, genre, image, length, name, video) VALUES (10, 'PG-13', 'A team of explorers travel through a wormhole in space in an attempt to ensure humanity''s survival.', 'Drama/Mystery ', '/img/interstellar/poster.jpg', 169, 'Interstellar', 'https://www.youtube-nocookie.com/embed/zSWdZVtXT7E');
 
-INSERT INTO  screenings (screeningid, cleaning, cost, start_time, movieid, screen_hallid) VALUES (5, 15, 4500, '2019-07-02 17:40:00', 1, 1);
-INSERT INTO  screenings (screeningid, cleaning, cost, start_time, movieid, screen_hallid) VALUES (6, 15, 5500, '2019-07-02 20:30:00', 2, 1);
-INSERT INTO  screenings (screeningid, cleaning, cost, start_time, movieid, screen_hallid) VALUES (7, 10, 3500, '2019-07-02 17:45:00', 7, 2);
-INSERT INTO  screenings (screeningid, cleaning, cost, start_time, movieid, screen_hallid) VALUES (8, 10, 3500, '2019-07-02 21:00:00', 10, 2);
-INSERT INTO  screenings (screeningid, cleaning, cost, start_time, movieid, screen_hallid) VALUES (9, 5, 3000, '2019-07-02 18:00:00', 6, 3);
-INSERT INTO  screenings (screeningid, cleaning, cost, start_time, movieid, screen_hallid) VALUES (10, 5, 3000, '2019-07-02 21:00:00', 4, 3);
-INSERT INTO  screenings (screeningid, cleaning, cost, start_time, movieid, screen_hallid) VALUES (11, 15, 5500, '2019-07-03 17:30:00', 5, 1);
-INSERT INTO  screenings (screeningid, cleaning, cost, start_time, movieid, screen_hallid) VALUES (12, 15, 5500, '2019-07-03 20:00:00', 3, 1);
-INSERT INTO  screenings (screeningid, cleaning, cost, start_time, movieid, screen_hallid) VALUES (13, 10, 5500, '2019-07-03 19:43:00', 8, 1);
-INSERT INTO  screenings (screeningid, cleaning, cost, start_time, movieid, screen_hallid) VALUES (14, 10, 3500, '2019-07-03 17:43:00', 9, 2);
-INSERT INTO  screenings (screeningid, cleaning, cost, start_time, movieid, screen_hallid) VALUES (15, 5, 1500, '2019-07-03 18:43:00', 8, 3);
+INSERT INTO  screenings (screeningid, cleaning, cost, start_time, movieid, screen_hallid) VALUES (1, 15, 4500, '2019-07-02 17:40:00', 1, 1);
+INSERT INTO  screenings (screeningid, cleaning, cost, start_time, movieid, screen_hallid) VALUES (2, 15, 5500, '2019-07-02 20:30:00', 2, 1);
+INSERT INTO  screenings (screeningid, cleaning, cost, start_time, movieid, screen_hallid) VALUES (3, 10, 3500, '2019-07-02 17:45:00', 7, 2);
+INSERT INTO  screenings (screeningid, cleaning, cost, start_time, movieid, screen_hallid) VALUES (4, 10, 3500, '2019-07-02 21:00:00', 10, 2);
+INSERT INTO  screenings (screeningid, cleaning, cost, start_time, movieid, screen_hallid) VALUES (5, 5, 3000, '2019-07-02 18:00:00', 6, 3);
+INSERT INTO  screenings (screeningid, cleaning, cost, start_time, movieid, screen_hallid) VALUES (6, 5, 3000, '2019-07-02 21:00:00', 4, 3);
+INSERT INTO  screenings (screeningid, cleaning, cost, start_time, movieid, screen_hallid) VALUES (7, 15, 5500, '2019-07-03 17:30:00', 5, 1);
+INSERT INTO  screenings (screeningid, cleaning, cost, start_time, movieid, screen_hallid) VALUES (8, 15, 5500, '2019-07-03 20:00:00', 3, 1);
+INSERT INTO  screenings (screeningid, cleaning, cost, start_time, movieid, screen_hallid) VALUES (9, 10, 5500, '2019-07-03 19:43:00', 8, 1);
+INSERT INTO  screenings (screeningid, cleaning, cost, start_time, movieid, screen_hallid) VALUES (10, 10, 3500, '2019-07-03 17:43:00', 9, 2);
+INSERT INTO  screenings (screeningid, cleaning, cost, start_time, movieid, screen_hallid) VALUES (11, 5, 1500, '2019-07-03 18:43:00', 8, 3);
 
 INSERT INTO `order_status` (`order_statusid`,`name`,`seat_taken`,`usable`) VALUES (1,"Awaiting payment",TRUE,FALSE);
 INSERT INTO `order_status` (`order_statusid`,`name`,`seat_taken`,`usable`) VALUES (2,"Paid",TRUE,TRUE);
@@ -493,5 +493,5 @@ INSERT INTO `orders` (`order_number`,`order_statusid`, `customerid`) VALUES (1,1
 INSERT INTO `orders` (`order_number`,`order_statusid`, `customerid`) VALUES (2,2, 1);
 INSERT into `carousel_item` (`carousel_itemid`,`title`,`text`,`image`) values (1,"Avengers: Endgame","Avengers: Endgame now showing","/img/avengers-endgame/header.jpg");
 INSERT into `carousel_item` (`carousel_itemid`,`title`,`text`,`image`) values (2,"25% OFF Popcorn","25% OFF popcorn now!","/img/popcorn.jpg");
-INSERT INTO `tickets` (`ticketid`,`used`, `order_number`, `screeningid`, `seatid`,`cost`) VALUES (1,0, 1, 1, 1,3500)
-INSERT INTO `tickets` (`ticketid`,`used`, `order_number`, `screeningid`, `seatid`,`cost`) VALUES (2,0, 2, 1, 2,3500)
+INSERT INTO `tickets` (`ticketid`,`used`, `order_number`, `screeningid`, `seatid`,`cost`) VALUES (1,0, 1, 1, 1,3500);
+INSERT INTO `tickets` (`ticketid`,`used`, `order_number`, `screeningid`, `seatid`,`cost`) VALUES (2,0, 2, 1, 2,3500);
